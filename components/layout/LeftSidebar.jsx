@@ -1,22 +1,44 @@
 import Link from 'next/link';
+import {
+  FaUtensils,
+  FaStore,
+  FaBoxesPacking,
+  FaGem,
+  FaShoePrints,
+  FaSuitcaseRolling,
+  FaKitchenSet,
+  FaTv,
+  FaCouch,
+  FaBed,
+  FaBath,
+  FaGift,
+  FaPaperclip,
+  FaGamepad,
+  FaDumbbell,
+  FaTree,
+  FaDog,
+  FaBreadSlice,
+  FaChevronRight,
+  FaClipboard,
+} from 'react-icons/fa6';
 
 export default function LeftSidebar() {
   const categories = [
-    { title: "Jewelry, Watches & Sunglasses", icon: "fa-gem" },
-    { title: "Shoe & Leather Goods", icon: "fa-shoe-prints" },
-    { title: "Luggage & Travel Gear", icon: "fa-suitcase-rolling" },
-    { title: "Kitchen & Dining", icon: "fa-kitchen-set" },
-    { title: "Electronics & Home Appliances", icon: "fa-tv" },
-    { title: "Home Decor", icon: "fa-couch" },
-    { title: "Furniture & Mattresses", icon: "fa-bed" },
-    { title: "Bed & Bath", icon: "fa-bath" },
-    { title: "Gifts, Tickets & Events", icon: "fa-gift" },
-    { title: "Office & Stationery", icon: "fa-paperclip" },
-    { title: "Toys & Video Games", icon: "fa-gamepad" },
-    { title: "Sports & Fitness", icon: "fa-dumbbell" },
-    { title: "Outdoor, Patio, Garden & Nursery", icon: "fa-tree" },
-    { title: "Pet Supplies", icon: "fa-dog" },
-    { title: "Bakery & Restaurant", icon: "fa-bread-slice" },
+    { title: "Jewelry, Watches & Sunglasses", icon: FaGem },
+    { title: "Shoe & Leather Goods", icon: FaShoePrints },
+    { title: "Luggage & Travel Gear", icon: FaSuitcaseRolling },
+    { title: "Kitchen & Dining", icon: FaKitchenSet },
+    { title: "Electronics & Home Appliances", icon: FaTv },
+    { title: "Home Decor", icon: FaCouch },
+    { title: "Furniture & Mattresses", icon: FaBed },
+    { title: "Bed & Bath", icon: FaBath },
+    { title: "Gifts, Tickets & Events", icon: FaGift },
+    { title: "Office & Stationery", icon: FaPaperclip },
+    { title: "Toys & Video Games", icon: FaGamepad },
+    { title: "Sports & Fitness", icon: FaDumbbell },
+    { title: "Outdoor, Patio, Garden & Nursery", icon: FaTree },
+    { title: "Pet Supplies", icon: FaDog },
+    { title: "Bakery & Restaurant", icon: FaBreadSlice },
   ];
 
   return (
@@ -26,23 +48,23 @@ export default function LeftSidebar() {
         <div className="grid grid-cols-3 gap-1.5 p-2 bg-slate-50 border-b border-slate-200 shrink-0">
           <Link
             href="#"
-            className="bg-white border border-slate-200 hover:border-[#0b5d44] p-1.5 rounded-lg text-center flex flex-col items-center justify-center transition-all group"
+            className="bg-white border border-slate-200 hover:border-[#0b5d44] p-1.5 rounded-2xl text-center flex flex-col items-center justify-center transition-all group"
           >
-            <i className="fa-solid fa-utensils text-[#0b5d44] text-lg mb-0.5 group-hover:scale-110 transition-transform"></i>
+            <FaUtensils className="text-[#0b5d44] text-lg mb-0.5 group-hover:scale-110 transition-transform" />
             <span className="text-[10px] font-medium text-slate-700 leading-tight">Restaurant</span>
           </Link>
           <Link
             href="#"
-            className="bg-white border border-slate-200 hover:border-[#0b5d44] p-1.5 rounded-lg text-center flex flex-col items-center justify-center transition-all group"
+            className="bg-white border border-slate-200 hover:border-[#0b5d44] p-1.5 rounded-2xl text-center flex flex-col items-center justify-center transition-all group"
           >
-            <i className="fa-solid fa-store text-[#0b5d44] text-lg mb-0.5 group-hover:scale-110 transition-transform"></i>
+            <FaStore className="text-[#0b5d44] text-lg mb-0.5 group-hover:scale-110 transition-transform" />
             <span className="text-[10px] font-medium text-slate-700 leading-tight">Brand Shop</span>
           </Link>
           <Link
             href="#"
-            className="bg-white border border-slate-200 hover:border-[#0b5d44] p-1.5 rounded-lg text-center flex flex-col items-center justify-center transition-all group"
+            className="bg-white border border-slate-200 hover:border-[#0b5d44] p-1.5 rounded-2xl text-center flex flex-col items-center justify-center transition-all group"
           >
-            <i className="fa-solid fa-boxes-packing text-[#0b5d44] text-lg mb-0.5 group-hover:scale-110 transition-transform"></i>
+            <FaBoxesPacking className="text-[#0b5d44] text-lg mb-0.5 group-hover:scale-110 transition-transform" />
             <span className="text-[10px] font-medium text-slate-700 leading-tight">Bulk Sale</span>
           </Link>
         </div>
@@ -56,20 +78,23 @@ export default function LeftSidebar() {
 
         {/* 3. Scrollable Categories List */}
         <ul className="text-[13px] font-medium text-slate-700 divide-y divide-slate-100 flex-1 overflow-y-auto custom-scrollbar">
-          {categories.map((cat, idx) => (
-            <li key={idx}>
-              <Link
-                href="#"
-                className="flex items-center justify-between px-3.5 py-2 hover:bg-[#e8f3e8] hover:text-[#0b5d44] transition-colors group"
-              >
-                <div className="flex items-center gap-2.5">
-                  <i className={`fa-solid ${cat.icon} text-slate-400 group-hover:text-[#0b5d44] w-4 text-center text-xs`}></i>
-                  <span className="line-clamp-1">{cat.title}</span>
-                </div>
-                <i className="fa-solid fa-chevron-right text-[9px] text-slate-300 group-hover:text-[#0b5d44]"></i>
-              </Link>
-            </li>
-          ))}
+          {categories.map((cat, idx) => {
+            const IconComp = cat.icon;
+            return (
+              <li key={idx}>
+                <Link
+                  href="#"
+                  className="flex items-center justify-between px-3.5 py-2 hover:bg-[#e8f3e8] hover:text-[#0b5d44] transition-colors group"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <IconComp className="text-slate-400 group-hover:text-[#0b5d44] w-4 text-center text-xs shrink-0" />
+                    <span className="line-clamp-1">{cat.title}</span>
+                  </div>
+                  <FaChevronRight className="text-[9px] text-slate-300 group-hover:text-[#0b5d44]" />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -77,9 +102,9 @@ export default function LeftSidebar() {
       <div className="p-2.5 bg-slate-50 border-t border-slate-200 shrink-0">
         <Link
           href="#"
-          className="w-full bg-[#0b5d44] hover:bg-[#084c38] text-white font-semibold text-xs py-2 px-3 rounded-lg flex items-center justify-center gap-2 transition-all shadow-sm"
+          className="w-full bg-[#0b5d44] hover:bg-[#084c38] text-white font-semibold text-xs py-2.5 px-4 rounded-full flex items-center justify-center gap-2 transition-all shadow-sm"
         >
-          <i className="fa-regular fa-clipboard text-xs"></i>
+          <FaClipboard className="text-xs" />
           <span>Product Request</span>
         </Link>
       </div>

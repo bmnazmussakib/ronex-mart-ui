@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FaBars, FaChevronDown, FaPhone } from 'react-icons/fa6';
 
 export default function SecondaryNav() {
   return (
@@ -7,10 +8,10 @@ export default function SecondaryNav() {
         {/* Left Categories Header Box */}
         <div className="w-64 bg-[#053b2c] text-white px-4 py-3 flex items-center justify-between cursor-pointer tracking-wider shrink-0 font-bold">
           <div className="flex items-center gap-2.5">
-            <i className="fa-solid fa-bars text-sm"></i>
+            <FaBars className="text-sm" />
             <span className="uppercase text-xs tracking-widest font-bold">CATEGORY</span>
           </div>
-          <i className="fa-solid fa-chevron-down text-[10px]"></i>
+          <FaChevronDown className="text-[10px]" />
         </div>
 
         {/* Links Nav */}
@@ -22,13 +23,13 @@ export default function SecondaryNav() {
           <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap">CELEBRATION DAY</Link>
           <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap">GIFT VOUCHER</Link>
           <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap flex items-center gap-1">
-            MORE <i className="fa-solid fa-chevron-down text-[9px]"></i>
+            MORE <FaChevronDown className="text-[9px]" />
           </Link>
         </nav>
 
         {/* Right Hotline */}
         <div className="hidden xl:flex items-center gap-2 text-slate-800 text-xs font-bold shrink-0 py-2">
-          <i className="fa-solid fa-phone text-[#0b5d44]"></i>
+          <FaPhone className="text-[#0b5d44]" />
           <span>09611996677</span>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FaChevronRight } from 'react-icons/fa6';
 
 export default function PantrySection() {
   const pantryCards = [
@@ -28,7 +29,7 @@ export default function PantrySection() {
           className="border border-slate-200 bg-white hover:border-[#006a52] hover:text-[#006a52] rounded-full px-4 py-1.5 text-xs font-semibold flex items-center gap-1.5 transition-all text-slate-700 shadow-sm"
         >
           <span>See all categories</span>
-          <i className="fa-solid fa-chevron-right text-[10px]"></i>
+          <FaChevronRight className="text-[10px]" />
         </Link>
       </div>
 

@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import ProductCard from '@/components/ui/ProductCard';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 
 export default function TabbedProductsSlider() {
   const [activeTab, setActiveTab] = useState('new-arrival');
@@ -135,10 +136,10 @@ export default function TabbedProductsSlider() {
     <div className="py-4">
       {/* Tabs Header Bar */}
       <div className="flex items-center justify-center mb-6">
-        <div className="inline-flex items-center bg-white border border-slate-200 rounded-lg p-1 shadow-sm gap-1">
+        <div className="inline-flex items-center bg-white border border-slate-200 rounded-full p-1 shadow-sm gap-1">
           <button
             onClick={() => setActiveTab('new-arrival')}
-            className={`text-xs px-5 py-2 rounded-md transition-all cursor-pointer ${
+            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${
               activeTab === 'new-arrival'
                 ? 'bg-[#006a52] text-white shadow-sm font-bold'
                 : 'text-slate-600 font-semibold hover:text-[#006a52] hover:bg-slate-50'
@@ -148,7 +149,7 @@ export default function TabbedProductsSlider() {
           </button>
           <button
             onClick={() => setActiveTab('imported-products')}
-            className={`text-xs px-5 py-2 rounded-md transition-all cursor-pointer ${
+            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${
               activeTab === 'imported-products'
                 ? 'bg-[#006a52] text-white shadow-sm font-bold'
                 : 'text-slate-600 font-semibold hover:text-[#006a52] hover:bg-slate-50'
@@ -158,7 +159,7 @@ export default function TabbedProductsSlider() {
           </button>
           <button
             onClick={() => setActiveTab('imported-usa')}
-            className={`text-xs px-5 py-2 rounded-md transition-all cursor-pointer ${
+            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${
               activeTab === 'imported-usa'
                 ? 'bg-[#006a52] text-white shadow-sm font-bold'
                 : 'text-slate-600 font-semibold hover:text-[#006a52] hover:bg-slate-50'
@@ -207,14 +208,14 @@ export default function TabbedProductsSlider() {
           aria-label="Previous Slide"
           className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 -left-4 z-20"
         >
-          <i className="fa-solid fa-chevron-left"></i>
+          <FaChevronLeft />
         </button>
         <button
           ref={nextRef}
           aria-label="Next Slide"
           className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 -right-4 z-20"
         >
-          <i className="fa-solid fa-chevron-right"></i>
+          <FaChevronRight />
         </button>
       </div>
     </div>

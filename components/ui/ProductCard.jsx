@@ -1,4 +1,8 @@
+import Link from 'next/link';
+import { FaStar, FaPlus } from 'react-icons/fa6';
+
 export default function ProductCard({
+  id = "1",
   image,
   title,
   category,
@@ -11,7 +15,7 @@ export default function ProductCard({
   return (
     <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-[#006a52] transition-all group w-full h-full">
       {/* Product Image Container */}
-      <div className="bg-white p-3 flex items-center justify-center relative shrink-0">
+      <Link href={`/product/${id}`} className="bg-white p-3 flex items-center justify-center relative shrink-0 block">
         {badge ? (
           <span className="bg-[#f97316] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full absolute top-5 left-5 z-10">
             {badge}
@@ -24,7 +28,7 @@ export default function ProductCard({
             className="w-full h-full object-contain group-hover:scale-105 transition-transform"
           />
         </div>
-      </div>
+      </Link>
 
       {/* Details Area */}
       <div className="p-4 bg-white flex-1 flex flex-col justify-between pt-1">
@@ -32,11 +36,13 @@ export default function ProductCard({
           <span className="text-[11px] font-semibold text-[#006a52] uppercase tracking-wide block truncate">
             {category}
           </span>
-          <h3 className="font-semibold text-sm text-slate-800 line-clamp-2 mt-1 leading-snug min-h-[2.5rem] flex items-start">
-            {title}
-          </h3>
+          <Link href={`/product/${id}`} className="block">
+            <h3 className="font-semibold text-sm text-slate-800 hover:text-[#006a52] line-clamp-2 mt-1 leading-snug min-h-[2.5rem] flex items-start transition-colors">
+              {title}
+            </h3>
+          </Link>
           <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium mt-2">
-            <i className="fa-solid fa-star text-amber-500 text-xs"></i>
+            <FaStar className="text-amber-500 text-xs shrink-0" />
             <span>{rating} · {weight}</span>
           </div>
         </div>
@@ -55,7 +61,7 @@ export default function ProductCard({
             aria-label="Add to Cart"
             className="w-9 h-9 rounded-full bg-[#006a52] hover:bg-[#005240] text-white flex items-center justify-center font-semibold text-base transition-colors shadow-sm cursor-pointer shrink-0"
           >
-            <i className="fa-solid fa-plus text-xs"></i>
+            <FaPlus className="text-xs" />
           </button>
         </div>
       </div>

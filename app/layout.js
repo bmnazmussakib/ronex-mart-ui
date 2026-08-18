@@ -30,14 +30,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${hindSiliguri.variable} h-full antialiased`}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-      </head>
       <body className="bg-[#f4f7f2] text-slate-800 antialiased min-h-screen flex flex-col font-sans">
         {/* Top Notice */}
         <TopNoticeBar />

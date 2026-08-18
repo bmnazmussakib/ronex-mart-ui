@@ -1,4 +1,11 @@
 import Link from 'next/link';
+import {
+  FaMagnifyingGlass,
+  FaRotateLeft,
+  FaClipboard,
+  FaUser,
+  FaBasketShopping,
+} from 'react-icons/fa6';
 
 export default function MainHeader() {
   return (
@@ -16,7 +23,7 @@ export default function MainHeader() {
         {/* Search Bar */}
         <div className="flex-1 max-w-2xl mx-4">
           <div className="flex items-center bg-slate-50 rounded-full border border-emerald-300 p-1 shadow-inner focus-within:border-[#0b5d44] focus-within:bg-white transition-all">
-            <i className="fa-solid fa-magnifying-glass text-slate-400 ml-3.5 text-xs shrink-0"></i>
+            <FaMagnifyingGlass className="text-slate-400 ml-3.5 text-xs shrink-0" />
             <input
               type="text"
               placeholder="Search for products, brands and essential items..."
@@ -35,25 +42,25 @@ export default function MainHeader() {
         {/* Action Buttons */}
         <div className="flex items-center gap-5 shrink-0 text-xs font-semibold text-slate-700">
           <Link href="#" className="hover:text-[#0b5d44] flex items-center gap-1.5 transition-colors">
-            <i className="fa-solid fa-rotate-left text-sm text-emerald-700"></i>
+            <FaRotateLeft className="text-sm text-emerald-700" />
             <span>Reorder</span>
           </Link>
           <Link href="#" className="hover:text-[#0b5d44] flex items-center gap-1.5 transition-colors relative">
-            <i className="fa-regular fa-clipboard text-sm text-emerald-700"></i>
+            <FaClipboard className="text-sm text-emerald-700" />
             <span>Quote</span>
             <span className="bg-[#f97316] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center -mt-2 -ml-1">
               0
             </span>
           </Link>
           <Link href="#" className="hover:text-[#0b5d44] flex items-center gap-1.5 transition-colors">
-            <i className="fa-regular fa-user text-sm text-emerald-700"></i>
+            <FaUser className="text-sm text-emerald-700" />
             <span>Login</span>
           </Link>
           <Link
             href="#"
             className="bg-[#0b5d44] hover:bg-[#084c38] text-white px-4 py-2 rounded-full flex items-center gap-2 transition-all shadow-md shadow-emerald-900/15"
           >
-            <i className="fa-solid fa-basket-shopping text-xs"></i>
+            <FaBasketShopping className="text-xs" />
             <span>Cart</span>
             <span className="bg-emerald-800 text-emerald-100 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
               1
