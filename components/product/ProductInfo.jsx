@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useCart } from '@/context/CartContext';
 import {
   FaCircleCheck,
   FaStar,
@@ -15,7 +16,10 @@ import {
 } from 'react-icons/fa6';
 
 export default function ProductInfo({ product }) {
+  const { addToCart } = useCart();
+
   const data = product || {
+    id: "1",
     title: "Wheel Washing Powder 2 in 1 Clean & Fresh",
     brand: "Unilever Bangladesh",
     category: "Cleaning Supplies",
@@ -27,6 +31,7 @@ export default function ProductInfo({ product }) {
     stock: "In Stock",
     sku: "RM-WHL-500G",
     weights: ["500 g", "1 kg", "2 kg"],
+    images: ["/img/product/product (1).jpeg"],
   };
 
   const [selectedWeight, setSelectedWeight] = useState(data.weights[0]);
@@ -34,10 +39,26 @@ export default function ProductInfo({ product }) {
 
   const handleAddToCart = () => {
     setInCartQty(1);
+    addToCart({
+      id: data.id || "1",
+      title: data.title,
+      price: data.price,
+      weight: selectedWeight,
+      image: data.images && data.images.length > 0 ? data.images[0] : "/img/product/product (1).jpeg",
+      quantity: 1,
+    });
   };
 
   const incrementQty = () => {
     setInCartQty((prev) => prev + 1);
+    addToCart({
+      id: data.id || "1",
+      title: data.title,
+      price: data.price,
+      weight: selectedWeight,
+      image: data.images && data.images.length > 0 ? data.images[0] : "/img/product/product (1).jpeg",
+      quantity: 1,
+    });
   };
 
   const decrementQty = () => {
@@ -143,7 +164,7 @@ export default function ProductInfo({ product }) {
             <button
               onClick={decrementQty}
               aria-label="Decrease Quantity"
-              className="w-8 h-8 rounded-full bg-emerald-50 hover:bg-[#006a52] text-[#006a52] hover:text-white flex items-center justify-center font-bold text-sm transition-colors cursor-pointer"
+              className="w-8 h-8 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-sm transition-colors cursor-pointer"
             >
               <FaMinus className="text-xs" />
             </button>
@@ -153,7 +174,7 @@ export default function ProductInfo({ product }) {
             <button
               onClick={incrementQty}
               aria-label="Increase Quantity"
-              className="w-8 h-8 rounded-full bg-[#006a52] hover:bg-[#005240] text-white flex items-center justify-center font-bold text-sm transition-colors cursor-pointer"
+              className="w-8 h-8 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-sm transition-colors cursor-pointer"
             >
               <FaPlus className="text-xs" />
             </button>
@@ -161,7 +182,10 @@ export default function ProductInfo({ product }) {
         )}
 
         {/* Buy Now Button */}
-        <button className="flex-1 bg-[#f97316] hover:bg-[#ea580c] text-white font-bold text-xs py-3 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer">
+        <button
+          onClick={handleAddToCart}
+          className="flex-1 bg-[#f97316] hover:bg-[#ea580c] text-white font-bold text-xs py-3 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
+        >
           <span>Buy Now</span>
         </button>
       </div>

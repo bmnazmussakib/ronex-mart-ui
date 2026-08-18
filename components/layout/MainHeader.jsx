@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useCart } from '@/context/CartContext';
 import {
   FaMagnifyingGlass,
   FaRotateLeft,
@@ -8,8 +11,10 @@ import {
 } from 'react-icons/fa6';
 
 export default function MainHeader() {
+  const { openCart, totalItemsCount } = useCart();
+
   return (
-    <div className="w-full px-6 sm:px-8 py-3">
+    <div className="w-full px-6 sm:px-8 py-3.5">
       <div className="flex items-center justify-between gap-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
@@ -22,7 +27,7 @@ export default function MainHeader() {
 
         {/* Search Bar */}
         <div className="flex-1 max-w-2xl mx-4">
-          <div className="flex items-center bg-slate-50 rounded-full border border-emerald-300 p-1 shadow-inner focus-within:border-[#0b5d44] focus-within:bg-white transition-all">
+          <div className="flex items-center bg-slate-50 rounded-full border border-emerald-300 p-1 shadow-inner focus-within:border-[#006a52] focus-within:bg-white transition-all">
             <FaMagnifyingGlass className="text-slate-400 ml-3.5 text-xs shrink-0" />
             <input
               type="text"
@@ -40,32 +45,57 @@ export default function MainHeader() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-5 shrink-0 text-xs font-semibold text-slate-700">
-          <Link href="#" className="hover:text-[#0b5d44] flex items-center gap-1.5 transition-colors">
-            <FaRotateLeft className="text-sm text-emerald-700" />
-            <span>Reorder</span>
-          </Link>
-          <Link href="#" className="hover:text-[#0b5d44] flex items-center gap-1.5 transition-colors relative">
-            <FaClipboard className="text-sm text-emerald-700" />
-            <span>Quote</span>
-            <span className="bg-[#f97316] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center -mt-2 -ml-1">
-              0
-            </span>
-          </Link>
-          <Link href="#" className="hover:text-[#0b5d44] flex items-center gap-1.5 transition-colors">
-            <FaUser className="text-sm text-emerald-700" />
-            <span>Login</span>
-          </Link>
+        <div className="flex items-center gap-7 shrink-0 font-semibold text-slate-700">
+          {/* Reorder */}
           <Link
             href="#"
-            className="bg-[#0b5d44] hover:bg-[#084c38] text-white px-4 py-2 rounded-full flex items-center gap-2 transition-all shadow-md shadow-emerald-900/15"
+            className="flex items-center gap-2 hover:text-[#006a52] transition-colors group"
           >
-            <FaBasketShopping className="text-xs" />
-            <span>Cart</span>
-            <span className="bg-emerald-800 text-emerald-100 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
-              1
-            </span>
+            <div className="relative flex items-center justify-center">
+              <FaRotateLeft className="text-xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
+            </div>
+            <span className="text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Reorder</span>
           </Link>
+
+          {/* Account */}
+          <Link
+            href="#"
+            className="flex items-center gap-2 hover:text-[#006a52] transition-colors group"
+          >
+            <div className="relative flex items-center justify-center">
+              <FaUser className="text-xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
+            </div>
+            <span className="text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Account</span>
+          </Link>
+
+          {/* Quote */}
+          <Link
+            href="#"
+            className="flex items-center gap-2 hover:text-[#006a52] transition-colors group"
+          >
+            <div className="relative flex items-center justify-center">
+              <FaClipboard className="text-xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
+              <span className="absolute -top-2 -right-2.5 bg-[#f97316] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
+                0
+              </span>
+            </div>
+            <span className="text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Quote</span>
+          </Link>
+
+          {/* Cart Trigger */}
+          <button
+            onClick={openCart}
+            aria-label="Open Cart"
+            className="flex items-center gap-2 hover:text-[#006a52] transition-colors group cursor-pointer"
+          >
+            <div className="relative flex items-center justify-center">
+              <FaBasketShopping className="text-xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
+              <span className="absolute -top-2 -right-2.5 bg-[#006a52] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
+                {totalItemsCount}
+              </span>
+            </div>
+            <span className="text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Cart</span>
+          </button>
         </div>
       </div>
     </div>

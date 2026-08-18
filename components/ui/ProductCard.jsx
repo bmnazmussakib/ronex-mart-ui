@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useCart } from '@/context/CartContext';
 import { FaStar, FaPlus } from 'react-icons/fa6';
 
 export default function ProductCard({
@@ -12,6 +15,20 @@ export default function ProductCard({
   oldPrice,
   badge,
 }) {
+  const { addToCart } = useCart();
+
+  const handleAdd = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    addToCart({
+      id,
+      title,
+      image,
+      price,
+      weight,
+    });
+  };
+
   return (
     <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-[#006a52] transition-all group w-full h-full">
       {/* Product Image Container */}
@@ -58,6 +75,7 @@ export default function ProductCard({
             )}
           </div>
           <button
+            onClick={handleAdd}
             aria-label="Add to Cart"
             className="w-9 h-9 rounded-full bg-[#006a52] hover:bg-[#005240] text-white flex items-center justify-center font-semibold text-base transition-colors shadow-sm cursor-pointer shrink-0"
           >
