@@ -60,7 +60,7 @@ export default function PantrySection() {
                 />
               </div>
               <div className="py-2 px-2 text-center mt-1">
-                <h4 className="font-semibold text-xs text-slate-800 line-clamp-1 group-hover:text-[#006a52] transition-colors">
+                <h4 className="font-medium text-sm text-slate-800 line-clamp-1 group-hover:text-[#006a52] transition-colors">
                   {card.title}
                 </h4>
               </div>
