@@ -15,11 +15,11 @@ export default function Home() {
       <HeroBanners />
       <PromoSlider />
       <TrendingCategories />
+      <PopularProductsSlider />
       <TopBrandsSlider />
       <PantrySection />
-      <PopularProductsSlider />
-      <PromoBannerSingle />
       <TabbedProductsSlider />
+      <PromoBannerSingle />
       <DualPromoBanners />
       <NewsletterSection />
     </>

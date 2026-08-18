@@ -71,7 +71,7 @@ export default function TopBrandsSlider() {
       >
         {brands.map((brand, idx) => (
           <SwiperSlide key={idx}>
-            <div className="bg-white rounded-xl border border-slate-200/90 p-2.5 h-16 sm:h-18 flex items-center justify-center hover:border-[#006a52] hover:shadow-md transition-all cursor-pointer group">
+            <div className="bg-white rounded-xl  h-16 sm:h-18 flex items-center justify-center transition-all cursor-pointer group">
               <img
                 src={brand.logo}
                 alt={brand.name}
