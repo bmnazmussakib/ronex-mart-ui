@@ -56,12 +56,12 @@ export default function RelatedProducts() {
 
   return (
     <div className="py-4">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-5">
         <div>
-          <span className="text-[10px] font-bold tracking-widest text-[#006a52] uppercase block mb-0.5">
-            SIMILAR ITEMS
+          <span className="text-xs font-medium tracking-widest capitalize text-[#006a52] block mb-0.5">
+            Similar items
           </span>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
             Related Products You May Like
           </h2>
         </div>
@@ -69,14 +69,14 @@ export default function RelatedProducts() {
           <button
             ref={prevRef}
             aria-label="Previous Product"
-            className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
+            className="w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
           >
             <FaChevronLeft />
           </button>
           <button
             ref={nextRef}
             aria-label="Next Product"
-            className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
+            className="w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
           >
             <FaChevronRight />
           </button>

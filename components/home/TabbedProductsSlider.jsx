@@ -134,33 +134,46 @@ export default function TabbedProductsSlider() {
 
   return (
     <div className="py-4">
-      {/* Tabs Header Bar */}
-      <div className="flex items-center justify-center mb-6">
-        <div className="inline-flex items-center bg-white border border-slate-200 rounded-full p-1 shadow-sm gap-1">
+      {/* Section Header with Title & Filter Tabs */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 gap-3">
+        <div>
+          <span className="text-xs font-medium tracking-widest capitalize text-[#006a52] block mb-0.5">
+            Discover featured collections
+          </span>
+          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
+            Featured Products
+          </h2>
+        </div>
+
+        {/* Tabs Filter Bar */}
+        <div className="inline-flex items-center bg-white border border-slate-200/80 rounded-full p-1 shadow-2xs gap-1 self-start sm:self-auto">
           <button
             onClick={() => setActiveTab('new-arrival')}
-            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${activeTab === 'new-arrival'
-                ? 'bg-[#006a52] text-white shadow-sm font-bold'
-                : 'text-slate-600 font-semibold hover:text-[#006a52] hover:bg-slate-50'
-              }`}
+            className={`text-xs px-4 py-1.5 rounded-full transition-all cursor-pointer ${
+              activeTab === 'new-arrival'
+                ? 'bg-[#006a52] text-white shadow-2xs font-medium'
+                : 'text-slate-600 font-medium hover:text-[#006a52] hover:bg-slate-50'
+            }`}
           >
             New Arrival
           </button>
           <button
             onClick={() => setActiveTab('imported-products')}
-            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${activeTab === 'imported-products'
-                ? 'bg-[#006a52] text-white shadow-sm font-bold'
-                : 'text-slate-600 font-semibold hover:text-[#006a52] hover:bg-slate-50'
-              }`}
+            className={`text-xs px-4 py-1.5 rounded-full transition-all cursor-pointer ${
+              activeTab === 'imported-products'
+                ? 'bg-[#006a52] text-white shadow-2xs font-medium'
+                : 'text-slate-600 font-medium hover:text-[#006a52] hover:bg-slate-50'
+            }`}
           >
             Imported Products
           </button>
           <button
             onClick={() => setActiveTab('imported-usa')}
-            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${activeTab === 'imported-usa'
-                ? 'bg-[#006a52] text-white shadow-sm font-bold'
-                : 'text-slate-600 font-semibold hover:text-[#006a52] hover:bg-slate-50'
-              }`}
+            className={`text-xs px-4 py-1.5 rounded-full transition-all cursor-pointer ${
+              activeTab === 'imported-usa'
+                ? 'bg-[#006a52] text-white shadow-2xs font-medium'
+                : 'text-slate-600 font-medium hover:text-[#006a52] hover:bg-slate-50'
+            }`}
           >
             Imported From USA
           </button>

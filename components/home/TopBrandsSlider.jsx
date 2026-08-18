@@ -27,22 +27,27 @@ export default function TopBrandsSlider() {
 
   return (
     <div className="py-3">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider">
-          Top Partner Brands
-        </h3>
-        <div className="flex items-center gap-1">
+      <div className="flex items-center justify-between mb-5">
+        <div>
+          <span className="text-xs font-medium tracking-widest capitalize text-[#006a52] block mb-0.5">
+            Top partner brands
+          </span>
+          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
+            Top Partner Brands
+          </h2>
+        </div>
+        <div className="flex items-center gap-1.5">
           <button
             ref={prevRef}
             aria-label="Previous Brand"
-            className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] transition-all shadow-2xs cursor-pointer z-10"
+            className="w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
           >
             <FaChevronLeft />
           </button>
           <button
             ref={nextRef}
             aria-label="Next Brand"
-            className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] transition-all shadow-2xs cursor-pointer z-10"
+            className="w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
           >
             <FaChevronRight />
           </button>

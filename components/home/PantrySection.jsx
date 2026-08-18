@@ -17,16 +17,16 @@ export default function PantrySection() {
     <div className="py-3">
       <div className="flex items-center justify-between mb-5">
         <div>
-          <span className="text-[10px] font-bold tracking-widest text-[#006a52] uppercase block mb-0.5">
-            STOCK UP YOUR SHELVES
+          <span className="text-xs font-medium tracking-widest capitalize text-[#006a52] block mb-0.5">
+            Stock up your shelves
           </span>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
             Fill Up Your Pantry
           </h2>
         </div>
         <Link
-          href="#"
-          className="border border-slate-200 bg-white hover:border-[#006a52] hover:text-[#006a52] rounded-full px-4 py-1.5 text-xs font-semibold flex items-center gap-1.5 transition-all text-slate-700 shadow-sm"
+          href="/category"
+          className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-[#006a52] hover:underline"
         >
           <span>See all categories</span>
           <FaChevronRight className="text-[10px]" />

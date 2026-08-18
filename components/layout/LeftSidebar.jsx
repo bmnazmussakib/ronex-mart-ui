@@ -42,7 +42,7 @@ export default function LeftSidebar() {
   ];
 
   return (
-    <aside className="w-64 shrink-0 bg-white border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between sticky top-[115px] h-[calc(100vh-135px)]">
+    <aside className="w-64 shrink-0 bg-white border-r border-slate-200/90 overflow-hidden flex flex-col justify-between sticky top-[120px] h-[calc(100vh-130px)]">
       <div className="flex flex-col flex-1 min-h-0">
         {/* 1. Top 3 Feature Quick Buttons Grid */}
         <div className="grid grid-cols-3 gap-1.5 p-2 bg-slate-50 border-b border-slate-200 shrink-0">
@@ -98,16 +98,6 @@ export default function LeftSidebar() {
         </ul>
       </div>
 
-      {/* 4. Bottom Button: Product Request */}
-      <div className="p-2 bg-slate-50 border-t border-slate-200 shrink-0">
-        <Link
-          href="#"
-          className="w-full bg-[#006a52] hover:bg-[#005240] text-white font-medium text-xs py-2 px-3 rounded-lg flex items-center justify-center gap-2 transition-all shadow-2xs"
-        >
-          <FaClipboard className="text-xs" />
-          <span>Product Request</span>
-        </Link>
-      </div>
     </aside>
   );
 }

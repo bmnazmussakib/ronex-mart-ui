@@ -66,18 +66,18 @@ export default function TrendingCategories() {
       {/* Section Header */}
       <div className="flex items-center justify-between mb-5">
         <div>
-          <span className="text-[10px] font-bold tracking-widest text-[#006a52] uppercase block mb-0.5">
-            EXPLORE POPULAR PICKS
+          <span className="text-xs font-medium tracking-widest capitalize text-[#006a52] block mb-0.5">
+            explore popular picks
           </span>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Trending Categories This Week
+          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
+            Trending Categories
           </h2>
         </div>
 
         <div className="flex items-center gap-3">
           <Link
             href="/category"
-            className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-[#006a52] hover:underline"
+            className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-[#006a52] hover:underline"
           >
             <span>All Categories</span>
             <FaArrowRight className="text-[10px]" />
