@@ -1,5 +1,6 @@
 import HeroBanners from "@/components/home/HeroBanners";
 import PromoSlider from "@/components/home/PromoSlider";
+import TrendingCategories from "@/components/home/TrendingCategories";
 import TopBrandsSlider from "@/components/home/TopBrandsSlider";
 import PantrySection from "@/components/home/PantrySection";
 import PopularProductsSlider from "@/components/home/PopularProductsSlider";
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       <HeroBanners />
       <PromoSlider />
+      <TrendingCategories />
       <TopBrandsSlider />
       <PantrySection />
       <PopularProductsSlider />

@@ -24,21 +24,21 @@ import {
 
 export default function LeftSidebar() {
   const categories = [
-    { title: "Jewelry, Watches & Sunglasses", icon: FaGem },
-    { title: "Shoe & Leather Goods", icon: FaShoePrints },
-    { title: "Luggage & Travel Gear", icon: FaSuitcaseRolling },
-    { title: "Kitchen & Dining", icon: FaKitchenSet },
-    { title: "Electronics & Home Appliances", icon: FaTv },
-    { title: "Home Decor", icon: FaCouch },
-    { title: "Furniture & Mattresses", icon: FaBed },
-    { title: "Bed & Bath", icon: FaBath },
-    { title: "Gifts, Tickets & Events", icon: FaGift },
-    { title: "Office & Stationery", icon: FaPaperclip },
-    { title: "Toys & Video Games", icon: FaGamepad },
-    { title: "Sports & Fitness", icon: FaDumbbell },
-    { title: "Outdoor, Patio, Garden & Nursery", icon: FaTree },
-    { title: "Pet Supplies", icon: FaDog },
-    { title: "Bakery & Restaurant", icon: FaBreadSlice },
+    { title: "Cooking Essentials", slug: "cooking-essentials", icon: FaKitchenSet },
+    { title: "Grocery & Food", slug: "grocery-and-food", icon: FaBoxesPacking },
+    { title: "Beverages & Drinks", slug: "beverages", icon: FaUtensils },
+    { title: "Cleaning Supplies", slug: "cleaning-supplies", icon: FaBath },
+    { title: "Personal Care", slug: "personal-care", icon: FaGem },
+    { title: "Bakery & Restaurant", slug: "bakery-and-dairy", icon: FaBreadSlice },
+    { title: "Shoe & Leather Goods", slug: "shoe-and-leather", icon: FaShoePrints },
+    { title: "Luggage & Travel Gear", slug: "luggage-travel", icon: FaSuitcaseRolling },
+    { title: "Electronics & Appliances", slug: "electronics", icon: FaTv },
+    { title: "Home Decor & Living", slug: "home-decor", icon: FaCouch },
+    { title: "Furniture & Mattresses", slug: "furniture", icon: FaBed },
+    { title: "Gifts & Event Tickets", slug: "gifts-events", icon: FaGift },
+    { title: "Office & Stationery", slug: "stationery", icon: FaPaperclip },
+    { title: "Toys & Video Games", slug: "toys-games", icon: FaGamepad },
+    { title: "Sports & Outdoor Fitness", slug: "sports-fitness", icon: FaDumbbell },
   ];
 
   return (
@@ -83,7 +83,7 @@ export default function LeftSidebar() {
             return (
               <li key={idx}>
                 <Link
-                  href="#"
+                  href={`/category/${cat.slug}`}
                   className="flex items-center justify-between px-3.5 py-2 hover:bg-[#e8f3e8] hover:text-[#0b5d44] transition-colors group"
                 >
                   <div className="flex items-center gap-2.5">

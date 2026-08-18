@@ -6,24 +6,36 @@ export default function SecondaryNav() {
     <div className="bg-slate-100/90 border-t border-slate-200 text-[13px] font-semibold text-slate-700">
       <div className="w-full pr-6 sm:pr-8 flex items-center justify-between">
         {/* Left Categories Header Box */}
-        <div className="w-64 bg-[#053b2c] text-white px-4 py-3 flex items-center justify-between cursor-pointer tracking-wider shrink-0 font-bold">
+        <Link
+          href="/category"
+          className="w-64 bg-[#053b2c] hover:bg-[#03241b] text-white px-4 py-3 flex items-center justify-between cursor-pointer tracking-wider shrink-0 font-bold transition-colors"
+        >
           <div className="flex items-center gap-2.5">
             <FaBars className="text-sm" />
-            <span className="uppercase text-xs tracking-widest font-bold">CATEGORY</span>
+            <span className="uppercase text-xs tracking-widest font-bold">ALL CATEGORIES</span>
           </div>
           <FaChevronDown className="text-[10px]" />
-        </div>
+        </Link>
 
         {/* Links Nav */}
-        <nav className="flex items-center gap-7 ml-6 flex-1 py-3 overflow-x-auto custom-scrollbar font-semibold text-xs tracking-wide text-slate-700">
-          <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap">SHOP BY BRANDS</Link>
-          <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap">MEMBERSHIP</Link>
-          <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap">OFFERS</Link>
-          <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap">RECIPES</Link>
-          <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap">CELEBRATION DAY</Link>
-          <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap">GIFT VOUCHER</Link>
-          <Link href="#" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap flex items-center gap-1">
-            MORE <FaChevronDown className="text-[9px]" />
+        <nav className="flex items-center gap-6 ml-6 flex-1 py-3 overflow-x-auto custom-scrollbar font-semibold text-xs tracking-wide text-slate-700">
+          <Link href="/" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap uppercase">
+            HOME
+          </Link>
+          <Link href="/category/cooking-essentials" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap uppercase">
+            COOKING ESSENTIALS
+          </Link>
+          <Link href="/category/grocery-and-food" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap uppercase">
+            DAILY GROCERY
+          </Link>
+          <Link href="/category/beverages" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap uppercase flex items-center gap-1.5">
+            <span>OFFERS & DEALS</span>
+            <span className="bg-rose-600 text-white text-[9px] font-extrabold px-1.5 py-0.2 rounded-full uppercase animate-pulse">
+              HOT
+            </span>
+          </Link>
+          <Link href="/category/cleaning-supplies" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap uppercase">
+            SHOP BY BRANDS
           </Link>
         </nav>
 
