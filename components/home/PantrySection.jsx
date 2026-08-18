@@ -39,10 +39,10 @@ export default function PantrySection() {
             <img
               src="/img/sqr-banner.png"
               alt="Beverages Showcase"
-              className="w-full h-full object-cover rounded-t-2xl"
+              className="w-full h-full object-cover rounded-2xl"
             />
           </div>
-          <div className="py-2.5 px-3 text-center border-t border-slate-100 bg-white rounded-b-xl">
+          <div className="py-2.5 px-3 text-center">
             <h4 className="font-semibold text-xs text-slate-800">Beverages</h4>
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function PantrySection() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="rounded-xl py-2 px-2 text-center border-t border-slate-100 bg-white mt-1">
+              <div className="py-2 px-2 text-center mt-1">
                 <h4 className="font-semibold text-xs text-slate-800 line-clamp-1 group-hover:text-[#006a52] transition-colors">
                   {card.title}
                 </h4>

@@ -1,4 +1,4 @@
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -11,10 +11,15 @@ import LeftSidebar from "@/components/layout/LeftSidebar";
 import FloatingCartWidget from "@/components/layout/FloatingCartWidget";
 import Footer from "@/components/layout/Footer";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+});
+
+const hindSiliguri = Hind_Siliguri({
+  variable: "--font-hind-siliguri",
+  subsets: ["bengali", "latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -24,7 +29,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${hindSiliguri.variable} h-full antialiased`}>
       <head>
         <link
           rel="stylesheet"
@@ -37,25 +42,29 @@ export default function RootLayout({ children }) {
         {/* Top Notice */}
         <TopNoticeBar />
 
-        {/* Main Header & Nav */}
+        {/* Main Header & Nav (Fixed Top) */}
         <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
           <MainHeader />
           <SecondaryNav />
         </header>
 
-        {/* Main Body Area with Sidebar */}
-        <main className="w-full flex items-start flex-1">
+        {/* Main Layout Area */}
+        <div className="w-full flex items-start flex-1">
+          {/* Fixed Left Sidebar */}
           <LeftSidebar />
-          <div className="flex-1 min-w-0 flex flex-col gap-4 p-4 lg:p-5">
-            {children}
+
+          {/* Right Column: Body Content + Footer at bottom */}
+          <div className="flex-1 min-w-0 flex flex-col min-h-[calc(100vh-115px)] justify-between">
+            <main className="flex-1 flex flex-col gap-4 p-4 lg:p-5">
+              {children}
+            </main>
+            {/* Footer placed inside right column under body contents */}
+            <Footer />
           </div>
-        </main>
+        </div>
 
         {/* Floating Cart Widget */}
         <FloatingCartWidget />
-
-        {/* Footer */}
-        <Footer />
       </body>
     </html>
   );

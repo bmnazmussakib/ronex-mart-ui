@@ -156,7 +156,7 @@ export default function PopularProductsSlider() {
         className="productSwiper pb-2"
       >
         {products.map((item, idx) => (
-          <SwiperSlide key={idx} className="h-auto">
+          <SwiperSlide key={idx} className="!h-auto flex">
             <ProductCard {...item} />
           </SwiperSlide>
         ))}

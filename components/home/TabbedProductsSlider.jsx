@@ -195,7 +195,7 @@ export default function TabbedProductsSlider() {
           className="tabProductSwiper pb-2"
         >
           {currentProducts.map((item, idx) => (
-            <SwiperSlide key={idx} className="h-auto">
+            <SwiperSlide key={idx} className="!h-auto flex">
               <ProductCard {...item} />
             </SwiperSlide>
           ))}
