@@ -188,17 +188,15 @@ export default function CheckoutSummarySidebar({
               <label
                 key={opt.id}
                 onClick={() => setSelectedPayment(opt.id)}
-                className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${
-                  isSelected
+                className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${isSelected
                     ? 'border-[#006a52] bg-[#e8f3e8]/70 shadow-2xs font-bold text-[#006a52]'
                     : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
-                    className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                      isSelected ? 'border-[#006a52] bg-[#006a52]' : 'border-slate-300'
-                    }`}
+                    className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${isSelected ? 'border-[#006a52] bg-[#006a52]' : 'border-slate-300'
+                      }`}
                   >
                     {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                   </div>

@@ -135,11 +135,10 @@ export default function ProductInfo({ product }) {
             <button
               key={idx}
               onClick={() => setSelectedWeight(w)}
-              className={`px-4 py-2 text-xs font-semibold rounded-full border transition-all cursor-pointer ${
-                selectedWeight === w
+              className={`px-4 py-2 text-xs font-semibold rounded-full border transition-all cursor-pointer ${selectedWeight === w
                   ? 'border-[#006a52] bg-[#e8f3e8] text-[#006a52] shadow-sm'
                   : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
-              }`}
+                }`}
             >
               {w}
             </button>

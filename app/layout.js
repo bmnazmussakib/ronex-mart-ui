@@ -1,4 +1,4 @@
-import { Inter, Hind_Siliguri } from "next/font/google";
+import { Jost, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -13,8 +13,8 @@ import FloatingCartWidget from "@/components/layout/FloatingCartWidget";
 import Footer from "@/components/layout/Footer";
 import CartDrawer from "@/components/cart/CartDrawer";
 
-const inter = Inter({
-  variable: "--font-inter",
+const jost = Jost({
+  variable: "--font-jost",
   subsets: ["latin"],
 });
 
@@ -31,7 +31,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${hindSiliguri.variable} h-full antialiased`}>
+    <html lang="en" className={`${jost.variable} ${hindSiliguri.variable} h-full antialiased`}>
       <body className="bg-white text-slate-800 antialiased min-h-screen flex flex-col font-sans">
         <CartProvider>
           {/* Top Notice */}

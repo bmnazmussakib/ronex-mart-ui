@@ -31,11 +31,10 @@ export default function CategoryPagination({ totalPages = 4, onPageChange }) {
           <button
             key={page}
             onClick={() => handlePageClick(page)}
-            className={`w-8 h-8 rounded-full text-xs font-bold transition-all cursor-pointer ${
-              currentPage === page
+            className={`w-8 h-8 rounded-full text-xs font-bold transition-all cursor-pointer ${currentPage === page
                 ? 'bg-[#006a52] text-white shadow-sm'
                 : 'bg-white border border-slate-200 text-slate-700 hover:border-[#006a52] hover:text-[#006a52]'
-            }`}
+              }`}
           >
             {page}
           </button>

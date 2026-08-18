@@ -29,11 +29,10 @@ export default function AddressForm({ formData, onChange, deliveryArea, setDeliv
           <button
             type="button"
             onClick={() => setDeliveryArea('inside-dhaka')}
-            className={`p-3.5 rounded-2xl border flex items-center justify-between text-left transition-all cursor-pointer ${
-              deliveryArea === 'inside-dhaka'
+            className={`p-3.5 rounded-2xl border flex items-center justify-between text-left transition-all cursor-pointer ${deliveryArea === 'inside-dhaka'
                 ? 'border-[#006a52] bg-[#e8f3e8]/70 text-[#006a52] shadow-xs'
                 : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
-            }`}
+              }`}
           >
             <div className="flex items-center gap-2.5">
               <FaTruckFast className="text-base text-[#006a52]" />
@@ -48,11 +47,10 @@ export default function AddressForm({ formData, onChange, deliveryArea, setDeliv
           <button
             type="button"
             onClick={() => setDeliveryArea('outside-dhaka')}
-            className={`p-3.5 rounded-2xl border flex items-center justify-between text-left transition-all cursor-pointer ${
-              deliveryArea === 'outside-dhaka'
+            className={`p-3.5 rounded-2xl border flex items-center justify-between text-left transition-all cursor-pointer ${deliveryArea === 'outside-dhaka'
                 ? 'border-[#006a52] bg-[#e8f3e8]/70 text-[#006a52] shadow-xs'
                 : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
-            }`}
+              }`}
           >
             <div className="flex items-center gap-2.5">
               <FaHouse className="text-base text-[#006a52]" />

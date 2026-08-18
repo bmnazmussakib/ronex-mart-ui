@@ -139,31 +139,28 @@ export default function TabbedProductsSlider() {
         <div className="inline-flex items-center bg-white border border-slate-200 rounded-full p-1 shadow-sm gap-1">
           <button
             onClick={() => setActiveTab('new-arrival')}
-            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${
-              activeTab === 'new-arrival'
+            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${activeTab === 'new-arrival'
                 ? 'bg-[#006a52] text-white shadow-sm font-bold'
                 : 'text-slate-600 font-semibold hover:text-[#006a52] hover:bg-slate-50'
-            }`}
+              }`}
           >
             New Arrival
           </button>
           <button
             onClick={() => setActiveTab('imported-products')}
-            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${
-              activeTab === 'imported-products'
+            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${activeTab === 'imported-products'
                 ? 'bg-[#006a52] text-white shadow-sm font-bold'
                 : 'text-slate-600 font-semibold hover:text-[#006a52] hover:bg-slate-50'
-            }`}
+              }`}
           >
             Imported Products
           </button>
           <button
             onClick={() => setActiveTab('imported-usa')}
-            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${
-              activeTab === 'imported-usa'
+            className={`text-xs px-5 py-2 rounded-full transition-all cursor-pointer ${activeTab === 'imported-usa'
                 ? 'bg-[#006a52] text-white shadow-sm font-bold'
                 : 'text-slate-600 font-semibold hover:text-[#006a52] hover:bg-slate-50'
-            }`}
+              }`}
           >
             Imported From USA
           </button>

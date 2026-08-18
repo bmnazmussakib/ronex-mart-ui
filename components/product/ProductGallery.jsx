@@ -6,11 +6,11 @@ export default function ProductGallery({ images, defaultBadge }) {
   const galleryImages = images && images.length > 0
     ? images
     : [
-        "/img/product/product (1).jpeg",
-        "/img/product/product (2).jpeg",
-        "/img/product/product (3).jpeg",
-        "/img/product/product (4).jpeg",
-      ];
+      "/img/product/product (1).jpeg",
+      "/img/product/product (2).jpeg",
+      "/img/product/product (3).jpeg",
+      "/img/product/product (4).jpeg",
+    ];
 
   const [activeImage, setActiveImage] = useState(galleryImages[0]);
 
@@ -36,11 +36,10 @@ export default function ProductGallery({ images, defaultBadge }) {
           <button
             key={idx}
             onClick={() => setActiveImage(img)}
-            className={`aspect-square rounded-xl bg-white border p-2 flex items-center justify-center overflow-hidden transition-all cursor-pointer ${
-              activeImage === img
+            className={`aspect-square rounded-xl bg-white border p-2 flex items-center justify-center overflow-hidden transition-all cursor-pointer ${activeImage === img
                 ? 'border-[#006a52] ring-2 ring-[#006a52]/20 shadow-sm'
                 : 'border-slate-200 hover:border-slate-300'
-            }`}
+              }`}
           >
             <img
               src={img}

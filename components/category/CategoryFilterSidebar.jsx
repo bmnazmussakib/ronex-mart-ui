@@ -145,11 +145,10 @@ export default function CategoryFilterSidebar({ onFilterChange }) {
             <button
               key={stars}
               onClick={() => setSelectedRating(stars)}
-              className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl border text-left transition-all cursor-pointer ${
-                selectedRating === stars
+              className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl border text-left transition-all cursor-pointer ${selectedRating === stars
                   ? 'border-[#006a52] bg-[#e8f3e8] text-[#006a52] font-bold'
                   : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
-              }`}
+                }`}
             >
               <div className="flex items-center gap-1 text-amber-500">
                 <FaStar />

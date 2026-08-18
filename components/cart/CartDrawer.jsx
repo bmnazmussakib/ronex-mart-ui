@@ -29,26 +29,23 @@ export default function CartDrawer() {
 
   return (
     <div
-      className={`fixed inset-0 z-50 overflow-hidden transition-all duration-300 ${
-        isCartOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-      }`}
+      className={`fixed inset-0 z-50 overflow-hidden transition-all duration-300 ${isCartOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
     >
       {/* Backdrop Overlay */}
       <div
         onClick={closeCart}
-        className={`absolute inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity duration-300 ${
-          isCartOpen ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`absolute inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity duration-300 ${isCartOpen ? 'opacity-100' : 'opacity-0'
+          }`}
       />
 
       {/* Drawer Container (Right Slide-over with smooth translation) */}
       <div
-        className={`fixed inset-y-0 right-0 max-w-full flex pl-10 transform transition-transform duration-300 ease-in-out ${
-          isCartOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-y-0 right-0 max-w-full flex pl-10 transform transition-transform duration-300 ease-in-out ${isCartOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between border-l border-slate-200">
-          
+
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-200 bg-[#043326] text-white flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5">

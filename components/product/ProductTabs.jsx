@@ -12,31 +12,28 @@ export default function ProductTabs() {
       <div className="flex items-center border-b border-slate-200 bg-slate-50 px-4 pt-3 overflow-x-auto gap-2">
         <button
           onClick={() => setActiveTab('description')}
-          className={`px-5 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${
-            activeTab === 'description'
+          className={`px-5 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${activeTab === 'description'
               ? 'border-[#006a52] text-[#006a52] bg-white rounded-t-xl'
               : 'border-transparent text-slate-600 hover:text-slate-900'
-          }`}
+            }`}
         >
           Product Description
         </button>
         <button
           onClick={() => setActiveTab('specifications')}
-          className={`px-5 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${
-            activeTab === 'specifications'
+          className={`px-5 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${activeTab === 'specifications'
               ? 'border-[#006a52] text-[#006a52] bg-white rounded-t-xl'
               : 'border-transparent text-slate-600 hover:text-slate-900'
-          }`}
+            }`}
         >
           Specifications & Ingredients
         </button>
         <button
           onClick={() => setActiveTab('reviews')}
-          className={`px-5 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${
-            activeTab === 'reviews'
+          className={`px-5 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${activeTab === 'reviews'
               ? 'border-[#006a52] text-[#006a52] bg-white rounded-t-xl'
               : 'border-transparent text-slate-600 hover:text-slate-900'
-          }`}
+            }`}
         >
           Customer Reviews (128)
         </button>

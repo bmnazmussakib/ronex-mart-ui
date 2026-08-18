@@ -54,17 +54,15 @@ export default function PaymentMethods({ paymentMethod, setPaymentMethod }) {
             <div
               key={method.id}
               onClick={() => setPaymentMethod(method.id)}
-              className={`p-4 rounded-2xl border flex items-center justify-between transition-all cursor-pointer ${
-                isSelected
+              className={`p-4 rounded-2xl border flex items-center justify-between transition-all cursor-pointer ${isSelected
                   ? 'border-[#006a52] bg-[#e8f3e8]/70 shadow-xs'
                   : 'border-slate-200 bg-white hover:border-slate-300'
-              }`}
+                }`}
             >
               <div className="flex items-center gap-3.5">
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${
-                    isSelected ? 'bg-[#006a52] text-white' : 'bg-slate-100 text-slate-600'
-                  }`}
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${isSelected ? 'bg-[#006a52] text-white' : 'bg-slate-100 text-slate-600'
+                    }`}
                 >
                   <IconComp />
                 </div>
@@ -85,9 +83,8 @@ export default function PaymentMethods({ paymentMethod, setPaymentMethod }) {
 
               {/* Radio Indicator */}
               <div
-                className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                  isSelected ? 'border-[#006a52] bg-[#006a52]' : 'border-slate-300'
-                }`}
+                className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${isSelected ? 'border-[#006a52] bg-[#006a52]' : 'border-slate-300'
+                  }`}
               >
                 {isSelected && <div className="w-2 h-2 rounded-full bg-white" />}
               </div>
