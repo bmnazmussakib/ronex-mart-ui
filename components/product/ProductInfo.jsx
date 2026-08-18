@@ -190,19 +190,39 @@ export default function ProductInfo({ product }) {
         </button>
       </div>
 
-      {/* Trust Badges */}
-      <div className="grid grid-cols-3 gap-2 border-t border-slate-100 pt-4 text-center">
-        <div className="flex flex-col items-center gap-1 p-2 bg-slate-50 rounded-2xl">
-          <FaTruckFast className="text-[#006a52] text-sm" />
-          <span className="text-[10px] font-semibold text-slate-700 leading-tight">Fast Home Delivery</span>
+      {/* Professional Multi-Color Trust Badges Strip */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 border-t border-slate-100 pt-4">
+        {/* Fast Delivery - Blue Theme */}
+        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-blue-100 bg-blue-50/40 hover:bg-white hover:border-blue-300 transition-all shadow-2xs">
+          <div className="w-7 h-7 rounded-md bg-blue-100/80 text-blue-600 flex items-center justify-center shrink-0">
+            <FaTruckFast className="text-xs" />
+          </div>
+          <div className="flex flex-col leading-tight">
+            <span className="text-[11px] font-bold text-slate-800">Fast Home Delivery</span>
+            <span className="text-[10px] text-blue-600/80 font-medium">Express 24-48 Hrs</span>
+          </div>
         </div>
-        <div className="flex flex-col items-center gap-1 p-2 bg-slate-50 rounded-2xl">
-          <FaShieldHalved className="text-[#006a52] text-sm" />
-          <span className="text-[10px] font-semibold text-slate-700 leading-tight">100% Genuine Item</span>
+
+        {/* 100% Genuine - Emerald Theme */}
+        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-emerald-100 bg-emerald-50/40 hover:bg-white hover:border-emerald-300 transition-all shadow-2xs">
+          <div className="w-7 h-7 rounded-md bg-emerald-100/80 text-[#006a52] flex items-center justify-center shrink-0">
+            <FaShieldHalved className="text-xs" />
+          </div>
+          <div className="flex flex-col leading-tight">
+            <span className="text-[11px] font-bold text-slate-800">100% Genuine</span>
+            <span className="text-[10px] text-[#006a52]/80 font-medium">Authentic Goods</span>
+          </div>
         </div>
-        <div className="flex flex-col items-center gap-1 p-2 bg-slate-50 rounded-2xl">
-          <FaHandHoldingDollar className="text-[#006a52] text-sm" />
-          <span className="text-[10px] font-semibold text-slate-700 leading-tight">Cash On Delivery</span>
+
+        {/* Cash On Delivery - Amber Theme */}
+        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-amber-100 bg-amber-50/40 hover:bg-white hover:border-amber-300 transition-all shadow-2xs">
+          <div className="w-7 h-7 rounded-md bg-amber-100/80 text-amber-600 flex items-center justify-center shrink-0">
+            <FaHandHoldingDollar className="text-xs" />
+          </div>
+          <div className="flex flex-col leading-tight">
+            <span className="text-[11px] font-bold text-slate-800">Cash On Delivery</span>
+            <span className="text-[10px] text-amber-600/80 font-medium">Pay On Receipt</span>
+          </div>
         </div>
       </div>
     </div>

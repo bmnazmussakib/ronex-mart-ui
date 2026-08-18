@@ -32,7 +32,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${hindSiliguri.variable} h-full antialiased`}>
-      <body className="bg-[#f4f7f2] text-slate-800 antialiased min-h-screen flex flex-col font-sans">
+      <body className="bg-white text-slate-800 antialiased min-h-screen flex flex-col font-sans">
         <CartProvider>
           {/* Top Notice */}
           <TopNoticeBar />

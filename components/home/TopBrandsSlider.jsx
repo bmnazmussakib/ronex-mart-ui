@@ -10,32 +10,39 @@ export default function TopBrandsSlider() {
   const nextRef = useRef(null);
 
   const brands = [
-    { name: "Unilever", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&w=200&q=80" },
-    { name: "Nestle", logo: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=200&q=80" },
-    { name: "Square", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=200&q=80" },
-    { name: "PRAN", logo: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=200&q=80" },
-    { name: "ACI", logo: "https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&w=200&q=80" },
-    { name: "Fresh", logo: "https://images.unsplash.com/photo-1542744094-3a3172720177?auto=format&fit=crop&w=200&q=80" },
+    { name: "Brand 1", logo: "/img/brand/brand (1).jpeg" },
+    { name: "Brand 2", logo: "/img/brand/brand (2).jpeg" },
+    { name: "Brand 3", logo: "/img/brand/brand (3).jpeg" },
+    { name: "Brand 4", logo: "/img/brand/brand (4).jpeg" },
+    { name: "Brand 5", logo: "/img/brand/brand (5).jpeg" },
+    { name: "Brand 6", logo: "/img/brand/brand (6).jpeg" },
+    { name: "Brand 7", logo: "/img/brand/brand (7).jpeg" },
+    { name: "Brand 8", logo: "/img/brand/brand (8).jpeg" },
+    { name: "Brand 9", logo: "/img/brand/brand (9).jpeg" },
+    { name: "Brand 10", logo: "/img/brand/brand (10).jpeg" },
+    { name: "Brand 11", logo: "/img/brand/brand (11).jpeg" },
+    { name: "Brand 12", logo: "/img/brand/brand (12).jpeg" },
+    { name: "Brand 13", logo: "/img/brand/brand (13).jpeg" },
   ];
 
   return (
-    <div className="py-2">
+    <div className="py-3">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+        <h3 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider">
           Top Partner Brands
         </h3>
         <div className="flex items-center gap-1">
           <button
             ref={prevRef}
             aria-label="Previous Brand"
-            className="w-6 h-6 rounded-full border border-slate-200 bg-white hover:bg-[#0b5d44] hover:text-white text-slate-600 flex items-center justify-center text-[10px] transition-colors cursor-pointer"
+            className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] transition-all shadow-2xs cursor-pointer z-10"
           >
             <FaChevronLeft />
           </button>
           <button
             ref={nextRef}
             aria-label="Next Brand"
-            className="w-6 h-6 rounded-full border border-slate-200 bg-white hover:bg-[#0b5d44] hover:text-white text-slate-600 flex items-center justify-center text-[10px] transition-colors cursor-pointer"
+            className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] transition-all shadow-2xs cursor-pointer z-10"
           >
             <FaChevronRight />
           </button>
@@ -47,7 +54,7 @@ export default function TopBrandsSlider() {
         slidesPerView={3}
         spaceBetween={12}
         loop={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 2800, disableOnInteraction: false }}
         onBeforeInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
@@ -58,14 +65,18 @@ export default function TopBrandsSlider() {
         }}
         breakpoints={{
           480: { slidesPerView: 4, spaceBetween: 12 },
-          640: { slidesPerView: 5, spaceBetween: 16 },
-          1024: { slidesPerView: 6, spaceBetween: 16 },
+          640: { slidesPerView: 6, spaceBetween: 14 },
+          1024: { slidesPerView: 8, spaceBetween: 16 },
         }}
       >
         {brands.map((brand, idx) => (
           <SwiperSlide key={idx}>
-            <div className="bg-white rounded-xl border border-slate-200/80 p-3 h-14 flex items-center justify-center hover:border-[#0b5d44] transition-all cursor-pointer shadow-xs">
-              <span className="font-bold text-xs text-slate-700 tracking-wide">{brand.name}</span>
+            <div className="bg-white rounded-xl border border-slate-200/90 p-2.5 h-16 sm:h-18 flex items-center justify-center hover:border-[#006a52] hover:shadow-md transition-all cursor-pointer group">
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+              />
             </div>
           </SwiperSlide>
         ))}
