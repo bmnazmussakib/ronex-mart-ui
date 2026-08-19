@@ -42,50 +42,15 @@ export default function CheckoutSummarySidebar({
 
   return (
     <div className="space-y-4">
-      {/* 1. ORDER SUMMARY CARD */}
-      <div className="bg-white rounded-lg border border-slate-200/90 p-5 space-y-3">
-        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
-          ORDER SUMMARY
-        </h3>
-        <div className="space-y-2 text-sm text-slate-600">
-          <div className="flex justify-between items-center">
-            <span>SUBTOTAL</span>
-            <span className="font-semibold text-sm text-slate-900 font-taka">৳{subtotal.toFixed(2)}</span>
-          </div>
-          <div className="flex justify-between items-center">
-            <span>SHIPPING</span>
-            <span className="font-semibold text-sm text-slate-900 font-taka">৳{shippingFee.toFixed(2)}</span>
-          </div>
-          <div className="flex justify-between items-center">
-            <span>VAT</span>
-            <span className="font-semibold text-sm text-slate-900 font-taka">৳{vatAmount.toFixed(2)}</span>
-          </div>
-          {needBag && (
-            <div className="flex justify-between items-center text-emerald-700">
-              <span>SHOPPING BAG</span>
-              <span className="font-semibold text-sm font-taka">৳10.00</span>
-            </div>
-          )}
-          <div className="flex justify-between items-center text-slate-600">
-            <span>DISCOUNT</span>
-            <span className="font-semibold text-sm text-rose-600 font-taka">- ৳{discountAmount.toFixed(2)}</span>
-          </div>
-          <div className="flex justify-between items-center text-sm font-semibold text-slate-900 border-t border-slate-200 pt-3">
-            <span>TOTAL</span>
-            <span className="text-base text-[#006a52] font-taka font-semibold">
-              ৳{totalAmount.toFixed(2)}
-            </span>
-          </div>
-        </div>
-      </div>
 
+      
       {/* 2. SHOPPING BAG ITEMS LIST CARD */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm space-y-3">
+      <div className="bg-white rounded-xl border border-slate-200/90 p-5 space-y-3">
         <div
           onClick={() => setIsBagOpen(!isBagOpen)}
           className="flex items-center justify-between cursor-pointer select-none border-b border-slate-100 pb-2.5"
         >
-          <h3 className="font-extrabold text-xs text-slate-900 tracking-wider uppercase">
+          <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase">
             SHOPPING BAG ({cartItems.length})
           </h3>
           {isBagOpen ? (
@@ -105,16 +70,16 @@ export default function CheckoutSummarySidebar({
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-12 h-12 rounded-xl object-contain bg-slate-50 border border-slate-100 p-1 shrink-0"
+                    className="w-12 h-12 rounded-md object-contain bg-slate-50 border border-slate-100 p-1 shrink-0"
                   />
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-bold text-xs text-slate-900 line-clamp-1 leading-snug">
+                    <h4 className="font-medium text-xs text-slate-900 line-clamp-1 leading-snug">
                       {item.title}
                     </h4>
                     <span className="text-[11px] text-slate-400 font-medium block">
                       {item.weight}
                     </span>
-                    <span className="font-bold text-xs text-slate-900 font-taka block mt-0.5">
+                    <span className="font-medium text-xs text-slate-900 font-taka block mt-0.5">
                       {item.price} × {item.quantity}
                     </span>
 
@@ -128,7 +93,7 @@ export default function CheckoutSummarySidebar({
                         >
                           <FaMinus className="text-[8px]" />
                         </button>
-                        <span className="w-5 text-center font-bold text-xs text-slate-800">
+                        <span className="w-5 text-center font-medium text-xs text-slate-800">
                           {item.quantity}
                         </span>
                         <button
@@ -146,7 +111,7 @@ export default function CheckoutSummarySidebar({
                   <button
                     type="button"
                     onClick={() => removeFromCart(item.id)}
-                    className="text-slate-300 hover:text-rose-600 p-1 cursor-pointer"
+                    className="text-slate-400 hover:text-rose-600 p-1 cursor-pointer"
                   >
                     <FaXmark className="text-xs" />
                   </button>
@@ -157,25 +122,47 @@ export default function CheckoutSummarySidebar({
         )}
       </div>
 
-      {/* 3. DO YOU NEED A BAG? CARD */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm space-y-2">
-        <h3 className="font-extrabold text-xs text-slate-900 tracking-wider uppercase">
-          DO YOU NEED A BAG?
+      {/* 1. ORDER SUMMARY CARD */}
+      <div className="bg-white rounded-xl border border-slate-200/90 p-5 space-y-3">
+        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
+          ORDER SUMMARY
         </h3>
-        <label className="flex items-center gap-2.5 cursor-pointer select-none text-xs font-semibold text-slate-700">
-          <input
-            type="checkbox"
-            checked={needBag}
-            onChange={(e) => setNeedBag(e.target.checked)}
-            className="w-4 h-4 rounded border-slate-300 text-[#006a52] focus:ring-[#006a52] cursor-pointer"
-          />
-          <span>Yes, add a shopping bag to my order (+৳10)</span>
-        </label>
+        <div className="space-y-2 text-sm text-slate-600">
+          <div className="flex justify-between items-center">
+            <span className='font-medium text-xs'>SUBTOTAL</span>
+            <span className="font-semibold text-sm text-slate-900 font-taka">৳{subtotal.toFixed(2)}</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <span className='font-medium text-xs'>SHIPPING</span>
+            <span className="font-semibold text-sm text-slate-900 font-taka">৳{shippingFee.toFixed(2)}</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <span className='font-medium text-xs'>VAT</span>
+            <span className="font-semibold text-sm text-slate-900 font-taka">৳{vatAmount.toFixed(2)}</span>
+          </div>
+          {needBag && (
+            <div className="flex justify-between items-center text-emerald-700">
+              <span className='font-medium text-xs'>SHOPPING BAG</span>
+              <span className="font-semibold text-sm font-taka">৳10.00</span>
+            </div>
+          )}
+          <div className="flex justify-between items-center text-slate-600">
+            <span className='font-medium text-xs'>DISCOUNT</span>
+            <span className="font-semibold text-sm text-rose-600 font-taka">- ৳{discountAmount.toFixed(2)}</span>
+          </div>
+          <div className="flex justify-between items-center text-sm font-semibold text-slate-900 border-t border-slate-200 pt-3">
+            <span>TOTAL</span>
+            <span className="text-base text-[#006a52] font-taka font-semibold">
+              ৳{totalAmount.toFixed(2)}
+            </span>
+          </div>
+        </div>
       </div>
 
+
       {/* 4. PAYMENT METHOD CARD */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm space-y-3">
-        <h3 className="font-extrabold text-xs text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
+      <div className="bg-white rounded-xl border border-slate-200/90 p-5 space-y-3">
+        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
           PAYMENT METHOD
         </h3>
 
@@ -188,7 +175,7 @@ export default function CheckoutSummarySidebar({
               <label
                 key={opt.id}
                 onClick={() => setSelectedPayment(opt.id)}
-                className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${isSelected
+                className={`p-3 rounded-md border flex items-center justify-between cursor-pointer transition-all ${isSelected
                     ? 'border-[#006a52] bg-[#e8f3e8]/70 shadow-2xs font-bold text-[#006a52]'
                     : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
                   }`}
@@ -200,7 +187,7 @@ export default function CheckoutSummarySidebar({
                   >
                     {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                   </div>
-                  <span className="truncate text-[11px] uppercase font-bold tracking-wide">
+                  <span className="truncate text-[11px] uppercase font-semibold tracking-wide">
                     {opt.label}
                   </span>
                 </div>
@@ -212,16 +199,15 @@ export default function CheckoutSummarySidebar({
 
         {/* Checkout Information Disclaimer */}
         <div className="bg-slate-50 rounded-xl p-3 border border-slate-100 text-[11px] text-slate-600 space-y-1.5">
-          <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+          <div className="flex items-center gap-1.5 text-sm font-semibold text-slate-800">
             <FaCircleCheck className="text-[#006a52]" />
             <span>Checkout Information</span>
           </div>
-          <p className="text-[10px] text-slate-500 leading-tight">
-            • Discounted products are not eligible for return or exchange.
-            <br />
-            • Accept delivered parcels in sealed condition.
-            <br />• Orders cannot be modified after confirmation.
-          </p>
+          <ul className='list-disc pl-4 space-y-1 text-xs text-slate-500 leading-tight'>
+            <li >Discounted products are not eligible for return or exchange.</li>
+            <li >Accept delivered parcels in sealed condition.</li>
+            <li >Orders cannot be modified after confirmation.</li>
+          </ul>
         </div>
 
         {/* Place Order CTA Button */}
@@ -229,7 +215,7 @@ export default function CheckoutSummarySidebar({
           type="button"
           onClick={onPlaceOrder}
           disabled={isSubmitting || cartItems.length === 0}
-          className="w-full bg-[#006a52] hover:bg-[#005240] text-white font-extrabold text-xs py-3.5 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer tracking-widest uppercase mt-2"
+          className="w-full bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-sm py-3.5 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer tracking-widest uppercase mt-2"
         >
           <FaLock className="text-xs" />
           <span>{isSubmitting ? 'PROCESSING...' : 'PLACE ORDER'}</span>

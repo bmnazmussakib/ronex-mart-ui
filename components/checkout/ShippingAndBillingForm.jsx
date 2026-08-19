@@ -290,8 +290,8 @@ export default function ShippingAndBillingForm({
       )}
 
       {/* PROMO CODE CARD */}
-      <div className="bg-white rounded-lg border border-slate-200/90 p-5 sm:p-6 space-y-3">
-        <h3 className="font-semibold text-xs text-slate-900 tracking-wider uppercase flex items-center gap-2">
+      <div className="bg-white rounded-xl border border-slate-200/90 p-5 sm:p-6 space-y-3">
+        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase flex items-center gap-2">
           PROMO CODE
         </h3>
         <div className="flex items-center gap-2">
@@ -313,8 +313,8 @@ export default function ShippingAndBillingForm({
       </div>
 
       {/* EXCHANGE ORDER CARD */}
-      <div className="bg-white rounded-lg border border-slate-200/90 p-5 sm:p-6  space-y-3">
-        <h3 className="font-semibold text-xs text-slate-900 tracking-wider uppercase flex items-center gap-2">
+      <div className="bg-white rounded-xl border border-slate-200/90 p-5 sm:p-6  space-y-3">
+        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase flex items-center gap-2">
           EXCHANGE ORDER
         </h3>
         <div className="flex items-center gap-2">

@@ -33,7 +33,7 @@ export default function ProductCard({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-[#006a52] transition-all group w-full h-full">
+    <div className="bg-white rounded-xl border border-slate-200/90 overflow-hidden flex flex-col justify-between hover:shadow-md hover:border-[#006a52] transition-all group w-full h-full">
       {/* Product Image Container */}
       <Link href={`/product/${id}`} className="bg-white p-3 flex items-center justify-center relative shrink-0 block">
         {badge ? (
@@ -59,7 +59,7 @@ export default function ProductCard({
             <RiHeart3Line className="text-slate-500 text-lg group-hover/heart:text-red-500 transition-colors" />
           )}
         </button>
-        <div className="bg-slate-50/60 w-full aspect-square rounded-xl p-3 flex items-center justify-center border border-slate-100 overflow-hidden">
+        <div className="bg-slate-50/60 w-full aspect-square rounded-lg p-3 flex items-center justify-center border border-slate-100 overflow-hidden">
           <img
             src={image}
             alt={title}
