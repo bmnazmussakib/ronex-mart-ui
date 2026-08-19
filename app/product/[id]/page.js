@@ -2,6 +2,7 @@ import ProductGallery from '@/components/product/ProductGallery';
 import ProductInfo from '@/components/product/ProductInfo';
 import ProductTabs from '@/components/product/ProductTabs';
 import RelatedProducts from '@/components/product/RelatedProducts';
+import RelatedProductsVertical from '@/components/product/RelatedProductsVertical';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 
 export default async function ProductDetailsPage({ params }) {
@@ -42,12 +43,16 @@ export default async function ProductDetailsPage({ params }) {
       <Breadcrumb items={breadcrumbItems} />
 
       {/* Main Details Grid: Left Gallery + Right Info */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <div className="lg:col-span-5">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="lg:col-span-4">
           <ProductGallery images={productData.images} defaultBadge={productData.discount} />
         </div>
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-5">
           <ProductInfo product={productData} />
+        </div>
+        <div className="lg:col-span-3">
+          {/* Related Product vertical slider */}
+          <RelatedProductsVertical />
         </div>
       </div>
 

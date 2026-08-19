@@ -66,18 +66,18 @@ export default function ProductInfo({ product }) {
   };
 
   return (
-    <div className="flex flex-col gap-5 bg-white rounded-2xl border border-slate-200/90 p-6 shadow-sm">
+    <div className="flex flex-col gap-5 bg-white rounded-2xl py-6 ">
       {/* Category & Brand Header */}
       <div className="flex items-center justify-between gap-4 border-b border-slate-100 pb-3">
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
           <span>Brand:</span>
-          <Link href="#" className="text-[#006a52] hover:underline font-bold">
+          <Link href="#" className="text-[#006a52] hover:underline font-semibold">
             {data.brand}
           </Link>
           <span>•</span>
           <span className="text-slate-400">SKU: {data.sku}</span>
         </div>
-        <span className="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200/60 flex items-center gap-1">
+        <span className="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full border border-emerald-200/60 flex items-center gap-1">
           <FaCircleCheck className="text-[10px] text-emerald-600" />
           {data.stock}
         </span>
@@ -85,7 +85,7 @@ export default function ProductInfo({ product }) {
 
       {/* Title */}
       <div>
-        <h1 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+        <h1 className="text-xl sm:text-2xl font-semibold text-slate-900 leading-snug">
           {data.title}
         </h1>
 
@@ -97,7 +97,7 @@ export default function ProductInfo({ product }) {
             <FaStar />
             <FaStar />
             <FaStarHalfStroke />
-            <span className="font-bold text-slate-700 ml-1">{data.rating}</span>
+            <span className="font-semibold text-slate-700 ml-1">{data.rating}</span>
           </div>
           <span className="text-slate-300">•</span>
           <a href="#reviews" className="text-slate-500 hover:text-[#006a52] underline font-medium">
@@ -107,9 +107,9 @@ export default function ProductInfo({ product }) {
       </div>
 
       {/* Price Block */}
-      <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex items-center justify-between">
+      <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center justify-between">
         <div className="flex items-baseline gap-2">
-          <span className="text-2xl sm:text-3xl font-bold text-slate-900 font-taka">
+          <span className="text-2xl sm:text-3xl font-semibold text-slate-900 font-taka">
             {data.price}
           </span>
           {data.oldPrice && (
@@ -136,8 +136,8 @@ export default function ProductInfo({ product }) {
               key={idx}
               onClick={() => setSelectedWeight(w)}
               className={`px-4 py-2 text-xs font-semibold rounded-full border transition-all cursor-pointer ${selectedWeight === w
-                  ? 'border-[#006a52] bg-[#e8f3e8] text-[#006a52] shadow-sm'
-                  : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                ? 'border-[#006a52] bg-[#e8f3e8] text-[#006a52] shadow-sm'
+                : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
                 }`}
             >
               {w}
@@ -152,9 +152,8 @@ export default function ProductInfo({ product }) {
           /* Initial Add to Cart Button */
           <button
             onClick={handleAddToCart}
-            className="flex-1 bg-[#006a52] hover:bg-[#005240] text-white font-bold text-xs py-3 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
+            className="flex-1 bg-[#006a52] hover:bg-[#005240] text-white font-semibold uppercase text-xs py-3 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
           >
-            <FaCartShopping className="text-xs" />
             <span>Add To Cart</span>
           </button>
         ) : (
@@ -183,7 +182,7 @@ export default function ProductInfo({ product }) {
         {/* Buy Now Button */}
         <button
           onClick={handleAddToCart}
-          className="flex-1 bg-[#f97316] hover:bg-[#ea580c] text-white font-bold text-xs py-3 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
+          className="flex-1 bg-[#f97316] hover:bg-[#ea580c] text-white font-semibold uppercase text-xs py-3 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
         >
           <span>Buy Now</span>
         </button>

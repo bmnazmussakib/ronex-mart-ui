@@ -7,40 +7,40 @@ export default function ProductTabs() {
   const [activeTab, setActiveTab] = useState('description');
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden my-4">
+    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
       {/* Tabs Header */}
-      <div className="flex items-center border-b border-slate-200 bg-slate-50 px-4 pt-3 overflow-x-auto gap-2">
+      <div className="flex items-center border-b border-slate-200 bg-slate-50 px-2 pt-2 overflow-x-auto gap-1 custom-scrollbar">
         <button
           onClick={() => setActiveTab('description')}
-          className={`px-5 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${activeTab === 'description'
-              ? 'border-[#006a52] text-[#006a52] bg-white rounded-t-xl'
+          className={`px-3.5 py-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${activeTab === 'description'
+              ? 'border-[#006a52] text-[#006a52] bg-white rounded-t-lg shadow-2xs'
               : 'border-transparent text-slate-600 hover:text-slate-900'
             }`}
         >
-          Product Description
+          Description
         </button>
         <button
           onClick={() => setActiveTab('specifications')}
-          className={`px-5 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${activeTab === 'specifications'
-              ? 'border-[#006a52] text-[#006a52] bg-white rounded-t-xl'
+          className={`px-3.5 py-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${activeTab === 'specifications'
+              ? 'border-[#006a52] text-[#006a52] bg-white rounded-t-lg shadow-2xs'
               : 'border-transparent text-slate-600 hover:text-slate-900'
             }`}
         >
-          Specifications & Ingredients
+          Specifications
         </button>
         <button
           onClick={() => setActiveTab('reviews')}
-          className={`px-5 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${activeTab === 'reviews'
-              ? 'border-[#006a52] text-[#006a52] bg-white rounded-t-xl'
+          className={`px-3.5 py-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer whitespace-nowrap ${activeTab === 'reviews'
+              ? 'border-[#006a52] text-[#006a52] bg-white rounded-t-lg shadow-2xs'
               : 'border-transparent text-slate-600 hover:text-slate-900'
             }`}
         >
-          Customer Reviews (128)
+          Reviews (128)
         </button>
       </div>
 
       {/* Tab Content */}
-      <div className="p-6 text-xs text-slate-700 leading-relaxed">
+      <div className="p-5 text-xs text-slate-700 leading-relaxed">
         {activeTab === 'description' && (
           <div className="space-y-4">
             <h3 className="text-sm font-bold text-slate-900">About this item</h3>

@@ -30,7 +30,7 @@ export default function ProductGallery({ images, defaultBadge }) {
   return (
     <div className="flex flex-col gap-3">
       {/* Main Image Box with Swiper */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-6 flex items-center justify-center relative overflow-hidden shadow-sm aspect-square group">
+      <div className="bg-white rounded-xl border border-slate-200/90 p-6 flex items-center justify-center relative overflow-hidden  aspect-square group">
         {defaultBadge && (
           <span className="bg-[#f97316] text-white text-xs font-bold px-3 py-1 rounded-full absolute top-4 left-4 z-10 shadow-sm">
             {defaultBadge}
@@ -87,11 +87,10 @@ export default function ProductGallery({ images, defaultBadge }) {
           <button
             key={idx}
             onClick={() => handleThumbClick(idx)}
-            className={`aspect-square rounded-xl bg-white border p-2 flex items-center justify-center overflow-hidden transition-all cursor-pointer ${
-              activeIndex === idx
-                ? 'border-[#006a52] ring-2 ring-[#006a52]/20 shadow-sm'
-                : 'border-slate-200 hover:border-slate-300'
-            }`}
+            className={`aspect-square rounded-lg bg-white border p-2 flex items-center justify-center overflow-hidden transition-all cursor-pointer ${activeIndex === idx
+              ? 'border-[#006a52] ring-2 ring-[#006a52]/20 '
+              : 'border-slate-200 hover:border-slate-300'
+              }`}
           >
             <img
               src={img}

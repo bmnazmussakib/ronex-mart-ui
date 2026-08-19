@@ -3,7 +3,7 @@ import { FaChevronRight } from 'react-icons/fa6';
 
 export default function Breadcrumb({ items = [] }) {
   return (
-    <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm overflow-x-auto">
+    <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 bg-white p-3 rounded-lg border border-slate-200/90  overflow-x-auto">
       {items.map((item, idx) => {
         const isLast = idx === items.length - 1;
         return (
