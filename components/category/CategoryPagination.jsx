@@ -12,9 +12,9 @@ export default function CategoryPagination({ totalPages = 4, onPageChange }) {
   };
 
   return (
-    <div className="flex items-center justify-between bg-white rounded-2xl border border-slate-200/90 p-4 shadow-sm my-6">
+    <div className="flex items-center justify-between bg-white rounded-xl border border-slate-200/90 p-4  my-6">
       <span className="text-xs font-semibold text-slate-500">
-        Page <strong className="text-slate-900">{currentPage}</strong> of <strong className="text-slate-900">{totalPages}</strong>
+        Page <span className="text-slate-900">{currentPage}</span> of <span className="text-slate-900">{totalPages}</span>
       </span>
 
       <div className="flex items-center gap-1.5">
