@@ -10,7 +10,7 @@ export default function CategoryHeader({ title, itemCount, sortBy, onSortChange 
 
       {/* Title & Count */}
       <div className="z-10 space-y-1">
-        <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md text-emerald-300 text-[10px] font-bold tracking-widest uppercase rounded-full border border-emerald-500/30">
+        <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md text-[#5ba902] text-[10px] font-bold tracking-widest uppercase rounded-full border border-emerald-500/30">
           EXPLORE CATEGORY
         </span>
         <h1 className="text-2xl sm:text-3xl font-semibold text-white">
