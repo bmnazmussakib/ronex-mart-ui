@@ -12,7 +12,7 @@ export default function CategoryPagination({ totalPages = 4, onPageChange }) {
   };
 
   return (
-    <div className="flex items-center justify-between bg-white rounded-xl border border-slate-200/90 p-4  my-6">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-3 sm:p-4 my-4 sm:my-6">
       <span className="text-xs font-semibold text-slate-500">
         Page <span className="text-slate-900">{currentPage}</span> of <span className="text-slate-900">{totalPages}</span>
       </span>
@@ -27,18 +27,21 @@ export default function CategoryPagination({ totalPages = 4, onPageChange }) {
           <span>Previous</span>
         </button>
 
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-          <button
-            key={page}
-            onClick={() => handlePageClick(page)}
-            className={`w-8 h-8 rounded-full text-xs font-bold transition-all cursor-pointer ${currentPage === page
-                ? 'bg-[#006a52] text-white shadow-sm'
-                : 'bg-white border border-slate-200 text-slate-700 hover:border-[#006a52] hover:text-[#006a52]'
+        <div className="hidden sm:flex items-center gap-1.5">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <button
+              key={page}
+              onClick={() => handlePageClick(page)}
+              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                currentPage === page
+                  ? 'bg-[#006a52] text-white shadow-xs'
+                  : 'bg-white border border-slate-200 text-slate-700 hover:border-[#006a52] hover:text-[#006a52]'
               }`}
-          >
-            {page}
-          </button>
-        ))}
+            >
+              {page}
+            </button>
+          ))}
+        </div>
 
         <button
           disabled={currentPage === totalPages}

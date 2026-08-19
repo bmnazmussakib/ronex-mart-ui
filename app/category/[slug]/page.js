@@ -106,7 +106,7 @@ export default async function CategorySlugPage({ params }) {
   ];
 
   return (
-    <div className="flex flex-col gap-5 py-2">
+    <div className="flex flex-col gap-3 sm:gap-5 py-1 sm:py-2">
       {/* Breadcrumb Bar */}
       <Breadcrumb items={breadcrumbItems} />
 
@@ -114,7 +114,7 @@ export default async function CategorySlugPage({ params }) {
       <CategoryHeader title={currentTitle} itemCount={productsList.length} />
 
       {/* Main Grid: Left Filters + Right Product Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
         {/* Left Filter Sidebar */}
         <div className="lg:col-span-3">
           <CategoryFilterSidebar />
@@ -122,7 +122,7 @@ export default async function CategorySlugPage({ params }) {
 
         {/* Right Product Grid */}
         <div className="lg:col-span-9 flex flex-col justify-between">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 min-[480px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
             {productsList.map((item) => (
               <div key={item.id} className="h-full">
                 <ProductCard {...item} />
