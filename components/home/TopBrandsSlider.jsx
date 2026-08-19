@@ -1,14 +1,8 @@
 'use client';
 
-import { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import Marquee from 'react-fast-marquee';
 
 export default function TopBrandsSlider() {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-
   const brands = [
     { name: "Brand 1", logo: "/img/brand/brand (1).jpeg" },
     { name: "Brand 2", logo: "/img/brand/brand (2).jpeg" },
@@ -26,66 +20,29 @@ export default function TopBrandsSlider() {
   ];
 
   return (
-    <div className="py-3">
-      <div className="flex items-center justify-between mb-5">
-        <div>
-          <span className="text-xs font-medium tracking-widest capitalize text-[#006a52] block mb-0.5">
-            Top partner brands
-          </span>
-          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
-            Top Partner Brands
-          </h2>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <button
-            ref={prevRef}
-            aria-label="Previous Brand"
-            className="w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
-          >
-            <FaChevronLeft />
-          </button>
-          <button
-            ref={nextRef}
-            aria-label="Next Brand"
-            className="w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
-          >
-            <FaChevronRight />
-          </button>
-        </div>
+    <div className="py-3 overflow-hidden">
+      <div className="text-center mb-5">
+        
+        <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
+          Top Partner Brands
+        </h2>
       </div>
 
-      <Swiper
-        modules={[Autoplay, Navigation]}
-        slidesPerView={3}
-        spaceBetween={12}
-        loop={true}
-        autoplay={{ delay: 2800, disableOnInteraction: false }}
-        onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-        }}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        breakpoints={{
-          480: { slidesPerView: 4, spaceBetween: 12 },
-          640: { slidesPerView: 6, spaceBetween: 14 },
-          1024: { slidesPerView: 8, spaceBetween: 16 },
-        }}
-      >
+      <Marquee pauseOnHover={true} speed={40} gradient={false} className="overflow-hidden py-2">
         {brands.map((brand, idx) => (
-          <SwiperSlide key={idx}>
-            <div className="bg-white rounded-xl  h-16 sm:h-18 flex items-center justify-center transition-all cursor-pointer group">
-              <img
-                src={brand.logo}
-                alt={brand.name}
-                className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          </SwiperSlide>
+          <div
+            key={idx}
+            className="mx-3 sm:mx-4 bg-white rounded-xl h-16 sm:h-18 flex items-center justify-center transition-all cursor-pointer group px-4 overflow-hidden"
+          >
+            <img
+              src={brand.logo}
+              alt={brand.name}
+              className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
         ))}
-      </Swiper>
+      </Marquee>
     </div>
   );
 }
+

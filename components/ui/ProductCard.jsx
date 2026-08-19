@@ -50,11 +50,11 @@ export default function ProductCard({
       {/* Details Area */}
       <div className="p-4 bg-white flex-1 flex flex-col justify-between pt-1">
         <div>
-          <span className="text-[11px] font-semibold text-[#006a52] uppercase tracking-wide block truncate">
+          <span className="text-[11px] font-medium text-slate-400 uppercase tracking-wide block truncate">
             {category}
           </span>
           <Link href={`/product/${id}`} className="block">
-            <h3 className="font-semibold text-sm text-slate-800 hover:text-[#006a52] line-clamp-2 mt-1 leading-snug min-h-[2.5rem] flex items-start transition-colors">
+            <h3 className="font-semibold text-sm text-slate-900 hover:text-[#006a52] line-clamp-2 mt-1 leading-snug min-h-[2.5rem] flex items-start transition-colors">
               {title}
             </h3>
           </Link>

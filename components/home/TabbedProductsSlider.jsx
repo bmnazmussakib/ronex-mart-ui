@@ -38,6 +38,54 @@ export default function TabbedProductsSlider() {
         price: "৳1,850",
       },
       {
+        image: "/img/product/product (1).jpeg",
+        title: "Kirkland Organic Raw & Unfiltered Honey 3pcs",
+        category: "GROCERY & FOOD",
+        rating: "4.8",
+        weight: "680 g x 3",
+        price: "৳5,550",
+      },
+      {
+        image: "/img/product/product (2).jpeg",
+        title: "Kirkland Honey Pet Bottle 680 Gm",
+        category: "GROCERY & FOOD",
+        rating: "4.7",
+        weight: "680 g",
+        price: "৳1,890",
+      },
+      {
+        image: "/img/product/product (3).jpeg",
+        title: "Don Victor Blossom Pure Honey Glass Jar 454g",
+        category: "IMPORTED FOODS",
+        rating: "4.6",
+        weight: "454 g",
+        price: "৳1,850",
+      },
+      {
+        image: "/img/product/product (1).jpeg",
+        title: "Kirkland Organic Raw & Unfiltered Honey 3pcs",
+        category: "GROCERY & FOOD",
+        rating: "4.8",
+        weight: "680 g x 3",
+        price: "৳5,550",
+      },
+      {
+        image: "/img/product/product (2).jpeg",
+        title: "Kirkland Honey Pet Bottle 680 Gm",
+        category: "GROCERY & FOOD",
+        rating: "4.7",
+        weight: "680 g",
+        price: "৳1,890",
+      },
+      {
+        image: "/img/product/product (3).jpeg",
+        title: "Don Victor Blossom Pure Honey Glass Jar 454g",
+        category: "IMPORTED FOODS",
+        rating: "4.6",
+        weight: "454 g",
+        price: "৳1,850",
+      },
+      {
         image: "/img/product/product (4).jpeg",
         title: "Don Victor Honey With Comb Glass Jar 454g",
         category: "IMPORTED FOODS",
@@ -135,44 +183,42 @@ export default function TabbedProductsSlider() {
   return (
     <div className="py-4">
       {/* Section Header with Title & Filter Tabs */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 gap-3">
+      <div className="flex flex-col items-center justify-center text-center mb-6 gap-3">
         <div>
-          <span className="text-xs font-medium tracking-widest capitalize text-[#006a52] block mb-0.5">
-            Discover featured collections
-          </span>
+          
           <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
             Featured Products
           </h2>
         </div>
 
         {/* Tabs Filter Bar */}
-        <div className="inline-flex items-center bg-white border border-slate-200/80 rounded-full p-1 shadow-2xs gap-1 self-start sm:self-auto">
+        <div className="inline-flex items-center bg-white rounded-full p-1  gap-2 flex-wrap justify-center">
           <button
             onClick={() => setActiveTab('new-arrival')}
-            className={`text-xs px-4 py-1.5 rounded-full transition-all cursor-pointer ${
+            className={`text-sm px-4 py-1.5 rounded-full transition-all cursor-pointer ${
               activeTab === 'new-arrival'
-                ? 'bg-[#006a52] text-white shadow-2xs font-medium'
-                : 'text-slate-600 font-medium hover:text-[#006a52] hover:bg-slate-50'
+                ? 'bg-[#006a52] border border-[#006a52] text-white shadow-2xs font-medium'
+                : 'text-slate-600 border border-slate-300 font-medium hover:text-[#006a52] hover:bg-slate-50'
             }`}
           >
             New Arrival
           </button>
           <button
             onClick={() => setActiveTab('imported-products')}
-            className={`text-xs px-4 py-1.5 rounded-full transition-all cursor-pointer ${
+            className={`text-sm px-4 py-1.5 rounded-full transition-all cursor-pointer ${
               activeTab === 'imported-products'
-                ? 'bg-[#006a52] text-white shadow-2xs font-medium'
-                : 'text-slate-600 font-medium hover:text-[#006a52] hover:bg-slate-50'
+                ? 'bg-[#006a52] border border-[#006a52] text-white shadow-2xs font-medium'
+                : 'text-slate-600 border border-slate-300 font-medium hover:text-[#006a52] hover:bg-slate-50'
             }`}
           >
             Imported Products
           </button>
           <button
             onClick={() => setActiveTab('imported-usa')}
-            className={`text-xs px-4 py-1.5 rounded-full transition-all cursor-pointer ${
+            className={`text-sm px-4 py-1.5 rounded-full transition-all cursor-pointer ${
               activeTab === 'imported-usa'
-                ? 'bg-[#006a52] text-white shadow-2xs font-medium'
-                : 'text-slate-600 font-medium hover:text-[#006a52] hover:bg-slate-50'
+                ? 'bg-[#006a52] border border-[#006a52] text-white shadow-2xs font-medium'
+                : 'text-slate-600 border border-slate-300 font-medium hover:text-[#006a52] hover:bg-slate-50'
             }`}
           >
             Imported From USA

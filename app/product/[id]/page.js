@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import ProductGallery from '@/components/product/ProductGallery';
 import ProductInfo from '@/components/product/ProductInfo';
 import ProductTabs from '@/components/product/ProductTabs';
 import RelatedProducts from '@/components/product/RelatedProducts';
-import { FaChevronRight } from 'react-icons/fa6';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 
 export default async function ProductDetailsPage({ params }) {
   const { id } = await params;
@@ -30,26 +29,17 @@ export default async function ProductDetailsPage({ params }) {
     ],
   };
 
+  const breadcrumbItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Grocery & Food', href: '#' },
+    { label: productData.category, href: '#' },
+    { label: productData.title },
+  ];
+
   return (
     <div className="flex flex-col gap-5 py-2">
       {/* Breadcrumb Bar */}
-      <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm overflow-x-auto">
-        <Link href="/" className="hover:text-[#006a52] transition-colors whitespace-nowrap">
-          Home
-        </Link>
-        <FaChevronRight className="text-[9px] text-slate-300 shrink-0" />
-        <Link href="#" className="hover:text-[#006a52] transition-colors whitespace-nowrap">
-          Grocery & Food
-        </Link>
-        <FaChevronRight className="text-[9px] text-slate-300 shrink-0" />
-        <Link href="#" className="hover:text-[#006a52] transition-colors whitespace-nowrap">
-          {productData.category}
-        </Link>
-        <FaChevronRight className="text-[9px] text-slate-300 shrink-0" />
-        <span className="text-slate-800 font-bold truncate max-w-xs">
-          {productData.title}
-        </span>
-      </nav>
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* Main Details Grid: Left Gallery + Right Info */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">

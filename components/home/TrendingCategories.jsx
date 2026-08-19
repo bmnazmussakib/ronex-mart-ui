@@ -66,22 +66,12 @@ export default function TrendingCategories() {
       {/* Section Header */}
       <div className="flex items-center justify-between mb-5">
         <div>
-          <span className="text-xs font-medium tracking-widest capitalize text-[#006a52] block mb-0.5">
-            explore popular picks
-          </span>
           <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
             Trending Categories
           </h2>
         </div>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="/category"
-            className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-[#006a52] hover:underline"
-          >
-            <span>All Categories</span>
-            <FaArrowRight className="text-[10px]" />
-          </Link>
           <div className="flex items-center gap-1.5">
             <button
               ref={prevRef}
@@ -142,7 +132,7 @@ export default function TrendingCategories() {
 
               {/* Title & Highlighted Count Badge */}
               <div className="flex flex-col items-center w-full z-10">
-                <h3 className="font-extrabold text-xs text-slate-800 group-hover:text-[#006a52] transition-colors line-clamp-1">
+                <h3 className="font-medium text-sm text-slate-800 group-hover:text-[#006a52] transition-colors line-clamp-1">
                   {cat.title}
                 </h3>
                 <span className="text-[10px] text-slate-500 group-hover:text-white font-semibold bg-slate-100 group-hover:bg-[#006a52] px-2 py-0.5 rounded-full mt-1 transition-colors duration-300">
