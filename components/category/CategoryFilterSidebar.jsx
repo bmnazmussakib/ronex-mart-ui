@@ -10,6 +10,7 @@ export default function CategoryFilterSidebar({ onFilterChange }) {
   const [inStockOnly, setInStockOnly] = useState(false);
   const [selectedRating, setSelectedRating] = useState(null);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
+  const [currentSort, setCurrentSort] = useState('default');
 
   const subCategories = [
     { title: "Edible Oil & Ghee", count: 14 },
@@ -47,17 +48,17 @@ export default function CategoryFilterSidebar({ onFilterChange }) {
     <div className="space-y-4 sm:space-y-6">
       {/* Sub-categories */}
       <div className="space-y-2">
-        <h4 className="text-xs font-semibold text-slate-800 uppercase tracking-wider">
+        <h4 className="text-[11px] sm:text-xs font-semibold text-slate-800 uppercase tracking-wider">
           Sub-Categories
         </h4>
-        <div className="space-y-1 text-xs">
+        <div className="space-y-1 text-[11px] sm:text-xs">
           {subCategories.map((sub, idx) => (
             <button
               key={idx}
-              className="w-full flex items-center justify-between py-1.5 px-2 rounded-md text-slate-700 hover:bg-[#e8f3e8] hover:text-[#006a52] font-medium transition-colors text-left cursor-pointer"
+              className="w-full flex items-center justify-between py-1 sm:py-1.5 px-2 rounded-md text-slate-700 hover:bg-[#e8f3e8] hover:text-[#006a52] font-medium transition-colors text-left cursor-pointer"
             >
               <span>{sub.title}</span>
-              <span className="text-[10px] text-slate-400 font-semibold bg-slate-100 px-2 py-0.5 rounded-full">
+              <span className="text-[9px] sm:text-[10px] text-slate-400 font-semibold bg-slate-100 px-1.5 sm:px-2 py-0.5 rounded-full">
                 {sub.count}
               </span>
             </button>
@@ -66,41 +67,41 @@ export default function CategoryFilterSidebar({ onFilterChange }) {
       </div>
 
       {/* Price Range Filter */}
-      <div className="space-y-3 border-t border-slate-100 pt-4">
-        <h4 className="text-xs font-semibold text-slate-800 uppercase tracking-wider">
+      <div className="space-y-2.5 sm:space-y-3 border-t border-slate-100 pt-3.5 sm:pt-4">
+        <h4 className="text-[11px] sm:text-xs font-semibold text-slate-800 uppercase tracking-wider">
           Price Range (৳)
         </h4>
-        <div className="flex items-center gap-2 text-xs">
-          <div className="flex-1 bg-slate-50 border border-slate-200 rounded-md px-2.5 py-1.5 flex items-center gap-1">
-            <span className="text-slate-400 font-bold font-taka">৳</span>
+        <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs">
+          <div className="flex-1 bg-slate-50 border border-slate-200 rounded-md px-2 sm:px-2.5 py-1 sm:py-1.5 flex items-center gap-1">
+            <span className="text-slate-400 font-bold font-taka text-xs">৳</span>
             <input
               type="number"
               value={minPrice}
               onChange={(e) => setMinPrice(Number(e.target.value))}
               placeholder="Min"
-              className="w-full bg-transparent text-slate-800 font-semibold focus:outline-none"
+              className="w-full bg-transparent text-slate-800 font-medium focus:outline-none text-[11px] sm:text-xs"
             />
           </div>
-          <span className="text-slate-400">-</span>
-          <div className="flex-1 bg-slate-50 border border-slate-200 rounded-md px-2.5 py-1.5 flex items-center gap-1">
-            <span className="text-slate-400 font-bold font-taka">৳</span>
+          <span className="text-slate-400 text-xs">-</span>
+          <div className="flex-1 bg-slate-50 border border-slate-200 rounded-md px-2 sm:px-2.5 py-1 sm:py-1.5 flex items-center gap-1">
+            <span className="text-slate-400 font-bold font-taka text-xs">৳</span>
             <input
               type="number"
               value={maxPrice}
               onChange={(e) => setMaxPrice(Number(e.target.value))}
               placeholder="Max"
-              className="w-full bg-transparent text-slate-800 font-semibold focus:outline-none"
+              className="w-full bg-transparent text-slate-800 font-medium focus:outline-none text-[11px] sm:text-xs"
             />
           </div>
         </div>
       </div>
 
       {/* Brand Checkboxes */}
-      <div className="space-y-2.5 border-t border-slate-100 pt-4">
-        <h4 className="text-xs font-semibold text-slate-800 uppercase tracking-wider">
+      <div className="space-y-2.5 border-t border-slate-100 pt-3.5 sm:pt-4">
+        <h4 className="text-[11px] sm:text-xs font-semibold text-slate-800 uppercase tracking-wider">
           Popular Brands
         </h4>
-        <div className="space-y-2 text-xs max-h-48 overflow-y-auto custom-scrollbar pr-1">
+        <div className="space-y-2 text-[11px] sm:text-xs max-h-48 overflow-y-auto custom-scrollbar pr-1">
           {brands.map((b, idx) => (
             <label
               key={idx}
@@ -111,35 +112,35 @@ export default function CategoryFilterSidebar({ onFilterChange }) {
                   type="checkbox"
                   checked={selectedBrands.includes(b.name)}
                   onChange={() => toggleBrand(b.name)}
-                  className="rounded border-slate-300 text-[#006a52] focus:ring-[#006a52] cursor-pointer"
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded border-slate-300 text-[#006a52] focus:ring-[#006a52] cursor-pointer"
                 />
                 <span className="font-medium">{b.name}</span>
               </div>
-              <span className="text-[10px] text-slate-400 font-bold">({b.count})</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-400 font-bold">({b.count})</span>
             </label>
           ))}
         </div>
       </div>
 
       {/* Customer Rating Filter */}
-      <div className="space-y-2 border-t border-slate-100 pt-4">
-        <h4 className="text-xs font-semibold text-slate-800 uppercase tracking-wider">
+      <div className="space-y-2 border-t border-slate-100 pt-3.5 sm:pt-4">
+        <h4 className="text-[11px] sm:text-xs font-semibold text-slate-800 uppercase tracking-wider">
           Rating
         </h4>
-        <div className="space-y-1.5 text-xs">
+        <div className="space-y-1.5 text-[11px] sm:text-xs">
           {[4, 3].map((stars) => (
             <button
               key={stars}
               onClick={() => setSelectedRating(stars)}
-              className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md border text-left transition-all cursor-pointer ${
+              className={`w-full flex items-center justify-between px-2.5 py-1 sm:py-1.5 rounded-md border text-left transition-all cursor-pointer ${
                 selectedRating === stars
                   ? 'border-[#006a52] bg-[#e8f3e8] text-[#006a52] font-semibold'
                   : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
               }`}
             >
               <div className="flex items-center gap-1 text-amber-500">
-                <FaStar />
-                <span className="text-xs font-semibold text-slate-800 ml-1">{stars}★ & above</span>
+                <FaStar className="text-xs" />
+                <span className="text-[11px] sm:text-xs font-semibold text-slate-800 ml-1">{stars}★ & above</span>
               </div>
             </button>
           ))}
@@ -147,19 +148,27 @@ export default function CategoryFilterSidebar({ onFilterChange }) {
       </div>
 
       {/* Availability Toggle */}
-      <div className="border-t border-slate-100 pt-4">
-        <label className="flex items-center justify-between cursor-pointer select-none text-xs font-semibold text-slate-800">
+      <div className="border-t border-slate-100 pt-3.5 sm:pt-4">
+        <label className="flex items-center justify-between cursor-pointer select-none text-[11px] sm:text-xs font-semibold text-slate-800">
           <span>In Stock Only</span>
           <input
             type="checkbox"
             checked={inStockOnly}
             onChange={(e) => setInStockOnly(e.target.checked)}
-            className="w-4 h-4 rounded border-slate-300 text-[#006a52] focus:ring-[#006a52] cursor-pointer"
+            className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded border-slate-300 text-[#006a52] focus:ring-[#006a52] cursor-pointer"
           />
         </label>
       </div>
     </div>
   );
+
+  const sortLabels = {
+    'default': 'Default',
+    'price-low': 'Low to High',
+    'price-high': 'High to Low',
+    'popularity': 'Popularity',
+    'rating': 'Rating',
+  };
 
   return (
     <>
@@ -167,26 +176,31 @@ export default function CategoryFilterSidebar({ onFilterChange }) {
       <div className="flex items-center gap-2 lg:hidden">
         <button
           onClick={() => setIsFilterDrawerOpen(true)}
-          className="flex-1 bg-white border border-slate-200/90 hover:border-[#006a52] text-slate-800 font-semibold text-xs py-2.5 px-3 rounded-md sm:rounded-lg flex items-center justify-center gap-2 shadow-2xs transition-colors cursor-pointer"
+          className="flex-1 bg-white border border-slate-200/90 hover:border-[#006a52] text-slate-800 font-semibold text-[11px] sm:text-xs py-2 sm:py-2.5 px-2.5 sm:px-3 rounded-md sm:rounded-lg flex items-center justify-center gap-1.5 shadow-2xs transition-colors cursor-pointer"
         >
-          <FaFilter className="text-[#006a52] text-xs" />
+          <FaFilter className="text-[#006a52] text-[10px] sm:text-xs" />
           <span>Filter Products</span>
         </button>
 
-        <div className="flex-1 bg-white border border-slate-200/90 hover:border-[#006a52] text-slate-800 font-semibold text-xs py-2 px-3 rounded-md sm:rounded-lg flex items-center justify-between shadow-2xs relative">
-          <div className="flex items-center gap-1.5 shrink-0">
-            <FaArrowDownShortWide className="text-[#006a52] text-xs" />
-            <span className="text-slate-600 font-medium">Sort by:</span>
-          </div>
+        {/* Center-aligned & 100% Clickable Sort Box */}
+        <div className="relative flex-1 bg-white border border-slate-200/90 hover:border-[#006a52] text-slate-800 font-semibold text-[11px] sm:text-xs py-2 sm:py-2.5 px-2.5 sm:px-3 rounded-md sm:rounded-lg flex items-center justify-center gap-1 sm:gap-1.5 shadow-2xs transition-colors cursor-pointer">
+          <FaArrowDownShortWide className="text-[#006a52] text-[10px] sm:text-xs shrink-0" />
+          <span className="text-slate-600 font-medium shrink-0">Sort:</span>
+          <span className="text-[#006a52] font-bold truncate">
+            {sortLabels[currentSort] || 'Default'}
+          </span>
           <select
-            onChange={(e) => onFilterChange && onFilterChange({ sortBy: e.target.value })}
-            className="bg-transparent text-[#006a52] font-bold focus:outline-none cursor-pointer text-xs appearance-none pr-1"
+            value={currentSort}
+            onChange={(e) => {
+              setCurrentSort(e.target.value);
+              if (onFilterChange) onFilterChange({ sortBy: e.target.value });
+            }}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
           >
             <option value="default">Default</option>
             <option value="price-low">Price: Low to High</option>
             <option value="price-high">Price: High to Low</option>
             <option value="popularity">Popularity</option>
-            <option value="rating">Rating</option>
           </select>
         </div>
       </div>

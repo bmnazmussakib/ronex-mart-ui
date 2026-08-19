@@ -145,12 +145,19 @@ export default function CheckoutPage() {
 
 
 
-  return (
-    <div className="flex flex-col gap-5 py-2">
+  const breadcrumbItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Cart', href: '#' },
+    { label: 'Checkout' },
+  ];
 
+  return (
+    <div className="flex flex-col gap-4 sm:gap-6 py-1 sm:py-3 pb-28 sm:pb-8">
+      {/* Breadcrumb Bar */}
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* Main Grid: Left Shipping & Billing Form + Right Order Summary */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-start">
         {/* Left Column */}
         <div className="lg:col-span-7">
           <ShippingAndBillingForm
@@ -170,7 +177,7 @@ export default function CheckoutPage() {
         </div>
 
         {/* Right Column */}
-        <div className="lg:col-span-5 sticky top-[135px]">
+        <div className="lg:col-span-5 lg:sticky lg:top-[135px]">
           <CheckoutSummarySidebar
             shippingFee={shippingFee}
             vatAmount={vatAmount}

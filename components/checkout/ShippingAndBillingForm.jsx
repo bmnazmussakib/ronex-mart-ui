@@ -18,10 +18,10 @@ export default function ShippingAndBillingForm({
   onSearchExchange,
 }) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* SHIPPING DETAILS CARD */}
-      <div className="bg-white rounded-xl border border-slate-200/90 p-5 sm:p-6  space-y-4">
-        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-3 flex items-center gap-2">
+      <div className="bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-4 sm:p-6 space-y-4">
+        <h3 className="font-semibold text-xs sm:text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-3 flex items-center gap-2">
           SHIPPING DETAILS
         </h3>
 
@@ -32,14 +32,14 @@ export default function ShippingAndBillingForm({
               Phone Number <span className="text-rose-500">*</span>
             </label>
             <div className="flex items-center bg-slate-50 border border-slate-200 rounded-md px-3 py-2 focus-within:border-[#006a52] focus-within:bg-white transition-all">
-              <span className="text-sm mr-2 shrink-0">🇧🇩 +880</span>
+              <span className="text-xs sm:text-sm mr-1.5 sm:mr-2 shrink-0">🇧🇩 +880</span>
               <input
                 type="tel"
                 name="phone"
                 value={shippingData.phone}
                 onChange={onShippingChange}
                 placeholder="1700000000"
-                className="w-full bg-transparent text-sm text-slate-800 focus:outline-none font-medium"
+                className="w-full bg-transparent text-xs sm:text-sm text-slate-800 placeholder:text-xs sm:placeholder:text-sm focus:outline-none font-medium"
               />
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function ShippingAndBillingForm({
               value={shippingData.email}
               onChange={onShippingChange}
               placeholder="Enter your email"
-              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium"
+              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 placeholder:text-xs sm:placeholder:text-sm focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium"
             />
           </div>
 
@@ -70,7 +70,7 @@ export default function ShippingAndBillingForm({
               value={shippingData.fullName}
               onChange={onShippingChange}
               placeholder="Enter your full name"
-              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium"
+              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 placeholder:text-xs sm:placeholder:text-sm focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium"
             />
           </div>
 
@@ -83,7 +83,7 @@ export default function ShippingAndBillingForm({
               name="country"
               value={shippingData.country}
               onChange={onShippingChange}
-              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
+              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
             >
               <option value="Bangladesh">Bangladesh</option>
             </select>
@@ -98,7 +98,7 @@ export default function ShippingAndBillingForm({
               name="district"
               value={shippingData.district}
               onChange={onShippingChange}
-              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
+              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
             >
               <option value="">Select District/State</option>
               <option value="Dhaka">Dhaka</option>
@@ -121,7 +121,7 @@ export default function ShippingAndBillingForm({
               name="area"
               value={shippingData.area}
               onChange={onShippingChange}
-              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
+              className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
             >
               <option value="">Select Area/City</option>
               <option value="Dhanmondi">Dhanmondi</option>
@@ -146,7 +146,7 @@ export default function ShippingAndBillingForm({
               value={shippingData.address}
               onChange={onShippingChange}
               placeholder="Enter your address (House, Road, Block...)"
-              className="w-full bg-slate-50 border border-slate-200 rounded-md p-3 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium resize-none"
+              className="w-full bg-slate-50 border border-slate-200 rounded-md p-3 text-xs sm:text-sm text-slate-800 placeholder:text-xs sm:placeholder:text-sm focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium resize-none"
             />
           </div>
 
@@ -161,19 +161,19 @@ export default function ShippingAndBillingForm({
               value={shippingData.specialNote}
               onChange={onShippingChange}
               placeholder="Enter your special note (e.g. Call before delivery)"
-              className="w-full bg-slate-50 border border-slate-200 rounded-md p-3 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium resize-none"
+              className="w-full bg-slate-50 border border-slate-200 rounded-md p-3 text-xs sm:text-sm text-slate-800 placeholder:text-xs sm:placeholder:text-sm focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium resize-none"
             />
           </div>
         </div>
 
         {/* SAME AS SHIPPING CHECKBOX */}
         <div className="pt-2">
-          <label className="flex items-center gap-2.5 cursor-pointer select-none text-sm font-medium text-slate-800">
+          <label className="flex items-center gap-2.5 cursor-pointer select-none text-xs sm:text-sm font-medium text-slate-800">
             <input
               type="checkbox"
               checked={sameAsShipping}
               onChange={(e) => setSameAsShipping(e.target.checked)}
-              className="w-4 h-4 rounded border-slate-300 text-[#006a52] focus:ring-[#006a52] cursor-pointer"
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded border-slate-300 text-[#006a52] focus:ring-[#006a52] cursor-pointer"
             />
             <span>My shipping and billing address are the same</span>
           </label>
@@ -182,8 +182,8 @@ export default function ShippingAndBillingForm({
 
       {/* BILLING DETAILS CARD (Only shown if sameAsShipping is false) */}
       {!sameAsShipping && (
-        <div className="bg-white rounded-xl border border-slate-200/90 p-5 sm:p-6  space-y-4 animate-fadeIn">
-          <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-3 flex items-center gap-2">
+        <div className="bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-4 sm:p-6 space-y-4 animate-fadeIn">
+          <h3 className="font-semibold text-xs sm:text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-3 flex items-center gap-2">
             BILLING DETAILS
           </h3>
 
@@ -192,14 +192,14 @@ export default function ShippingAndBillingForm({
             <div className="space-y-1">
               <label className="text-[10px] font-semibold text-slate-600 uppercase">Phone Number</label>
               <div className="flex items-center bg-slate-50 border border-slate-200 rounded-md px-3 py-2 focus-within:border-[#006a52] focus-within:bg-white transition-all">
-                <span className="text-sm mr-2 shrink-0">🇧🇩 +880</span>
+                <span className="text-xs sm:text-sm mr-1.5 sm:mr-2 shrink-0">🇧🇩 +880</span>
                 <input
                   type="tel"
                   name="phone"
                   value={billingData.phone}
                   onChange={onBillingChange}
                   placeholder="1700000000"
-                  className="w-full bg-transparent text-sm text-slate-800 focus:outline-none font-medium"
+                  className="w-full bg-transparent text-xs sm:text-sm text-slate-800 placeholder:text-xs sm:placeholder:text-sm focus:outline-none font-medium"
                 />
               </div>
             </div>
@@ -213,7 +213,7 @@ export default function ShippingAndBillingForm({
                 value={billingData.email}
                 onChange={onBillingChange}
                 placeholder="Enter your email"
-                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium"
+                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 placeholder:text-xs sm:placeholder:text-sm focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium"
               />
             </div>
 
@@ -226,7 +226,7 @@ export default function ShippingAndBillingForm({
                 value={billingData.fullName}
                 onChange={onBillingChange}
                 placeholder="Enter your full name"
-                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium"
+                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 placeholder:text-xs sm:placeholder:text-sm focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium"
               />
             </div>
 
@@ -237,7 +237,7 @@ export default function ShippingAndBillingForm({
                 name="country"
                 value={billingData.country}
                 onChange={onBillingChange}
-                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
               >
                 <option value="Bangladesh">Bangladesh</option>
               </select>
@@ -250,7 +250,7 @@ export default function ShippingAndBillingForm({
                 name="district"
                 value={billingData.district}
                 onChange={onBillingChange}
-                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
               >
                 <option value="">Select District/State</option>
                 <option value="Dhaka">Dhaka</option>
@@ -265,7 +265,7 @@ export default function ShippingAndBillingForm({
                 name="area"
                 value={billingData.area}
                 onChange={onBillingChange}
-                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-2 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium cursor-pointer"
               >
                 <option value="">Select Area/City</option>
                 <option value="Dhanmondi">Dhanmondi</option>
@@ -282,7 +282,7 @@ export default function ShippingAndBillingForm({
                 value={billingData.address}
                 onChange={onBillingChange}
                 placeholder="Enter your billing address"
-                className="w-full bg-slate-50 border border-slate-200 rounded-md p-3 text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium resize-none"
+                className="w-full bg-slate-50 border border-slate-200 rounded-md p-3 text-xs sm:text-sm text-slate-800 placeholder:text-xs sm:placeholder:text-sm focus:outline-none focus:border-[#006a52] focus:bg-white transition-all font-medium resize-none"
               />
             </div>
           </div>
@@ -290,22 +290,22 @@ export default function ShippingAndBillingForm({
       )}
 
       {/* PROMO CODE CARD */}
-      <div className="bg-white rounded-xl border border-slate-200/90 p-5 sm:p-6 space-y-3">
-        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase flex items-center gap-2">
+      <div className="bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-4 sm:p-6 space-y-3">
+        <h3 className="font-semibold text-xs sm:text-sm text-slate-900 tracking-wider uppercase flex items-center gap-2">
           PROMO CODE
         </h3>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-stretch gap-2">
           <input
             type="text"
             value={promoCode}
             onChange={(e) => setPromoCode(e.target.value)}
             placeholder="Enter promo code here"
-            className="flex-1 bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-800 font-semibold focus:outline-none focus:border-[#006a52] focus:bg-white uppercase tracking-wider"
+            className="flex-1 bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2 sm:py-2.5 text-xs text-slate-800 placeholder:text-[10px] sm:placeholder:text-xs font-semibold focus:outline-none focus:border-[#006a52] focus:bg-white uppercase tracking-wider"
           />
           <button
             type="button"
             onClick={onApplyPromo}
-            className="bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs px-5 py-2.5 rounded-md transition-all shadow-xs cursor-pointer tracking-wider"
+            className="bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs px-5 py-2.5 rounded-md transition-all shadow-2xs cursor-pointer tracking-wider text-center"
           >
             APPLY
           </button>
@@ -313,22 +313,22 @@ export default function ShippingAndBillingForm({
       </div>
 
       {/* EXCHANGE ORDER CARD */}
-      <div className="bg-white rounded-xl border border-slate-200/90 p-5 sm:p-6  space-y-3">
-        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase flex items-center gap-2">
+      <div className="bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-4 sm:p-6 space-y-3">
+        <h3 className="font-semibold text-xs sm:text-sm text-slate-900 tracking-wider uppercase flex items-center gap-2">
           EXCHANGE ORDER
         </h3>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-stretch gap-2">
           <input
             type="text"
             value={exchangeId}
             onChange={(e) => setExchangeId(e.target.value)}
             placeholder="Enter exchange order ID"
-            className="flex-1 bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-800 font-semibold focus:outline-none focus:border-[#006a52] focus:bg-white uppercase tracking-wider"
+            className="flex-1 bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2 sm:py-2.5 text-xs text-slate-800 placeholder:text-[10px] sm:placeholder:text-xs font-semibold focus:outline-none focus:border-[#006a52] focus:bg-white uppercase tracking-wider"
           />
           <button
             type="button"
             onClick={onSearchExchange}
-            className="bg-slate-800 hover:bg-slate-900 text-white font-semibold text-xs px-5 py-2.5 rounded-md transition-all shadow-xs cursor-pointer tracking-wider"
+            className="bg-slate-800 hover:bg-slate-900 text-white font-semibold text-xs px-5 py-2.5 rounded-md transition-all shadow-2xs cursor-pointer tracking-wider text-center"
           >
             SEARCH
           </button>

@@ -45,12 +45,12 @@ export default function CheckoutSummarySidebar({
 
       
       {/* 2. SHOPPING BAG ITEMS LIST CARD */}
-      <div className="bg-white rounded-xl border border-slate-200/90 p-5 space-y-3">
+      <div className="bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-4 sm:p-5 space-y-3">
         <div
           onClick={() => setIsBagOpen(!isBagOpen)}
           className="flex items-center justify-between cursor-pointer select-none border-b border-slate-100 pb-2.5"
         >
-          <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase">
+          <h3 className="font-semibold text-xs sm:text-sm text-slate-900 tracking-wider uppercase">
             SHOPPING BAG ({cartItems.length})
           </h3>
           {isBagOpen ? (
@@ -123,8 +123,8 @@ export default function CheckoutSummarySidebar({
       </div>
 
       {/* 1. ORDER SUMMARY CARD */}
-      <div className="bg-white rounded-xl border border-slate-200/90 p-5 space-y-3">
-        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
+      <div className="bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-4 sm:p-5 space-y-3">
+        <h3 className="font-semibold text-xs sm:text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
           ORDER SUMMARY
         </h3>
         <div className="space-y-2 text-sm text-slate-600">
@@ -161,8 +161,8 @@ export default function CheckoutSummarySidebar({
 
 
       {/* 4. PAYMENT METHOD CARD */}
-      <div className="bg-white rounded-xl border border-slate-200/90 p-5 space-y-3">
-        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
+      <div className="bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-4 sm:p-5 space-y-3">
+        <h3 className="font-semibold text-xs sm:text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
           PAYMENT METHOD
         </h3>
 
@@ -175,7 +175,7 @@ export default function CheckoutSummarySidebar({
               <label
                 key={opt.id}
                 onClick={() => setSelectedPayment(opt.id)}
-                className={`p-3 rounded-md border flex items-center justify-between cursor-pointer transition-all ${isSelected
+                className={`p-2.5 sm:p-3 rounded-md border flex items-center justify-between cursor-pointer transition-all ${isSelected
                     ? 'border-[#006a52] bg-[#e8f3e8]/70 shadow-2xs font-bold text-[#006a52]'
                     : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
                   }`}
@@ -187,7 +187,7 @@ export default function CheckoutSummarySidebar({
                   >
                     {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                   </div>
-                  <span className="truncate text-[11px] uppercase font-semibold tracking-wide">
+                  <span className="truncate text-[10px] sm:text-[11px] uppercase font-semibold tracking-wide">
                     {opt.label}
                   </span>
                 </div>
@@ -198,12 +198,12 @@ export default function CheckoutSummarySidebar({
         </div>
 
         {/* Checkout Information Disclaimer */}
-        <div className="bg-slate-50 rounded-xl p-3 border border-slate-100 text-[11px] text-slate-600 space-y-1.5">
-          <div className="flex items-center gap-1.5 text-sm font-semibold text-slate-800">
+        <div className="bg-slate-50 rounded-lg sm:rounded-xl p-3 border border-slate-100 text-[11px] text-slate-600 space-y-1.5">
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-800">
             <FaCircleCheck className="text-[#006a52]" />
             <span>Checkout Information</span>
           </div>
-          <ul className='list-disc pl-4 space-y-1 text-xs text-slate-500 leading-tight'>
+          <ul className='list-disc pl-4 space-y-1 text-[11px] text-slate-500 leading-tight'>
             <li >Discounted products are not eligible for return or exchange.</li>
             <li >Accept delivered parcels in sealed condition.</li>
             <li >Orders cannot be modified after confirmation.</li>
@@ -215,7 +215,7 @@ export default function CheckoutSummarySidebar({
           type="button"
           onClick={onPlaceOrder}
           disabled={isSubmitting || cartItems.length === 0}
-          className="w-full bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-sm py-3.5 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer tracking-widest uppercase mt-2"
+          className="w-full bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs sm:text-sm py-3 sm:py-3.5 px-4 sm:px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer tracking-widest uppercase mt-2"
         >
           <FaLock className="text-xs" />
           <span>{isSubmitting ? 'PROCESSING...' : 'PLACE ORDER'}</span>
