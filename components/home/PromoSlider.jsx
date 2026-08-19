@@ -24,15 +24,15 @@ export default function PromoSlider() {
     <div className="relative py-1">
       <Swiper
         modules={[Autoplay]}
-        slidesPerView={3}
-        spaceBetween={12}
+        slidesPerView={5}
+        spaceBetween={5}
         loop={true}
         autoplay={{ delay: 2200, disableOnInteraction: false }}
         breakpoints={{
-          480: { slidesPerView: 4, spaceBetween: 12 },
-          640: { slidesPerView: 5, spaceBetween: 12 },
-          768: { slidesPerView: 7, spaceBetween: 14 },
-          1024: { slidesPerView: 8, spaceBetween: 14 },
+          480: { slidesPerView: 6, spaceBetween: 12 },
+          640: { slidesPerView: 7, spaceBetween: 12 },
+          768: { slidesPerView: 8, spaceBetween: 14 },
+          1024: { slidesPerView: 9, spaceBetween: 14 },
           1280: { slidesPerView: 10, spaceBetween: 14 },
         }}
         className="promoSwiper pb-1"
@@ -41,9 +41,9 @@ export default function PromoSlider() {
           <SwiperSlide key={idx}>
             <Link
               href="#"
-              className="block bg-white border border-slate-200/90 hover:border-[#006a52] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all group"
+              className="block bg-white border border-slate-200/90 hover:border-[#006a52] rounded-md sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all group"
             >
-              <div className="w-full aspect-square bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center">
+              <div className="w-full aspect-square bg-slate-50 rounded-md sm:rounded-xl overflow-hidden flex items-center justify-center">
                 <img
                   src={item.img}
                   alt={item.title}

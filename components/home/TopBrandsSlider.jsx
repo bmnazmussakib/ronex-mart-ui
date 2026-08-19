@@ -21,18 +21,17 @@ export default function TopBrandsSlider() {
 
   return (
     <div className="py-3 overflow-hidden">
-      <div className="text-center mb-5">
-        
-        <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
+      <div className="text-center mb-3 sm:mb-5">
+        <h2 className="text-base sm:text-xl lg:text-2xl font-semibold uppercase text-slate-900">
           Top Partner Brands
         </h2>
       </div>
 
-      <Marquee pauseOnHover={true} speed={40} gradient={false} className="overflow-hidden py-2">
+      <Marquee pauseOnHover={true} speed={35} gradient={false} className="overflow-hidden py-1 sm:py-2">
         {brands.map((brand, idx) => (
           <div
             key={idx}
-            className="mx-3 sm:mx-4 bg-white rounded-xl h-16 sm:h-18 flex items-center justify-center transition-all cursor-pointer group px-4 overflow-hidden"
+            className="mx-1.5 sm:mx-3 bg-white rounded-lg sm:rounded-xl h-12 sm:h-16 lg:h-18 flex items-center justify-center transition-all cursor-pointer group px-2.5 sm:px-4 overflow-hidden "
           >
             <img
               src={brand.logo}

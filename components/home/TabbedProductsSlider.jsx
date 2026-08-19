@@ -183,19 +183,18 @@ export default function TabbedProductsSlider() {
   return (
     <div className="py-4">
       {/* Section Header with Title & Filter Tabs */}
-      <div className="flex flex-col items-center justify-center text-center mb-6 gap-3">
+      <div className="flex flex-col items-center justify-center text-center mb-4 sm:mb-6 gap-2 sm:gap-3">
         <div>
-          
-          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
+          <h2 className="text-base sm:text-xl lg:text-2xl font-semibold uppercase text-slate-900">
             Featured Products
           </h2>
         </div>
 
         {/* Tabs Filter Bar */}
-        <div className="inline-flex items-center bg-white rounded-full p-1  gap-2 flex-wrap justify-center">
+        <div className="flex items-center bg-white rounded-full p-1 gap-1.5 sm:gap-2 max-w-full overflow-x-auto custom-scrollbar">
           <button
             onClick={() => setActiveTab('new-arrival')}
-            className={`text-sm px-4 py-1.5 rounded-full transition-all cursor-pointer ${
+            className={`text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'new-arrival'
                 ? 'bg-[#006a52] border border-[#006a52] text-white shadow-2xs font-medium'
                 : 'text-slate-600 border border-slate-300 font-medium hover:text-[#006a52] hover:bg-slate-50'
@@ -205,7 +204,7 @@ export default function TabbedProductsSlider() {
           </button>
           <button
             onClick={() => setActiveTab('imported-products')}
-            className={`text-sm px-4 py-1.5 rounded-full transition-all cursor-pointer ${
+            className={`text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'imported-products'
                 ? 'bg-[#006a52] border border-[#006a52] text-white shadow-2xs font-medium'
                 : 'text-slate-600 border border-slate-300 font-medium hover:text-[#006a52] hover:bg-slate-50'
@@ -215,7 +214,7 @@ export default function TabbedProductsSlider() {
           </button>
           <button
             onClick={() => setActiveTab('imported-usa')}
-            className={`text-sm px-4 py-1.5 rounded-full transition-all cursor-pointer ${
+            className={`text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'imported-usa'
                 ? 'bg-[#006a52] border border-[#006a52] text-white shadow-2xs font-medium'
                 : 'text-slate-600 border border-slate-300 font-medium hover:text-[#006a52] hover:bg-slate-50'
@@ -232,7 +231,7 @@ export default function TabbedProductsSlider() {
           key={activeTab}
           modules={[Autoplay, Navigation]}
           slidesPerView={2}
-          spaceBetween={16}
+          spaceBetween={10}
           loop={currentProducts.length > 2}
           autoplay={{ delay: 3500, disableOnInteraction: false }}
           onBeforeInit={(swiper) => {
@@ -244,10 +243,11 @@ export default function TabbedProductsSlider() {
             nextEl: nextRef.current,
           }}
           breakpoints={{
-            480: { slidesPerView: 2, spaceBetween: 16 },
-            640: { slidesPerView: 3, spaceBetween: 16 },
-            768: { slidesPerView: 4, spaceBetween: 16 },
-            1024: { slidesPerView: 6, spaceBetween: 16 },
+            480: { slidesPerView: 2, spaceBetween: 12 },
+            640: { slidesPerView: 3, spaceBetween: 14 },
+            768: { slidesPerView: 4, spaceBetween: 14 },
+            1024: { slidesPerView: 5, spaceBetween: 16 },
+            1280: { slidesPerView: 6, spaceBetween: 16 },
           }}
           className="tabProductSwiper pb-2"
         >
@@ -262,14 +262,14 @@ export default function TabbedProductsSlider() {
         <button
           ref={prevRef}
           aria-label="Previous Slide"
-          className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 -left-4 z-20"
+          className="hidden sm:flex w-8 h-8 lg:w-9 lg:h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 -left-3 lg:-left-4 z-20"
         >
           <FaChevronLeft />
         </button>
         <button
           ref={nextRef}
           aria-label="Next Slide"
-          className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 -right-4 z-20"
+          className="hidden sm:flex w-8 h-8 lg:w-9 lg:h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 -right-3 lg:-right-4 z-20"
         >
           <FaChevronRight />
         </button>

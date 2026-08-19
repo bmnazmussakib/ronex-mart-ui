@@ -62,28 +62,28 @@ export default function TrendingCategories() {
   ];
 
   return (
-    <div className="py-4">
+    <div className="py-3 sm:py-4">
       {/* Section Header */}
-      <div className="flex items-center justify-between mb-5">
+      <div className="flex items-center justify-between mb-3 sm:mb-5">
         <div>
-          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
+          <h2 className="text-base sm:text-xl lg:text-2xl font-semibold uppercase text-slate-900">
             Trending Categories
           </h2>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1 sm:gap-1.5">
             <button
               ref={prevRef}
               aria-label="Previous Category"
-              className="w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] sm:text-xs transition-all shadow-sm cursor-pointer z-10"
             >
               <FaChevronLeft />
             </button>
             <button
               ref={nextRef}
               aria-label="Next Category"
-              className="w-8 h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all shadow-sm cursor-pointer z-10"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-slate-200 bg-white hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] sm:text-xs transition-all shadow-sm cursor-pointer z-10"
             >
               <FaChevronRight />
             </button>
@@ -94,8 +94,8 @@ export default function TrendingCategories() {
       {/* Swiper Carousel */}
       <Swiper
         modules={[Autoplay, Navigation]}
-        slidesPerView={2}
-        spaceBetween={12}
+        slidesPerView={3}
+        spaceBetween={8}
         loop={true}
         autoplay={{ delay: 3500, disableOnInteraction: false }}
         onBeforeInit={(swiper) => {
@@ -107,11 +107,12 @@ export default function TrendingCategories() {
           nextEl: nextRef.current,
         }}
         breakpoints={{
-          380: { slidesPerView: 3, spaceBetween: 10 },
-          480: { slidesPerView: 4, spaceBetween: 12 },
-          640: { slidesPerView: 5, spaceBetween: 12 },
-          768: { slidesPerView: 6, spaceBetween: 12 },
-          1024: { slidesPerView: 8, spaceBetween: 12 },
+          320: { slidesPerView: 3, spaceBetween: 8 },
+          420: { slidesPerView: 4, spaceBetween: 8 },
+          560: { slidesPerView: 5, spaceBetween: 10 },
+          720: { slidesPerView: 6, spaceBetween: 12 },
+          960: { slidesPerView: 7, spaceBetween: 12 },
+          1200: { slidesPerView: 8, spaceBetween: 14 },
         }}
         className="trendingCategorySwiper pb-3 pt-1"
       >
@@ -121,8 +122,8 @@ export default function TrendingCategories() {
               href={`/category/${cat.slug}`}
               className="flex flex-col items-center justify-between transition-all duration-300 group w-full h-full text-center relative py-1"
             >
-              {/* Rounded-Full Circular Image with Lift & Glowing Border */}
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-md border-2 border-slate-100  group-hover:shadow-lg group-hover:shadow-emerald-950/10 transition-all duration-300 overflow-hidden my-1 flex items-center justify-center shrink-0">
+              {/* Circular Image */}
+              <div className="w-14 h-14 min-[420px]:w-16 min-[420px]:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white shadow-md border-2 border-slate-100 group-hover:shadow-lg group-hover:shadow-emerald-950/10 transition-all duration-300 overflow-hidden my-1 flex items-center justify-center shrink-0">
                 <img
                   src={cat.img}
                   alt={cat.title}
@@ -130,12 +131,12 @@ export default function TrendingCategories() {
                 />
               </div>
 
-              {/* Title & Highlighted Count Badge */}
-              <div className="flex flex-col items-center w-full z-10">
-                <h3 className="font-medium text-sm text-slate-800 group-hover:text-[#006a52] transition-colors line-clamp-1">
+              {/* Title & Count Badge */}
+              <div className="flex flex-col items-center w-full z-10 mt-0.5 sm:mt-1">
+                <h3 className="font-medium text-[11px] sm:text-xs md:text-sm text-slate-800 group-hover:text-[#006a52] transition-colors line-clamp-1">
                   {cat.title}
                 </h3>
-                <span className="text-[10px] text-slate-500 group-hover:text-white font-semibold bg-slate-100 group-hover:bg-[#006a52] px-2 py-0.5 rounded-full mt-1 transition-colors duration-300">
+                <span className="text-[8px] sm:text-[9px] md:text-[10px] text-slate-500 group-hover:text-white font-semibold bg-slate-100 group-hover:bg-[#006a52] px-1.5 sm:px-2 py-0.5 rounded-full mt-0.5 sm:mt-1 transition-colors duration-300">
                   {cat.itemCount}
                 </span>
               </div>

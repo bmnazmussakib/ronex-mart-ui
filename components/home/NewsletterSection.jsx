@@ -2,7 +2,7 @@
 
 export default function NewsletterSection() {
   return (
-    <div className="relative overflow-hidden w-full bg-[#074e3a] text-white rounded-2xl p-8 sm:p-12 my-4 shadow-sm text-center">
+    <div className="relative overflow-hidden w-full bg-[#074e3a] text-white rounded-md sm:rounded-2xl p-5 sm:p-12 my-3 sm:my-4 shadow-sm text-center">
       {/* Background Decorative SVG Shapes (Organic Fluid Blobs) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {/* Top-Left Organic Blob */}
@@ -26,24 +26,24 @@ export default function NewsletterSection() {
 
       {/* Content */}
       <div className="relative z-10">
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight mb-2">
+        <h2 className="text-lg sm:text-2xl lg:text-3xl font-medium tracking-tight mb-1.5 sm:mb-2">
           Get weekly deals in your inbox
         </h2>
-        <p className="text-xs sm:text-sm text-emerald-100/80 mb-6 max-w-md mx-auto">
+        <p className="text-xs sm:text-sm text-emerald-100/80 mb-4 sm:mb-6 max-w-md mx-auto px-2">
           Offers and news from our wholesale market straight to your inbox.
         </p>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="max-w-md mx-auto flex items-center bg-[#043326] p-1.5 rounded-full border border-emerald-700/60 shadow-inner"
+          className="max-w-md mx-auto flex flex-col sm:flex-row items-stretch sm:items-center sm:bg-[#043326] sm:p-1.5 sm:rounded-full sm:border sm:border-emerald-700/60 sm:shadow-inner gap-2.5 sm:gap-0"
         >
           <input
             type="email"
             placeholder="Enter your email address"
-            className="w-full px-4 py-2 text-sm text-white placeholder-emerald-200/50 bg-transparent focus:outline-none"
+            className="w-full bg-[#043326] sm:bg-transparent border border-emerald-700/60 sm:border-none rounded-md sm:rounded-none px-4 py-2.5 sm:py-2 text-xs sm:text-sm text-white placeholder-emerald-200/50 focus:outline-none text-center sm:text-left shadow-inner sm:shadow-none"
           />
           <button
             type="submit"
-            className="bg-white hover:bg-emerald-50 text-[#074e3a] font-medium text-sm px-6 py-2.5 rounded-full transition-colors shrink-0 shadow-sm cursor-pointer"
+            className="w-full sm:w-auto bg-white hover:bg-emerald-50 text-[#074e3a] font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-md sm:rounded-full transition-colors shrink-0 shadow-sm cursor-pointer"
           >
             Subscribe
           </button>

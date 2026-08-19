@@ -15,50 +15,49 @@ export default function PantrySection() {
 
   return (
     <div className="py-3">
-      <div className="flex items-center justify-between mb-5">
+      <div className="flex items-center justify-between mb-3 sm:mb-5">
         <div>
-          
-          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
+          <h2 className="text-base sm:text-xl lg:text-2xl font-semibold uppercase text-slate-900">
             Fill Up Your Pantry
           </h2>
         </div>
         <Link
           href="/category"
-          className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-[#006a52] hover:underline uppercase"
+          className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-medium text-[#006a52] hover:underline uppercase"
         >
           <span>See all</span>
-          <FaChevronRight className="text-[10px]" />
+          <FaChevronRight className="text-[9px] sm:text-[10px]" />
         </Link>
       </div>
 
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-12 gap-2.5 sm:gap-4">
         {/* Left Big Featured Card: Beverages */}
         <div className="col-span-12 lg:col-span-4 overflow-hidden flex flex-col justify-between">
-          <div className="rounded-xl relative flex-1 bg-slate-50 flex items-center justify-center overflow-hidden min-h-[300px] lg:min-h-[400px]">
+          <div className="rounded-md sm:rounded-xl relative flex-1 bg-slate-50 flex items-center justify-center overflow-hidden min-h-[160px] sm:min-h-[280px] lg:min-h-[400px]">
             <img
               src="/img/sqr-banner.png"
               alt="Beverages Showcase"
-              className="w-full h-full object-cover rounded-2xl"
+              className="w-full h-full object-cover rounded-md sm:rounded-2xl"
             />
           </div>
-          <div className="py-2.5 px-3 text-center">
-            <h4 className="font-semibold text-xs text-slate-800">Beverages</h4>
+          <div className="py-1.5 sm:py-2.5 px-2 sm:px-3 text-center">
+            <h4 className="font-semibold text-xs sm:text-sm text-slate-800">Beverages</h4>
           </div>
         </div>
 
         {/* Right Grid: 8 Small Category Cards */}
-        <div className="col-span-12 lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+        <div className="col-span-12 lg:col-span-8 grid grid-cols-2 grid-cols-4 gap-2 sm:gap-3.5">
           {pantryCards.map((card, idx) => (
             <Link key={idx} href="#" className="overflow-hidden flex flex-col justify-between group">
-              <div className="rounded-xl aspect-square bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100">
+              <div className="rounded-md sm:rounded-xl aspect-square bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100">
                 <img
                   src={card.img}
                   alt={card.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="py-2 px-2 text-center mt-1">
-                <h4 className="font-medium text-sm text-slate-800 line-clamp-1 group-hover:text-[#006a52] transition-colors">
+              <div className="py-1 sm:py-2 px-1 sm:px-2 text-center mt-0.5 sm:mt-1">
+                <h4 className="font-medium text-xs sm:text-sm text-slate-800 line-clamp-1 group-hover:text-[#006a52] transition-colors">
                   {card.title}
                 </h4>
               </div>

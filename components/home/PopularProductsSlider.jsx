@@ -119,18 +119,18 @@ export default function PopularProductsSlider() {
 
   return (
     <div className="py-4">
-      <div className="flex items-center justify-between mb-5">
+      <div className="flex items-center justify-between mb-3 sm:mb-5">
         <div>
-          <h2 className="text-xl sm:text-2xl font-semibold uppercase text-gray-700">
+          <h2 className="text-base sm:text-xl lg:text-2xl font-semibold uppercase text-gray-700">
             Popular Products Today
           </h2>
         </div>
         <Link
           href="#"
-          className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-[#5ba10b] hover:underline uppercase"
+          className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-medium text-[#5ba10b] hover:underline uppercase"
         >
           <span>View All</span>
-          <FaArrowRight className="text-[10px]" />
+          <FaArrowRight className="text-[9px] sm:text-[10px]" />
         </Link>
       </div>
 

@@ -45,12 +45,12 @@ export default function RootLayout({ children }) {
 
           {/* Main Layout Area */}
           <div className="w-full flex items-start flex-1">
-            {/* Fixed Left Sidebar */}
+            {/* Left Sidebar (Desktop Fixed, Mobile & Tablet Left Side Drawer) */}
             <LeftSidebar />
 
             {/* Right Column: Body Content + Footer at bottom */}
             <div className="flex-1 min-w-0 flex flex-col min-h-[calc(100vh-115px)] justify-between">
-              <main className="flex-1 flex flex-col gap-4 p-4 lg:p-5">
+              <main className="flex-1 flex flex-col gap-3 sm:gap-4 p-3 sm:p-4 lg:p-5">
                 {children}
               </main>
               {/* Footer placed inside right column under body contents */}

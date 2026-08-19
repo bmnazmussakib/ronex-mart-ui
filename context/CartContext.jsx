@@ -17,10 +17,15 @@ export function CartProvider({ children }) {
     },
   ]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
   const toggleCart = () => setIsCartOpen((prev) => !prev);
+
+  const openSidebar = () => setIsSidebarOpen(true);
+  const closeSidebar = () => setIsSidebarOpen(false);
+  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
   const parsePrice = (priceStr) => {
     if (typeof priceStr === 'number') return priceStr;
@@ -89,6 +94,10 @@ export function CartProvider({ children }) {
         openCart,
         closeCart,
         toggleCart,
+        isSidebarOpen,
+        openSidebar,
+        closeSidebar,
+        toggleSidebar,
         addToCart,
         updateQuantity,
         removeFromCart,
