@@ -12,6 +12,7 @@ import LeftSidebar from "@/components/layout/LeftSidebar";
 import FloatingCartWidget from "@/components/layout/FloatingCartWidget";
 import Footer from "@/components/layout/Footer";
 import CartDrawer from "@/components/cart/CartDrawer";
+import MobileBottomNav from "@/components/layout/MobileBottomNav";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -60,6 +61,9 @@ export default function RootLayout({ children }) {
 
           {/* Floating Cart Widget */}
           <FloatingCartWidget />
+
+          {/* Mobile Floating Bottom Navigation */}
+          <MobileBottomNav />
 
           {/* Slide-over Right Cart Drawer */}
           <CartDrawer />

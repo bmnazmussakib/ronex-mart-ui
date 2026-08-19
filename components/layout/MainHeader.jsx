@@ -5,11 +5,10 @@ import { useCart } from '@/context/CartContext';
 import {
   FaBars,
   FaMagnifyingGlass,
-  FaRotateLeft,
-  FaClipboard,
   FaUser,
   FaBasketShopping,
 } from 'react-icons/fa6';
+import { RiHeart3Line } from 'react-icons/ri';
 
 export default function MainHeader() {
   const { openCart, totalItemsCount, toggleSidebar } = useCart();
@@ -36,8 +35,8 @@ export default function MainHeader() {
           </Link>
         </div>
 
-        {/* Search Bar */}
-        <div className="flex-1 max-w-2xl mx-1 sm:mx-4">
+        {/* Search Bar (Hidden on Mobile) */}
+        <div className="hidden sm:block flex-1 max-w-2xl mx-1 sm:mx-4">
           <div className="flex items-center bg-slate-50 rounded-full border border-slate-300 p-0.5 sm:p-1 focus-within:border-[#006a52] focus-within:bg-white transition-all">
             <FaMagnifyingGlass className="text-slate-400 ml-2.5 sm:ml-3.5 text-xs shrink-0" />
             <input
@@ -55,42 +54,31 @@ export default function MainHeader() {
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-2.5 sm:gap-5 lg:gap-7 shrink-0 font-semibold text-slate-700">
-          {/* Reorder */}
-          <Link
-            href="#"
-            className="hidden md:flex items-center gap-2 hover:text-[#006a52] transition-colors group"
-          >
-            <div className="relative flex items-center justify-center">
-              <FaRotateLeft className="text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
-            </div>
-            <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Reorder</span>
-          </Link>
-
+        {/* Action Buttons: Account, Wishlist, Cart (Hidden on Mobile) */}
+        <div className="hidden sm:flex items-center gap-3 sm:gap-5 lg:gap-6 shrink-0 font-semibold text-slate-700">
           {/* Account */}
           <Link
             href="#"
             className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
           >
-            <div className="relative flex items-end justify-center">
+            <div className="relative flex items-center justify-center">
               <FaUser className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
             </div>
             <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Account</span>
           </Link>
 
-          {/* Quote */}
+          {/* Wishlist */}
           <Link
             href="#"
-            className="hidden sm:flex items-center gap-2 hover:text-[#006a52] transition-colors group"
+            className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
           >
             <div className="relative flex items-center justify-center">
-              <FaClipboard className="text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
-              <span className="absolute -top-2 -right-2.5 bg-[#f97316] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
+              <RiHeart3Line className="text-xl sm:text-2xl lg:text-3xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
+              <span className="absolute -top-1.5 -right-2 bg-[#b8860b] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
                 0
               </span>
             </div>
-            <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Quote</span>
+            <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Wishlist</span>
           </Link>
 
           {/* Cart Trigger */}
@@ -101,7 +89,7 @@ export default function MainHeader() {
           >
             <div className="relative flex items-center justify-center">
               <FaBasketShopping className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
-              <span className="absolute -top-2 -right-2.5 bg-[#006a52] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
+              <span className="absolute -top-1.5 -right-2 bg-[#b8860b] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
                 {totalItemsCount}
               </span>
             </div>
