@@ -16,26 +16,18 @@ export default function MainHeader() {
   return (
     <div className="w-full px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5">
       <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
-        {/* Left: Hamburger Button (Mobile/Tablet) & Logo */}
-        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-          <button
-            onClick={toggleSidebar}
-            className="xl:hidden p-1.5 sm:p-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-[#006a52] transition-colors cursor-pointer"
-            aria-label="Toggle categories menu"
-          >
-            <FaBars className="text-lg sm:text-xl" />
-          </button>
-
+        {/* Left: Logo */}
+        <div className="flex items-center shrink-0">
           <Link href="/" className="flex items-center gap-2 shrink-0 group">
             <img
               src="/img/logo.png"
               alt="RonexMart Logo"
-              className="h-8 sm:h-10 lg:h-12 object-contain group-hover:scale-105 transition-transform"
+              className="h-10 sm:h-12 lg:h-14 object-contain group-hover:scale-105 transition-transform"
             />
           </Link>
         </div>
 
-        {/* Search Bar (Hidden on Mobile) */}
+        {/* Center: Search Bar (Hidden on Mobile) */}
         <div className="hidden sm:block flex-1 max-w-2xl mx-1 sm:mx-4">
           <div className="flex items-center bg-slate-50 rounded-full border border-slate-300 p-0.5 sm:p-1 focus-within:border-[#006a52] focus-within:bg-white transition-all">
             <FaMagnifyingGlass className="text-slate-400 ml-2.5 sm:ml-3.5 text-xs shrink-0" />
@@ -54,46 +46,58 @@ export default function MainHeader() {
           </div>
         </div>
 
-        {/* Action Buttons: Account, Wishlist, Cart (Hidden on Mobile) */}
-        <div className="hidden sm:flex items-center gap-3 sm:gap-5 lg:gap-6 shrink-0 font-semibold text-slate-700">
-          {/* Account */}
-          <Link
-            href="#"
-            className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
-          >
-            <div className="relative flex items-center justify-center">
-              <FaUser className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
-            </div>
-            <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Account</span>
-          </Link>
+        {/* Right: Action Buttons & Menu Button */}
+        <div className="flex items-center gap-2.5 sm:gap-5 lg:gap-6 shrink-0 font-semibold text-slate-700">
+          {/* Action Buttons: Account, Wishlist, Cart (Hidden on Mobile) */}
+          <div className="hidden sm:flex items-center gap-3 sm:gap-5 lg:gap-6">
+            {/* Account */}
+            <Link
+              href="#"
+              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
+            >
+              <div className="relative flex items-center justify-center">
+                <FaUser className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
+              </div>
+              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Account</span>
+            </Link>
 
-          {/* Wishlist */}
-          <Link
-            href="#"
-            className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
-          >
-            <div className="relative flex items-center justify-center">
-              <RiHeart3Line className="text-xl sm:text-2xl lg:text-3xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
-              <span className="absolute -top-1.5 -right-2 bg-[#b8860b] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
-                0
-              </span>
-            </div>
-            <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Wishlist</span>
-          </Link>
+            {/* Wishlist */}
+            <Link
+              href="#"
+              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
+            >
+              <div className="relative flex items-center justify-center">
+                <RiHeart3Line className="text-xl sm:text-2xl lg:text-3xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
+                <span className="absolute -top-1.5 -right-2 bg-[#b8860b] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
+                  0
+                </span>
+              </div>
+              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Wishlist</span>
+            </Link>
 
-          {/* Cart Trigger */}
+            {/* Cart Trigger */}
+            <button
+              onClick={openCart}
+              aria-label="Open Cart"
+              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group cursor-pointer"
+            >
+              <div className="relative flex items-center justify-center">
+                <FaBasketShopping className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
+                <span className="absolute -top-1.5 -right-2 bg-[#b8860b] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
+                  {totalItemsCount}
+                </span>
+              </div>
+              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Cart</span>
+            </button>
+          </div>
+
+          {/* Hamburger Menu Button (Right side on Mobile & Tablet) */}
           <button
-            onClick={openCart}
-            aria-label="Open Cart"
-            className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group cursor-pointer"
+            onClick={toggleSidebar}
+            className="xl:hidden p-1.5 sm:p-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-[#006a52] transition-colors cursor-pointer"
+            aria-label="Toggle categories menu"
           >
-            <div className="relative flex items-center justify-center">
-              <FaBasketShopping className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
-              <span className="absolute -top-1.5 -right-2 bg-[#b8860b] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
-                {totalItemsCount}
-              </span>
-            </div>
-            <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Cart</span>
+            <FaBars className="text-xl sm:text-2xl" />
           </button>
         </div>
       </div>

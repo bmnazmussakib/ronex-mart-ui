@@ -10,7 +10,7 @@ import NewsletterSection from "@/components/home/NewsletterSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-8 sm:gap-10 lg:gap-16 py-1">
+    <div className="flex flex-col gap-2 sm:gap-5 md:gap-8 lg:gap-10 py-1">
       <HeroBanners />
       <TrendingCategories />
       <PopularProductsSlider />

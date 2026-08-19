@@ -35,11 +35,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${jost.variable} ${hindSiliguri.variable} h-full antialiased`}>
       <body className="bg-white text-slate-800 antialiased min-h-screen flex flex-col font-sans">
         <CartProvider>
-          {/* Top Notice */}
-          <TopNoticeBar />
-
-          {/* Main Header & Nav (Fixed Top) */}
+          {/* Main Header & Nav (Sticky Top) */}
           <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+            <TopNoticeBar />
             <MainHeader />
             <SecondaryNav />
           </header>
