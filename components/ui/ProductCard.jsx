@@ -1,8 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { FaStar, FaPlus } from 'react-icons/fa6';
+import { RiHeart3Line, RiHeart3Fill } from 'react-icons/ri';
 
 export default function ProductCard({
   id = "1",
@@ -16,6 +18,7 @@ export default function ProductCard({
   badge,
 }) {
   const { addToCart } = useCart();
+  const [isWishlist, setIsWishlist] = useState(false);
 
   const handleAdd = (e) => {
     e.stopPropagation();
@@ -38,6 +41,24 @@ export default function ProductCard({
             {badge}
           </span>
         ) : null}
+
+        {/* Wishlist Button */}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsWishlist(!isWishlist);
+          }}
+          aria-label="Toggle Wishlist"
+          className="absolute top-5 right-5 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs border border-slate-300/80 shadow-xs flex items-center justify-center transition-all cursor-pointer hover:scale-105 group/heart"
+        >
+          {isWishlist ? (
+            <RiHeart3Fill className="text-red-500 text-lg" />
+          ) : (
+            <RiHeart3Line className="text-slate-500 text-lg group-hover/heart:text-red-500 transition-colors" />
+          )}
+        </button>
         <div className="bg-slate-50/60 w-full aspect-square rounded-xl p-3 flex items-center justify-center border border-slate-100 overflow-hidden">
           <img
             src={image}

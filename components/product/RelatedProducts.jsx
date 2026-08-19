@@ -52,15 +52,78 @@ export default function RelatedProducts() {
       weight: "5 L",
       price: "৳850",
     },
+    {
+      image: "/img/product/product (3).jpeg",
+      title: "Pran Hot Sauce",
+      category: "GROCERY & FOOD",
+      rating: "4.5",
+      weight: "340 g bottle",
+      price: "৳70",
+    },
+    {
+      image: "/img/product/product (4).jpeg",
+      title: "Fresh Refined Sugar",
+      category: "GROCERY & FOOD",
+      rating: "4.7",
+      weight: "1 kg",
+      price: "৳90",
+      badge: "Daily need",
+    },
+    {
+      image: "/img/product/product (5).jpeg",
+      title: "Fresh Iodized Salt",
+      category: "GROCERY & FOOD",
+      rating: "4.6",
+      weight: "1 kg",
+      price: "৳45",
+    },
+    {
+      image: "/img/product/product (6).jpeg",
+      title: "Sunflower Cooking Oil 5L",
+      category: "COOKING ESSENTIALS",
+      rating: "4.8",
+      weight: "5 L",
+      price: "৳850",
+    },
+    {
+      image: "/img/product/product (3).jpeg",
+      title: "Pran Hot Sauce",
+      category: "GROCERY & FOOD",
+      rating: "4.5",
+      weight: "340 g bottle",
+      price: "৳70",
+    },
+    {
+      image: "/img/product/product (4).jpeg",
+      title: "Fresh Refined Sugar",
+      category: "GROCERY & FOOD",
+      rating: "4.7",
+      weight: "1 kg",
+      price: "৳90",
+      badge: "Daily need",
+    },
+    {
+      image: "/img/product/product (5).jpeg",
+      title: "Fresh Iodized Salt",
+      category: "GROCERY & FOOD",
+      rating: "4.6",
+      weight: "1 kg",
+      price: "৳45",
+    },
+    {
+      image: "/img/product/product (6).jpeg",
+      title: "Sunflower Cooking Oil 5L",
+      category: "COOKING ESSENTIALS",
+      rating: "4.8",
+      weight: "5 L",
+      price: "৳850",
+    },
   ];
 
   return (
     <div className="py-4">
       <div className="flex items-center justify-between mb-5">
         <div>
-          <span className="text-xs font-medium tracking-widest capitalize text-[#006a52] block mb-0.5">
-            Similar items
-          </span>
           <h2 className="text-xl sm:text-2xl font-semibold uppercase text-slate-900">
             Related Products You May Like
           </h2>
@@ -101,7 +164,7 @@ export default function RelatedProducts() {
           480: { slidesPerView: 2, spaceBetween: 16 },
           640: { slidesPerView: 3, spaceBetween: 16 },
           768: { slidesPerView: 4, spaceBetween: 16 },
-          1024: { slidesPerView: 5, spaceBetween: 16 },
+          1024: { slidesPerView: 6, spaceBetween: 16 },
         }}
         className="relatedSwiper pb-2"
       >

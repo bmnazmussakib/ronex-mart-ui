@@ -6,6 +6,7 @@ import { useCart } from '@/context/CartContext';
 import ShippingAndBillingForm from '@/components/checkout/ShippingAndBillingForm';
 import CheckoutSummarySidebar from '@/components/checkout/CheckoutSummarySidebar';
 import { FaChevronRight, FaCircleCheck, FaHouse } from 'react-icons/fa6';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 
 export default function CheckoutPage() {
   const { cartItems, clearCart, subtotal } = useCart();
@@ -142,16 +143,11 @@ export default function CheckoutPage() {
     );
   }
 
+
+
   return (
     <div className="flex flex-col gap-5 py-2">
-      {/* Breadcrumb Bar */}
-      <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm overflow-x-auto">
-        <Link href="/" className="hover:text-[#006a52] transition-colors whitespace-nowrap">
-          Home
-        </Link>
-        <FaChevronRight className="text-[9px] text-slate-300 shrink-0" />
-        <span className="text-slate-800 font-bold">Checkout</span>
-      </nav>
+
 
       {/* Main Grid: Left Shipping & Billing Form + Right Order Summary */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">

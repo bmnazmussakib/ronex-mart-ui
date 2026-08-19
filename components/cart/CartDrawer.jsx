@@ -49,12 +49,12 @@ export default function CartDrawer() {
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-200 bg-[#043326] text-white flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                <FaBasketShopping className="text-emerald-300 text-sm" />
+              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                <FaBasketShopping className="text-emerald-300 text-lg" />
               </div>
               <div>
-                <h2 className="font-bold text-sm leading-none text-white">Your Cart</h2>
-                <span className="text-[11px] text-emerald-200/70 font-medium">
+                <h2 className="font-semibold text-md leading-none text-white">Your Cart</h2>
+                <span className="text-sm text-emerald-200/70 font-medium">
                   {totalItemsCount} {totalItemsCount === 1 ? 'item' : 'items'} selected
                 </span>
               </div>
@@ -71,8 +71,8 @@ export default function CartDrawer() {
 
           {/* Free Delivery Bar */}
           <div className="bg-emerald-50/80 px-5 py-3 border-b border-emerald-100 shrink-0">
-            <div className="flex items-center gap-2 text-xs font-semibold text-emerald-900 mb-1.5">
-              <FaTruckFast className="text-[#006a52] text-sm" />
+            <div className="flex items-center gap-2 text-xs font-medium text-emerald-900 mb-1.5">
+              <FaTruckFast className="text-[#006a52] text-lg" />
               {remainingForFree > 0 ? (
                 <span>
                   Add <strong className="font-taka font-bold text-[#006a52]">৳{remainingForFree}</strong> more for <strong className="uppercase text-[#006a52]">Free Delivery</strong>!
@@ -96,13 +96,13 @@ export default function CartDrawer() {
                 <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-2xl">
                   <FaBasketShopping />
                 </div>
-                <h3 className="font-bold text-sm text-slate-800">Your cart is empty</h3>
-                <p className="text-xs text-slate-500 max-w-xs">
+                <h3 className="font-semibold text-lg text-slate-800">Your cart is empty</h3>
+                <p className="text-sm text-slate-500 max-w-xs">
                   Looks like you haven't added anything to your cart yet. Explore our grocery deals!
                 </p>
                 <button
                   onClick={closeCart}
-                  className="mt-2 bg-[#006a52] text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-[#005240] transition-colors cursor-pointer"
+                  className="mt-2 bg-[#006a52] text-white px-5 py-2 rounded-full uppercase text-sm font-semibold hover:bg-[#005240] transition-colors cursor-pointer"
                 >
                   Start Shopping
                 </button>
@@ -111,7 +111,7 @@ export default function CartDrawer() {
               cartItems.map((item) => (
                 <div key={item.id} className="py-3.5 flex items-center gap-3.5 group">
                   {/* Thumbnail */}
-                  <div className="w-16 h-16 rounded-xl bg-slate-50 border border-slate-100 p-1.5 shrink-0 flex items-center justify-center overflow-hidden">
+                  <div className="w-16 h-16 rounded-lg bg-slate-50 border border-slate-100 p-1.5 shrink-0 flex items-center justify-center overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -129,7 +129,7 @@ export default function CartDrawer() {
                     </span>
 
                     <div className="flex items-center justify-between mt-2">
-                      <span className="font-bold text-sm text-slate-900 font-taka">
+                      <span className="font-semibold text-sm text-slate-900 font-taka">
                         {item.price}
                       </span>
 
@@ -170,10 +170,10 @@ export default function CartDrawer() {
           {/* Footer Subtotal & Checkout */}
           {cartItems.length > 0 && (
             <div className="p-4 sm:p-5 bg-slate-50 border-t border-slate-200 space-y-3 shrink-0">
-              <div className="space-y-1.5 text-xs text-slate-600">
+              <div className="space-y-1.5 text-md text-slate-600">
                 <div className="flex justify-between items-center">
                   <span>Subtotal</span>
-                  <span className="font-bold text-slate-900 text-sm font-taka">
+                  <span className="font-semibold text-slate-900 text-lg font-taka">
                     ৳{subtotal}
                   </span>
                 </div>
@@ -186,14 +186,14 @@ export default function CartDrawer() {
               <div className="grid grid-cols-2 gap-2 pt-1">
                 <button
                   onClick={closeCart}
-                  className="bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-bold text-xs py-3 px-4 rounded-full transition-all text-center cursor-pointer"
+                  className="bg-white border border-slate-200 hover:border-slate-300 text-slate-700 uppercase font-semibold text-xs py-3 px-4 rounded-full transition-all text-center cursor-pointer"
                 >
                   Continue Shopping
                 </button>
                 <Link
                   href="/checkout"
                   onClick={closeCart}
-                  className="bg-[#006a52] hover:bg-[#005240] text-white font-bold text-xs py-3 px-4 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-md text-center"
+                  className="bg-[#006a52] hover:bg-[#005240] text-white uppercase font-semibold text-xs py-3 px-4 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-md text-center"
                 >
                   <span>Checkout</span>
                   <FaArrowRight className="text-[10px]" />

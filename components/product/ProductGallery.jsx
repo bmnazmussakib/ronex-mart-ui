@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import { RiHeart3Line, RiHeart3Fill } from 'react-icons/ri';
 
 export default function ProductGallery({ images, defaultBadge }) {
   const galleryImages = images && images.length > 0
@@ -17,6 +18,7 @@ export default function ProductGallery({ images, defaultBadge }) {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [mainSwiper, setMainSwiper] = useState(null);
+  const [isWishlist, setIsWishlist] = useState(false);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -36,6 +38,19 @@ export default function ProductGallery({ images, defaultBadge }) {
             {defaultBadge}
           </span>
         )}
+
+        {/* Wishlist Toggle Button */}
+        <button
+          onClick={() => setIsWishlist(!isWishlist)}
+          aria-label="Toggle Wishlist"
+          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white border border-slate-200/80 shadow-sm flex items-center justify-center transition-all cursor-pointer hover:scale-105 group/heart"
+        >
+          {isWishlist ? (
+            <RiHeart3Fill className="text-red-500 text-xl" />
+          ) : (
+            <RiHeart3Line className="text-slate-400 text-xl group-hover/heart:text-red-500 transition-colors" />
+          )}
+        </button>
 
         <Swiper
           onSwiper={setMainSwiper}

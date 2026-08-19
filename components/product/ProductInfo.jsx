@@ -85,7 +85,7 @@ export default function ProductInfo({ product }) {
 
       {/* Title */}
       <div>
-        <h1 className="text-xl sm:text-2xl font-semibold text-slate-900 leading-snug">
+        <h1 className="text-xl sm:text-3xl font-medium text-slate-900 leading-snug">
           {data.title}
         </h1>
 
@@ -188,38 +188,38 @@ export default function ProductInfo({ product }) {
         </button>
       </div>
 
-      {/* Professional Multi-Color Trust Badges Strip */}
+      {/* Trust Badges Strip (Neutral Theme) */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 border-t border-slate-100 pt-4">
-        {/* Fast Delivery - Blue Theme */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-blue-100 bg-blue-50/40 hover:bg-white hover:border-blue-300 transition-all shadow-2xs">
-          <div className="w-7 h-7 rounded-md bg-blue-100/80 text-blue-600 flex items-center justify-center shrink-0">
-            <FaTruckFast className="text-xs" />
+        {/* Fast Delivery */}
+        <div className="flex items-center gap-2.5 p-2.5 rounded-md border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-slate-300 transition-all">
+          <div className="w-12 h-12 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+            <FaTruckFast className="text-xl" />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-[11px] font-bold text-slate-800">Fast Home Delivery</span>
-            <span className="text-[10px] text-blue-600/80 font-medium">Express 24-48 Hrs</span>
+            <span className="text-sm font-semibold text-slate-800">Fast Home Delivery</span>
+            <span className="text-xs text-slate-500 font-base">Express 24-48 Hrs</span>
           </div>
         </div>
 
-        {/* 100% Genuine - Emerald Theme */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-emerald-100 bg-emerald-50/40 hover:bg-white hover:border-emerald-300 transition-all shadow-2xs">
-          <div className="w-7 h-7 rounded-md bg-emerald-100/80 text-[#006a52] flex items-center justify-center shrink-0">
-            <FaShieldHalved className="text-xs" />
+        {/* 100% Genuine */}
+        <div className="flex items-center gap-2.5 p-2.5 rounded-md border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-slate-300 transition-all">
+          <div className="w-12 h-12 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+            <FaShieldHalved className="text-xl" />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-[11px] font-bold text-slate-800">100% Genuine</span>
-            <span className="text-[10px] text-[#006a52]/80 font-medium">Authentic Goods</span>
+            <span className="text-sm font-semibold text-slate-800">100% Genuine</span>
+            <span className="text-xs text-slate-500 font-base">Authentic Goods</span>
           </div>
         </div>
 
-        {/* Cash On Delivery - Amber Theme */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-amber-100 bg-amber-50/40 hover:bg-white hover:border-amber-300 transition-all shadow-2xs">
-          <div className="w-7 h-7 rounded-md bg-amber-100/80 text-amber-600 flex items-center justify-center shrink-0">
-            <FaHandHoldingDollar className="text-xs" />
+        {/* Cash On Delivery */}
+        <div className="flex items-center gap-2.5 p-2.5 rounded-md border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-slate-300 transition-all">
+          <div className="w-12 h-12 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+            <FaHandHoldingDollar className="text-xl" />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-[11px] font-bold text-slate-800">Cash On Delivery</span>
-            <span className="text-[10px] text-amber-600/80 font-medium">Pay On Receipt</span>
+            <span className="text-sm font-semibold text-slate-800">Cash On Delivery</span>
+            <span className="text-xs text-slate-500 font-base">Pay On Receipt</span>
           </div>
         </div>
       </div>

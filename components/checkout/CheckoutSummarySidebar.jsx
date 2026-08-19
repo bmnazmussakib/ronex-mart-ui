@@ -43,36 +43,36 @@ export default function CheckoutSummarySidebar({
   return (
     <div className="space-y-4">
       {/* 1. ORDER SUMMARY CARD */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm space-y-3">
-        <h3 className="font-extrabold text-xs text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
+      <div className="bg-white rounded-lg border border-slate-200/90 p-5 space-y-3">
+        <h3 className="font-semibold text-sm text-slate-900 tracking-wider uppercase border-b border-slate-100 pb-2.5">
           ORDER SUMMARY
         </h3>
-        <div className="space-y-2 text-xs text-slate-600">
+        <div className="space-y-2 text-sm text-slate-600">
           <div className="flex justify-between items-center">
             <span>SUBTOTAL</span>
-            <span className="font-bold text-slate-900 font-taka">৳{subtotal.toFixed(2)}</span>
+            <span className="font-semibold text-sm text-slate-900 font-taka">৳{subtotal.toFixed(2)}</span>
           </div>
           <div className="flex justify-between items-center">
             <span>SHIPPING</span>
-            <span className="font-bold text-slate-900 font-taka">৳{shippingFee.toFixed(2)}</span>
+            <span className="font-semibold text-sm text-slate-900 font-taka">৳{shippingFee.toFixed(2)}</span>
           </div>
           <div className="flex justify-between items-center">
             <span>VAT</span>
-            <span className="font-bold text-slate-900 font-taka">৳{vatAmount.toFixed(2)}</span>
+            <span className="font-semibold text-sm text-slate-900 font-taka">৳{vatAmount.toFixed(2)}</span>
           </div>
           {needBag && (
             <div className="flex justify-between items-center text-emerald-700">
               <span>SHOPPING BAG</span>
-              <span className="font-bold font-taka">৳10.00</span>
+              <span className="font-semibold text-sm font-taka">৳10.00</span>
             </div>
           )}
           <div className="flex justify-between items-center text-slate-600">
             <span>DISCOUNT</span>
-            <span className="font-bold text-rose-600 font-taka">- ৳{discountAmount.toFixed(2)}</span>
+            <span className="font-semibold text-sm text-rose-600 font-taka">- ৳{discountAmount.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between items-center text-sm font-extrabold text-slate-900 border-t border-slate-200 pt-3">
+          <div className="flex justify-between items-center text-sm font-semibold text-slate-900 border-t border-slate-200 pt-3">
             <span>TOTAL</span>
-            <span className="text-base text-[#006a52] font-taka font-extrabold">
+            <span className="text-base text-[#006a52] font-taka font-semibold">
               ৳{totalAmount.toFixed(2)}
             </span>
           </div>

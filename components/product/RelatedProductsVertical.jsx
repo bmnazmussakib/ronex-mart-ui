@@ -15,7 +15,7 @@ export default function RelatedProductsVertical() {
       id: "1",
       image: "/img/product/product (2).jpeg",
       title: "Trix Dish Washing Bar Lemon 400g",
-      rating: 4.5,
+      category: "CLEANING SUPPLIES",
       oldPrice: "৳80",
       price: "৳60",
     },
@@ -23,7 +23,7 @@ export default function RelatedProductsVertical() {
       id: "2",
       image: "/img/product/product (3).jpeg",
       title: "Pran Hot Sauce 340g Bottle",
-      rating: 4.0,
+      category: "GROCERY & FOOD",
       oldPrice: "৳90",
       price: "৳70",
     },
@@ -31,7 +31,7 @@ export default function RelatedProductsVertical() {
       id: "3",
       image: "/img/product/product (4).jpeg",
       title: "Fresh Refined Sugar 1kg Pack",
-      rating: 5.0,
+      category: "GROCERY & FOOD",
       oldPrice: "৳100",
       price: "৳90",
     },
@@ -39,7 +39,7 @@ export default function RelatedProductsVertical() {
       id: "4",
       image: "/img/product/product (5).jpeg",
       title: "Smuckers Concord Grape Jelly 1.36kg",
-      rating: 4.8,
+      category: "IMPORTED FOODS",
       oldPrice: "৳2,890",
       price: "৳2,600",
     },
@@ -47,7 +47,47 @@ export default function RelatedProductsVertical() {
       id: "5",
       image: "/img/product/product (6).jpeg",
       title: "Sunflower Cooking Oil 5L Pet Bottle",
-      rating: 4.7,
+      category: "COOKING ESSENTIALS",
+      oldPrice: "৳950",
+      price: "৳850",
+    },
+    {
+      id: "1",
+      image: "/img/product/product (2).jpeg",
+      title: "Trix Dish Washing Bar Lemon 400g",
+      category: "CLEANING SUPPLIES",
+      oldPrice: "৳80",
+      price: "৳60",
+    },
+    {
+      id: "2",
+      image: "/img/product/product (3).jpeg",
+      title: "Pran Hot Sauce 340g Bottle",
+      category: "GROCERY & FOOD",
+      oldPrice: "৳90",
+      price: "৳70",
+    },
+    {
+      id: "3",
+      image: "/img/product/product (4).jpeg",
+      title: "Fresh Refined Sugar 1kg Pack",
+      category: "GROCERY & FOOD",
+      oldPrice: "৳100",
+      price: "৳90",
+    },
+    {
+      id: "4",
+      image: "/img/product/product (5).jpeg",
+      title: "Smuckers Concord Grape Jelly 1.36kg",
+      category: "IMPORTED FOODS",
+      oldPrice: "৳2,890",
+      price: "৳2,600",
+    },
+    {
+      id: "5",
+      image: "/img/product/product (6).jpeg",
+      title: "Sunflower Cooking Oil 5L Pet Bottle",
+      category: "COOKING ESSENTIALS",
       oldPrice: "৳950",
       price: "৳850",
     },
@@ -57,7 +97,7 @@ export default function RelatedProductsVertical() {
     <div className="bg-white rounded-xl border border-slate-200/90 p-4">
       {/* Header with Title & Vertical Nav Controls */}
       <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-        <h3 className="text-sm font-bold uppercase tracking-wide text-slate-800">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-800">
           Related Products
         </h3>
         <div className="flex items-center gap-1">
@@ -79,11 +119,11 @@ export default function RelatedProductsVertical() {
       </div>
 
       {/* Vertical Swiper Slider Container */}
-      <div className="h-[340px] overflow-hidden">
+      <div className="h-[450px] overflow-hidden">
         <Swiper
           direction="vertical"
           modules={[Navigation]}
-          slidesPerView={3}
+          slidesPerView={5}
           spaceBetween={12}
           loop={true}
           onBeforeInit={(swiper) => {
@@ -113,7 +153,10 @@ export default function RelatedProductsVertical() {
 
                 {/* Product Info */}
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-xs text-slate-800 group-hover:text-[#006a52] line-clamp-2 leading-snug transition-colors">
+                  <span className="text-[9px] font-medium text-slate-400 uppercase tracking-wide block truncate">
+                    {item.category}
+                  </span>
+                  <h4 className="font-semibold text-xs text-slate-800 group-hover:text-[#006a52] line-clamp-1 leading-snug transition-colors mt-0.5">
                     {item.title}
                   </h4>
                   {/* Rating Stars */}
@@ -125,15 +168,15 @@ export default function RelatedProductsVertical() {
                     <FaStar className="text-amber-200" />
                   </div>
                   {/* Price */}
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 font-taka">
+                    <span className="text-sm font-semibold text-slate-900">
+                      {item.price}
+                    </span>
                     {item.oldPrice && (
                       <span className="text-xs text-slate-400 line-through font-normal">
                         {item.oldPrice}
                       </span>
                     )}
-                    <span className="text-sm font-bold text-slate-900">
-                      {item.price}
-                    </span>
                   </div>
                 </div>
               </Link>
