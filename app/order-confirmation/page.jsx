@@ -3,6 +3,7 @@
 import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import {
   FaCircleCheck,
@@ -107,7 +108,7 @@ function OrderConfirmationContent() {
           {/* Receipt Top Header with Logo */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-200">
             <div className="space-y-1.5">
-              <img src="/img/logo.png" alt="RonexMart Logo" className="h-12 object-contain" />
+              <Image src="/img/logo.png" alt="RonexMart Logo" width={160} height={48} className="h-12 w-auto object-contain" />
               <p className="text-xs text-slate-500">RonexMart Superstore Ltd. • Support: +880 9610-000000</p>
             </div>
             <div className="text-left sm:text-right space-y-0.5 text-xs">

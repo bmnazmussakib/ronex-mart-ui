@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import { FaTag, FaShieldHalved, FaTruckFast, FaBasketShopping } from 'react-icons/fa6';
 
@@ -42,11 +43,15 @@ export default function OrderSummarySidebar({ deliveryFee, onConfirmOrder, isSub
         ) : (
           cartItems.map((item) => (
             <div key={item.id} className="pt-3 first:pt-0 flex items-center gap-3">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-12 h-12 rounded-xl object-contain bg-slate-50 border border-slate-100 p-1 shrink-0"
-              />
+              <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 shrink-0 overflow-hidden relative">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="48px"
+                  className="object-contain p-1"
+                />
+              </div>
               <div className="flex-1 min-w-0">
                 <h4 className="font-semibold text-xs text-slate-800 truncate">
                   {item.title}

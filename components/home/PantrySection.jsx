@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaChevronRight } from 'react-icons/fa6';
 
 export default function PantrySection() {
@@ -34,10 +35,12 @@ export default function PantrySection() {
         {/* Left Big Featured Card: Beverages */}
         <div className="col-span-12 lg:col-span-4 overflow-hidden flex flex-col justify-between">
           <div className="rounded-md sm:rounded-xl relative flex-1 bg-slate-50 flex items-center justify-center overflow-hidden min-h-[160px] sm:min-h-[280px] lg:min-h-[400px]">
-            <img
+            <Image
               src="/img/sqr-banner.png"
               alt="Beverages Showcase"
-              className="w-full h-full object-cover rounded-md sm:rounded-2xl"
+              fill
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="object-cover rounded-md sm:rounded-2xl"
             />
           </div>
           <div className="py-1.5 sm:py-2.5 px-2 sm:px-3 text-center">
@@ -49,11 +52,13 @@ export default function PantrySection() {
         <div className="col-span-12 lg:col-span-8 grid grid-cols-2 grid-cols-4 gap-2 sm:gap-3.5">
           {pantryCards.map((card, idx) => (
             <Link key={idx} href="#" className="overflow-hidden flex flex-col justify-between group">
-              <div className="rounded-md sm:rounded-xl aspect-square bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100">
-                <img
+              <div className="rounded-md sm:rounded-xl aspect-square bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 relative">
+                <Image
                   src={card.img}
                   alt={card.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 15vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="py-1 sm:py-2 px-1 sm:px-2 text-center mt-0.5 sm:mt-1">

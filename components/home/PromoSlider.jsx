@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function PromoSlider() {
   const slides = [
@@ -43,11 +44,13 @@ export default function PromoSlider() {
               href="#"
               className="block bg-white border border-slate-200/90 hover:border-[#006a52] rounded-md sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all group"
             >
-              <div className="w-full aspect-square bg-slate-50 rounded-md sm:rounded-xl overflow-hidden flex items-center justify-center">
-                <img
+              <div className="w-full aspect-square bg-slate-50 rounded-md sm:rounded-xl overflow-hidden flex items-center justify-center relative">
+                <Image
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  sizes="(max-width: 640px) 20vw, 10vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </Link>

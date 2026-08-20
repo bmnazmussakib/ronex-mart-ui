@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import {
   FaEye,
   FaArrowLeft,
@@ -300,10 +301,12 @@ export default function ProfileOrdersTab() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
               {/* Company Logo & Details */}
               <div className="space-y-2">
-                <img
+                <Image
                   src="/img/logo.png"
                   alt="RonexMart Logo"
-                  className="h-12 sm:h-14 object-contain"
+                  width={160}
+                  height={50}
+                  className="h-12 sm:h-14 w-auto object-contain"
                 />
                 <div className="text-xs text-slate-500 space-y-0.5">
                   <p className="font-semibold text-slate-700">RonexMart Superstore Ltd.</p>

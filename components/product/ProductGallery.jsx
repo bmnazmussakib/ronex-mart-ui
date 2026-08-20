@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
@@ -69,11 +70,14 @@ export default function ProductGallery({ images, defaultBadge }) {
         >
           {galleryImages.map((img, idx) => (
             <SwiperSlide key={idx} className="!flex !items-center !justify-center h-full w-full">
-              <div className="w-full h-full flex items-center justify-center p-2">
-                <img
+              <div className="w-full h-full flex items-center justify-center p-2 relative">
+                <Image
                   src={img}
                   alt={`Product Preview ${idx + 1}`}
-                  className="max-h-full max-w-full object-contain m-auto group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  priority={idx === 0}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </SwiperSlide>
@@ -103,16 +107,18 @@ export default function ProductGallery({ images, defaultBadge }) {
           <button
             key={idx}
             onClick={() => handleThumbClick(idx)}
-            className={`aspect-square rounded-lg bg-white border p-1.5 sm:p-2 flex items-center justify-center overflow-hidden transition-all cursor-pointer ${
+            className={`aspect-square rounded-lg bg-white border flex items-center justify-center overflow-hidden transition-all cursor-pointer relative ${
               activeIndex === idx
                 ? 'border-[#006a52] ring-2 ring-[#006a52]/20'
                 : 'border-slate-200 hover:border-slate-300'
             }`}
           >
-            <img
+            <Image
               src={img}
               alt={`Thumbnail ${idx + 1}`}
-              className="max-h-full max-w-full object-contain"
+              fill
+              sizes="100px"
+              className="object-contain p-1.5 sm:p-2"
             />
           </button>
         ))}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   FaTruckFast,
   FaShieldHalved,
@@ -71,10 +72,12 @@ export default function Footer() {
           {/* Column 1: Brand Info & Social Media */}
           <div className="col-span-2 lg:col-span-2 space-y-3.5 pr-0 lg:pr-6">
             <Link href="/" className="inline-block">
-              <img
+              <Image
                 src="/img/logo.png"
                 alt="RonexMart Logo"
-                className="h-9 sm:h-12 object-contain brightness-0 invert"
+                width={160}
+                height={48}
+                className="h-9 sm:h-12 w-auto object-contain brightness-0 invert"
               />
             </Link>
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-sm font-medium">
@@ -251,16 +254,20 @@ export default function Footer() {
         <div className=" flex flex-col items-center justify-center gap-2 py-2 border-b border-emerald-900/60">
           <div className="w-full flex items-center justify-center">
             {/* Desktop Banner Image */}
-            <img
+            <Image
               src="/img/payment/SSLCommerz.png"
               alt="SSLCommerz Payment Gateway - bKash, Nagad, Rocket, Visa, Mastercard, AMEX"
-              className="hidden lg:block lg:max-w-3/4 w-auto object-contain rounded-lg   shadow-sm"
+              width={800}
+              height={120}
+              className="hidden lg:block lg:max-w-3/4 w-auto object-contain rounded-lg shadow-sm"
             />
             {/* Mobile Banner Image */}
-            <img
+            <Image
               src="/img/payment/SSLCommerz-Pay-With-logo-All-Size-01-2048x240.png"
               alt="Accepted Payment Methods"
-              className="lg:hidden w-auto object-contain rounded-lg  shadow-sm"
+              width={1000}
+              height={120}
+              className="lg:hidden w-auto object-contain rounded-lg shadow-sm"
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import {
   FaXmark,
@@ -114,11 +115,12 @@ export default function CartDrawer() {
               cartItems.map((item) => (
                 <div key={item.id} className="py-3 sm:py-3.5 flex items-center gap-3 sm:gap-3.5 group">
                   {/* Thumbnail */}
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg bg-slate-50 border border-slate-100 p-1 shrink-0 flex items-center justify-center overflow-hidden">
-                    <img
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg bg-slate-50 border border-slate-100 p-1 shrink-0 flex items-center justify-center overflow-hidden relative">
+                    <Image
                       src={item.image}
                       alt={item.title}
-                      className="max-h-full max-w-full object-contain"
+                      fill
+                      className="object-contain"
                     />
                   </div>
 

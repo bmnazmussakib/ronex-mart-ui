@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaStar } from 'react-icons/fa6';
 
 export default function HorizontalProductCard({ item }) {
@@ -22,11 +23,13 @@ export default function HorizontalProductCard({ item }) {
       className="flex items-center gap-2.5 p-2 rounded-lg border border-slate-200/80 bg-white hover:border-[#006a52] hover:shadow-xs transition-all group w-full h-full"
     >
       {/* Product Image Thumbnail */}
-      <div className="w-14 h-14 bg-slate-50 rounded-md p-1 flex items-center justify-center shrink-0 border border-slate-100 overflow-hidden">
-        <img
+      <div className="w-14 h-14 bg-slate-50 rounded-md shrink-0 border border-slate-100 overflow-hidden relative">
+        <Image
           src={image}
           alt={title}
-          className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+          fill
+          sizes="56px"
+          className="object-contain p-1 group-hover:scale-105 transition-transform duration-300"
         />
       </div>
 

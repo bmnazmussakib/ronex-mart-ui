@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import {
   FaBars,
@@ -123,75 +124,76 @@ export default function MainHeader() {
         {/* Left: Logo */}
         <div className="flex items-center shrink-0">
           <Link href="/" className="flex items-center gap-2 shrink-0 group">
-            <img
+            <Image
               src="/img/logo.png"
               alt="RonexMart Logo"
-              className="h-10 sm:h-12 lg:h-14 object-contain transition-transform"
+              width={180}
+              height={50}
+              priority
+              className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform"
             />
           </Link>
         </div>
 
         {/* Center: Search Bar with Live Results Dropdown */}
         <div ref={searchContainerRef} className="hidden sm:block flex-1 max-w-2xl mx-1 sm:mx-4 relative z-50">
-          <div
-            className={`flex items-center bg-slate-50 rounded-full border transition-all ${
-              isFocused
-                ? 'border-[#006a52] bg-white ring-3 ring-[#006a52]/15 shadow-sm'
-                : 'border-slate-300 hover:border-slate-400'
-            } p-0.5 sm:p-1`}
-          >
-            <FaMagnifyingGlass className="text-slate-400 ml-3 sm:ml-3.5 text-xs shrink-0" />
+          <div className="relative flex items-center">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => setIsFocused(true)}
-              placeholder="Search 10,000+ products, groceries..."
-              className="w-full px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none bg-transparent"
+              placeholder="Search for groceries, beverages, snacks..."
+              className="w-full pl-4 sm:pl-5 pr-11 sm:pr-14 py-2 sm:py-2.5 rounded-full border border-slate-300 focus:border-[#006a52] focus:ring-2 focus:ring-[#006a52]/20 text-xs sm:text-sm text-slate-800 placeholder-slate-400 outline-hidden transition-all bg-slate-50/50 hover:bg-white focus:bg-white shadow-2xs"
             />
 
-            {/* Clear Button */}
-            {searchQuery && (
+            {searchQuery ? (
               <button
+                type="button"
                 onClick={() => setSearchQuery('')}
-                className="p-1 text-slate-400 hover:text-slate-600 transition-colors mr-1 cursor-pointer"
-                aria-label="Clear search"
+                className="absolute right-10 sm:right-12 text-slate-400 hover:text-slate-600 text-xs p-1"
               >
-                <FaXmark className="text-xs" />
+                <FaXmark />
               </button>
-            )}
+            ) : null}
 
-            <div className="hidden md:block h-4 w-px bg-slate-200 mx-1 shrink-0"></div>
-            <select className="hidden md:block py-1 pl-2 pr-6 text-xs sm:text-sm font-medium text-slate-600 bg-transparent cursor-pointer focus:outline-none appearance-none shrink-0">
-              <option>All categories</option>
-              <option>Grocery & Food</option>
-              <option>Beverages</option>
-              <option>Personal Care</option>
-            </select>
+            <button
+              type="button"
+              aria-label="Search"
+              className="absolute right-1 sm:right-1.5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#006a52] hover:bg-[#005240] text-white flex items-center justify-center text-xs sm:text-sm transition-colors cursor-pointer"
+            >
+              <FaMagnifyingGlass />
+            </button>
           </div>
 
-          {/* Search Result Overlay Dropdown */}
+          {/* Live Search Results Dropdown Overlay */}
           {isFocused && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-200/90 overflow-hidden z-50 transition-all animate-in fade-in slide-in-from-top-2 duration-200">
-              {/* Top Bar / Results Count */}
-              <div className="px-4 py-2.5 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
-                <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
-                  {searchQuery.trim() ? `Search Results (${filteredProducts.length})` : 'Suggested Products'}
-                </span>
-                {searchQuery.trim() && (
-                  <span className="text-[11px] text-[#006a52] font-medium">
-                    Showing matches for "{searchQuery}"
-                  </span>
-                )}
-              </div>
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl border border-slate-200/90 shadow-xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+              {/* Popular Tags Header (when query is empty) */}
+              {!searchQuery && (
+                <div className="p-3 bg-slate-50/80 border-b border-slate-100 flex items-center gap-2 overflow-x-auto custom-scrollbar">
+                  <span className="text-[10px] font-semibold uppercase text-slate-400 shrink-0">Popular:</span>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    {popularTags.map((tag, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setSearchQuery(tag)}
+                        className="text-[11px] bg-white border border-slate-200 hover:border-[#006a52] text-slate-600 hover:text-[#006a52] px-2.5 py-0.5 rounded-full transition-colors cursor-pointer shrink-0 font-medium"
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-              {/* Product Cards List (Fixed Height Scrollable Container) */}
-              <div className="h-[300px] max-h-[300px] overflow-y-auto divide-y divide-slate-100 custom-scrollbar">
+              {/* Products Match List */}
+              <div className="max-h-80 overflow-y-auto custom-scrollbar divide-y divide-slate-100 p-2">
                 {filteredProducts.length > 0 ? (
                   filteredProducts.map((product) => (
                     <div
                       key={product.id}
-                      className="p-2.5 sm:p-3 hover:bg-slate-50 flex items-center justify-between gap-3 transition-colors group cursor-pointer"
+                      className="p-2 sm:p-2.5 rounded-xl hover:bg-slate-50/80 flex items-center justify-between gap-3 transition-colors group cursor-pointer"
                     >
                       <Link
                         href={`/product/${product.id}`}
@@ -199,11 +201,13 @@ export default function MainHeader() {
                         className="flex items-center gap-3 flex-1 min-w-0"
                       >
                         {/* Thumbnail */}
-                        <div className="w-11 h-11 bg-white border border-slate-200/90 rounded-md p-1 flex items-center justify-center shrink-0 overflow-hidden">
-                          <img
+                        <div className="w-11 h-11 bg-white border border-slate-200/90 rounded-md shrink-0 overflow-hidden relative">
+                          <Image
                             src={product.image}
                             alt={product.title}
-                            className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                            fill
+                            sizes="44px"
+                            className="object-contain p-1 group-hover:scale-105 transition-transform"
                           />
                         </div>
 

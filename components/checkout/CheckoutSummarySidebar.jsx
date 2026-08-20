@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import {
   FaMinus,
@@ -67,11 +68,15 @@ export default function CheckoutSummarySidebar({
             ) : (
               cartItems.map((item) => (
                 <div key={item.id} className="pt-3 first:pt-0 flex items-start gap-3">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-12 h-12 rounded-md object-contain bg-slate-50 border border-slate-100 p-1 shrink-0"
-                  />
+                  <div className="w-12 h-12 rounded-md bg-slate-50 border border-slate-100 shrink-0 overflow-hidden relative">
+                    <Image
+                      src={item.image || "/img/product/product (1).jpeg"}
+                      alt={item.title || "Bag Item"}
+                      fill
+                      sizes="48px"
+                      className="object-contain p-1"
+                    />
+                  </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="font-medium text-xs text-slate-900 line-clamp-1 leading-snug">
                       {item.title}

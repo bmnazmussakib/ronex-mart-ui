@@ -1,6 +1,7 @@
 'use client';
 
 import Marquee from 'react-fast-marquee';
+import Image from 'next/image';
 
 export default function TopBrandsSlider() {
   const brands = [
@@ -31,12 +32,14 @@ export default function TopBrandsSlider() {
         {brands.map((brand, idx) => (
           <div
             key={idx}
-            className="mx-1.5 sm:mx-3 bg-white rounded-lg sm:rounded-xl h-12 sm:h-16 lg:h-18 flex items-center justify-center transition-all cursor-pointer group px-2.5 sm:px-4 overflow-hidden "
+            className="mx-1.5 sm:mx-3 bg-white rounded-lg sm:rounded-xl w-24 sm:w-32 lg:w-36 h-12 sm:h-16 lg:h-18 flex items-center justify-center transition-all cursor-pointer group px-2.5 sm:px-4 overflow-hidden relative"
           >
-            <img
+            <Image
               src={brand.logo}
               alt={brand.name}
-              className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+              fill
+              sizes="144px"
+              className="object-contain p-1 group-hover:scale-105 transition-transform duration-300"
             />
           </div>
         ))}

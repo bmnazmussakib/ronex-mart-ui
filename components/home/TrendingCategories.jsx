@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa6';
@@ -123,11 +124,13 @@ export default function TrendingCategories() {
               className="flex flex-col items-center justify-between transition-all duration-300 group w-full h-full text-center relative py-1"
             >
               {/* Circular Image */}
-              <div className="w-14 h-14 min-[420px]:w-16 min-[420px]:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white shadow-md border-2 border-slate-100 group-hover:shadow-lg group-hover:shadow-emerald-950/10 transition-all duration-300 overflow-hidden my-1 flex items-center justify-center shrink-0">
-                <img
+              <div className="w-14 h-14 min-[420px]:w-16 min-[420px]:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white shadow-md border-2 border-slate-100 group-hover:shadow-lg group-hover:shadow-emerald-950/10 transition-all duration-300 overflow-hidden my-1 flex items-center justify-center shrink-0 relative">
+                <Image
                   src={cat.img}
                   alt={cat.title}
-                  className="w-full h-full object-cover rounded-full group-hover:scale-115 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 64px, 112px"
+                  className="object-cover rounded-full group-hover:scale-115 transition-transform duration-500"
                 />
               </div>
 

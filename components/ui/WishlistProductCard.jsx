@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaTrashCan, FaPlus, FaStar, FaCircleCheck } from 'react-icons/fa6';
 
 export default function WishlistProductCard({ item, onRemove, onAddToCart }) {
@@ -45,12 +46,14 @@ export default function WishlistProductCard({ item, onRemove, onAddToCart }) {
       <div className="p-2.5 sm:p-3 md:p-4 flex flex-col items-center text-center space-y-1.5 sm:space-y-2 flex-1">
         <Link
           href={`/product/${id}`}
-          className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-white rounded-lg p-1 sm:p-1.5 flex items-center justify-center overflow-hidden block"
+          className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-white rounded-lg overflow-hidden block relative"
         >
-          <img
-            src={image}
-            alt={title}
-            className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+          <Image
+            src={image || "/img/product/product (1).jpeg"}
+            alt={title || "Product"}
+            fill
+            sizes="(max-width: 640px) 80px, 112px"
+            className="object-contain p-1 sm:p-1.5 group-hover:scale-105 transition-transform duration-300"
           />
         </Link>
 

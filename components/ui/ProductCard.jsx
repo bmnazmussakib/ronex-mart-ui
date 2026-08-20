@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import { FaStar, FaPlus } from 'react-icons/fa6';
 import { RiHeart3Line, RiHeart3Fill } from 'react-icons/ri';
@@ -59,11 +60,13 @@ export default function ProductCard({
             <RiHeart3Line className="text-slate-500 text-base sm:text-lg group-hover/heart:text-red-500 transition-colors" />
           )}
         </button>
-        <div className="bg-slate-50/60 w-full aspect-square rounded-md sm:rounded-lg p-2 sm:p-3 flex items-center justify-center border border-slate-100 overflow-hidden">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+        <div className="bg-slate-50/60 w-full aspect-square rounded-md sm:rounded-lg flex items-center justify-center border border-slate-100 overflow-hidden relative">
+          <Image
+            src={image || "/img/product/product (1).jpeg"}
+            alt={title || "Product Image"}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+            className="object-contain p-2 sm:p-3 group-hover:scale-105 transition-transform duration-300"
           />
         </div>
       </Link>

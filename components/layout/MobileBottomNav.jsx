@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import {
@@ -197,11 +198,13 @@ export default function MobileBottomNav() {
                       className="flex items-center gap-3 flex-1 min-w-0"
                     >
                       {/* Thumbnail */}
-                      <div className="w-11 h-11 bg-slate-50 border border-slate-200/80 rounded-lg p-1 flex items-center justify-center shrink-0 overflow-hidden">
-                        <img
+                      <div className="w-11 h-11 bg-slate-50 border border-slate-200/80 rounded-lg p-1 flex items-center justify-center shrink-0 overflow-hidden relative">
+                        <Image
                           src={product.image}
                           alt={product.title}
-                          className="max-h-full max-w-full object-contain"
+                          fill
+                          sizes="44px"
+                          className="object-contain"
                         />
                       </div>
 
