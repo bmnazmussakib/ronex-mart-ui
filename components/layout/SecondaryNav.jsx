@@ -48,7 +48,7 @@ export default function SecondaryNav() {
         {/* Right Hotline */}
         <div className="hidden xl:flex items-center gap-2 text-slate-800 text-xs font-bold shrink-0 py-2">
           <FaPhone className="text-[#0b5d44]" />
-          <span>09611996677</span>
+          <span>09611XXXXXXX</span>
         </div>
       </div>
     </div>

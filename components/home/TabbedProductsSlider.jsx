@@ -210,7 +210,7 @@ export default function TabbedProductsSlider() {
                 : 'text-slate-600 border border-slate-300 font-medium hover:text-[#006a52] hover:bg-slate-50'
             }`}
           >
-            Imported Products
+            Grocery & Food
           </button>
           <button
             onClick={() => setActiveTab('imported-usa')}
@@ -220,7 +220,7 @@ export default function TabbedProductsSlider() {
                 : 'text-slate-600 border border-slate-300 font-medium hover:text-[#006a52] hover:bg-slate-50'
             }`}
           >
-            Imported From USA
+            Home Decore
           </button>
         </div>
       </div>

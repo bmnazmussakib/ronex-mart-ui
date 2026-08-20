@@ -72,7 +72,7 @@ export default function LeftSidebar() {
           className="bg-white border border-slate-200 hover:border-[#006a52] py-1.5 sm:py-2 px-1 rounded-lg text-center flex flex-col items-center justify-center transition-all group shadow-2xs"
         >
           <FaStar className="text-amber-500 text-base sm:text-lg mb-0.5 sm:mb-1 transition-transform" />
-          <span className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight">Best Sellers</span>
+          <span className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight">Featured</span>
         </Link>
       </div>
 
