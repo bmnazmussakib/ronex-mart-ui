@@ -1,4 +1,4 @@
-import { Jost, Hind_Siliguri } from "next/font/google";
+import { Roboto, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -14,9 +14,10 @@ import Footer from "@/components/layout/Footer";
 import CartDrawer from "@/components/cart/CartDrawer";
 import MobileBottomNav from "@/components/layout/MobileBottomNav";
 
-const jost = Jost({
-  variable: "--font-jost",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
 });
 
 const hindSiliguri = Hind_Siliguri({
@@ -38,7 +39,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${jost.variable} ${hindSiliguri.variable} h-full antialiased`}>
+    <html lang="en" className={`${roboto.variable} ${hindSiliguri.variable} h-full antialiased`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/img/favicon_io/favicon-32x32.png" type="image/png" sizes="32x32" />
