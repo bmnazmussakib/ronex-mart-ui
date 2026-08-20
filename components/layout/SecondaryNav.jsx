@@ -5,14 +5,17 @@ import { useCart } from '@/context/CartContext';
 import { FaBars, FaChevronDown, FaPhone } from 'react-icons/fa6';
 
 export default function SecondaryNav() {
-  const { toggleSidebar } = useCart();
+  const { toggleSidebar, toggleDesktopSidebar } = useCart();
 
   return (
     <div className="hidden md:block bg-slate-100/90 border-t border-slate-200 text-[13px] font-semibold text-slate-700">
       <div className="w-full pr-3 sm:pr-8 flex items-center justify-between">
         {/* Left Categories Header Box (Desktop Only) */}
         <button
-          onClick={toggleSidebar}
+          onClick={() => {
+            toggleSidebar();
+            toggleDesktopSidebar();
+          }}
           className="hidden xl:flex w-64 bg-[#053b2c] hover:bg-[#03241b] text-white px-4 py-3 items-center justify-between cursor-pointer tracking-wider shrink-0 font-bold transition-colors"
           aria-label="Toggle categories menu"
         >

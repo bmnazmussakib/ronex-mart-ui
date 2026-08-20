@@ -18,6 +18,7 @@ export function CartProvider({ children }) {
   ]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isDesktopSidebarOpen, setIsDesktopSidebarOpen] = useState(true);
 
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
@@ -26,6 +27,7 @@ export function CartProvider({ children }) {
   const openSidebar = () => setIsSidebarOpen(true);
   const closeSidebar = () => setIsSidebarOpen(false);
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
+  const toggleDesktopSidebar = () => setIsDesktopSidebarOpen((prev) => !prev);
 
   const parsePrice = (priceStr) => {
     if (typeof priceStr === 'number') return priceStr;
@@ -98,6 +100,8 @@ export function CartProvider({ children }) {
         openSidebar,
         closeSidebar,
         toggleSidebar,
+        isDesktopSidebarOpen,
+        toggleDesktopSidebar,
         addToCart,
         updateQuantity,
         removeFromCart,

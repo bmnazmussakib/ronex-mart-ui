@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
             <LeftSidebar />
 
             {/* Right Column: Body Content + Footer at bottom */}
-            <div className="flex-1 min-w-0 flex flex-col min-h-[calc(100vh-115px)] justify-between">
+            <div className="flex-1 min-w-0 flex flex-col min-h-[calc(100vh-115px)] justify-between transition-all duration-300 ease-in-out">
               <main className="flex-1 flex flex-col gap-3 sm:gap-4 p-3 sm:p-4 lg:p-5">
                 {children}
               </main>

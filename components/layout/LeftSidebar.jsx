@@ -29,7 +29,7 @@ import {
 } from 'react-icons/fa6';
 
 export default function LeftSidebar() {
-  const { isSidebarOpen, closeSidebar } = useCart();
+  const { isSidebarOpen, closeSidebar, isDesktopSidebarOpen } = useCart();
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
 
   const categories = [
@@ -128,8 +128,12 @@ export default function LeftSidebar() {
 
   return (
     <>
-      {/* 1. Fixed Left Sidebar (Desktop Only: XL screens & up) */}
-      <aside className="hidden xl:flex w-64 shrink-0 bg-white border-r border-slate-200/90 overflow-hidden flex-col justify-between sticky top-[160px] h-[calc(100vh-175px)]">
+      {/* 1. Fixed Left Sidebar (Desktop Only: XL screens & up with Smooth Transitions) */}
+      <aside
+        className={`hidden xl:flex shrink-0 bg-white border-r border-slate-200/90 overflow-hidden flex-col justify-between sticky top-[160px] h-[calc(100vh-175px)] transition-all duration-300 ease-in-out ${
+          isDesktopSidebarOpen ? 'w-64 opacity-100' : 'w-0 opacity-0 border-r-0 pointer-events-none'
+        }`}
+      >
         {categoriesList}
       </aside>
 
