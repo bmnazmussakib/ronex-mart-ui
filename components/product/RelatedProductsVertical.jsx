@@ -1,17 +1,14 @@
 'use client';
 
-import { useRef } from 'react';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { FaChevronUp, FaChevronDown, FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
-import ProductCard from '@/components/ui/ProductCard';
-import HorizontalProductCard from '@/components/ui/HorizontalProductCard';
+import CompactRelatedProductCard from '@/components/product/CompactRelatedProductCard';
 
 export default function RelatedProductsVertical() {
-  const prevRefDesktop = useRef(null);
-  const nextRefDesktop = useRef(null);
-  const prevRefMobile = useRef(null);
-  const nextRefMobile = useRef(null);
+  const [desktopSwiper, setDesktopSwiper] = useState(null);
+  const [mobileSwiper, setMobileSwiper] = useState(null);
 
   const relatedProducts = [
     {
@@ -64,6 +61,36 @@ export default function RelatedProductsVertical() {
       rating: 4.7,
       weight: '5 L',
     },
+    {
+      id: '6',
+      image: '/img/product/product (7).jpeg',
+      title: 'Premium Miniket Rice Special Pack 5kg',
+      category: 'GROCERY & FOOD',
+      oldPrice: '৳420',
+      price: '৳380',
+      rating: 4.9,
+      weight: '5 kg',
+    },
+    {
+      id: '7',
+      image: '/img/product/product (1).jpeg',
+      title: 'Wheel Washing Powder 2 in 1 Clean & Fresh',
+      category: 'CLEANING SUPPLIES',
+      oldPrice: '৳85',
+      price: '৳70',
+      rating: 4.8,
+      weight: '500 g',
+    },
+    {
+      id: '8',
+      image: '/img/product/product (3).jpeg',
+      title: 'Kirkland Organic Raw & Unfiltered Honey',
+      category: 'IMPORTED FOODS',
+      oldPrice: '৳2,100',
+      price: '৳1,890',
+      rating: 4.8,
+      weight: '680 g',
+    },
   ];
 
   return (
@@ -75,58 +102,56 @@ export default function RelatedProductsVertical() {
         </h3>
 
         {/* Mobile & Tablet Nav Arrows */}
-        <div className="flex items-center gap-1 lg:hidden">
+        <div className="flex items-center gap-1.5 lg:hidden">
           <button
-            ref={prevRefMobile}
+            type="button"
+            onClick={() => mobileSwiper?.slidePrev()}
             aria-label="Previous Slide"
-            className="w-6 h-6 rounded-full border border-slate-200 bg-slate-50 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] transition-all cursor-pointer"
+            className="w-7 h-7 rounded-full border border-slate-200 bg-slate-50 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all cursor-pointer shadow-2xs active:scale-95"
           >
             <FaChevronLeft />
           </button>
           <button
-            ref={nextRefMobile}
+            type="button"
+            onClick={() => mobileSwiper?.slideNext()}
             aria-label="Next Slide"
-            className="w-6 h-6 rounded-full border border-slate-200 bg-slate-50 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] transition-all cursor-pointer"
+            className="w-7 h-7 rounded-full border border-slate-200 bg-slate-50 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all cursor-pointer shadow-2xs active:scale-95"
           >
             <FaChevronRight />
           </button>
         </div>
 
         {/* Desktop Nav Arrows */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-1.5">
           <button
-            ref={prevRefDesktop}
+            type="button"
+            onClick={() => desktopSwiper?.slidePrev()}
             aria-label="Previous Slide"
-            className="w-6 h-6 rounded-full border border-slate-200 bg-slate-50 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] transition-all cursor-pointer"
+            className="w-7 h-7 rounded-full border border-slate-200 bg-slate-50 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all cursor-pointer shadow-2xs active:scale-95"
           >
             <FaChevronUp />
           </button>
           <button
-            ref={nextRefDesktop}
+            type="button"
+            onClick={() => desktopSwiper?.slideNext()}
             aria-label="Next Slide"
-            className="w-6 h-6 rounded-full border border-slate-200 bg-slate-50 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-[10px] transition-all cursor-pointer"
+            className="w-7 h-7 rounded-full border border-slate-200 bg-slate-50 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] text-slate-600 flex items-center justify-center text-xs transition-all cursor-pointer shadow-2xs active:scale-95"
           >
             <FaChevronDown />
           </button>
         </div>
       </div>
 
-      {/* 1. Mobile & Tablet View (Horizontal Carousel showing ProductCard) */}
+      {/* 1. Mobile & Tablet View */}
       <div className="block lg:hidden">
         <Swiper
           modules={[Navigation, Autoplay]}
+          onSwiper={setMobileSwiper}
           slidesPerView={2}
           spaceBetween={12}
+          speed={500}
           loop={true}
           autoplay={{ delay: 3200, disableOnInteraction: false }}
-          onBeforeInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRefMobile.current;
-            swiper.params.navigation.nextEl = nextRefMobile.current;
-          }}
-          navigation={{
-            prevEl: prevRefMobile.current,
-            nextEl: nextRefMobile.current,
-          }}
           breakpoints={{
             320: { slidesPerView: 2, spaceBetween: 10 },
             640: { slidesPerView: 3, spaceBetween: 12 },
@@ -136,35 +161,28 @@ export default function RelatedProductsVertical() {
         >
           {relatedProducts.map((item, idx) => (
             <SwiperSlide key={idx} className="!h-auto flex">
-              {/* <ProductCard {...item} /> */}
-              <HorizontalProductCard item={item} />
+              <CompactRelatedProductCard item={item} />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
-      {/* 2. Desktop View (Vertical Slider showing HorizontalProductCard) */}
+      {/* 2. Desktop View */}
       <div className="hidden lg:block h-[440px] overflow-hidden">
         <Swiper
           direction="vertical"
           modules={[Navigation, Autoplay]}
+          onSwiper={setDesktopSwiper}
           slidesPerView={5}
           spaceBetween={10}
+          speed={500}
           loop={true}
           autoplay={{ delay: 3500, disableOnInteraction: false }}
-          onBeforeInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRefDesktop.current;
-            swiper.params.navigation.nextEl = nextRefDesktop.current;
-          }}
-          navigation={{
-            prevEl: prevRefDesktop.current,
-            nextEl: nextRefDesktop.current,
-          }}
           className="h-full w-full verticalRelatedSwiper"
         >
           {relatedProducts.map((item, idx) => (
-            <SwiperSlide key={idx} className="!h-auto">
-              <HorizontalProductCard item={item} />
+            <SwiperSlide key={idx} className="!h-[76px]">
+              <CompactRelatedProductCard item={item} />
             </SwiperSlide>
           ))}
         </Swiper>

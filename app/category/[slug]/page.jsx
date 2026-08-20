@@ -1,10 +1,4 @@
-import Link from 'next/link';
-import ProductCard from '@/components/ui/ProductCard';
-import CategoryHeader from '@/components/category/CategoryHeader';
-import CategoryFilterSidebar from '@/components/category/CategoryFilterSidebar';
-import CategoryPagination from '@/components/category/CategoryPagination';
-import { FaChevronRight } from 'react-icons/fa6';
-import Breadcrumb from '@/components/ui/Breadcrumb';
+import CategoryViewClient from '@/components/category/CategoryViewClient';
 
 export default async function CategorySlugPage({ params }) {
   const { slug } = await params;
@@ -101,39 +95,14 @@ export default async function CategorySlugPage({ params }) {
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
     { label: 'Grocery & Food', href: '#' },
-    { label: currentTitle, href: '#' },
     { label: currentTitle },
   ];
 
   return (
-    <div className="flex flex-col gap-3 sm:gap-5 py-1 sm:py-2">
-      {/* Breadcrumb Bar */}
-      <Breadcrumb items={breadcrumbItems} />
-
-      {/* Category Banner Header */}
-      <CategoryHeader title={currentTitle} itemCount={productsList.length} />
-
-      {/* Main Grid: Left Filters + Right Product Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
-        {/* Left Filter Sidebar */}
-        <div className="lg:col-span-3">
-          <CategoryFilterSidebar />
-        </div>
-
-        {/* Right Product Grid */}
-        <div className="lg:col-span-9 flex flex-col justify-between">
-          <div className="grid grid-cols-2 min-[480px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
-            {productsList.map((item) => (
-              <div key={item.id} className="h-full">
-                <ProductCard {...item} />
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination */}
-          <CategoryPagination totalPages={4} />
-        </div>
-      </div>
-    </div>
+    <CategoryViewClient
+      currentTitle={currentTitle}
+      productsList={productsList}
+      breadcrumbItems={breadcrumbItems}
+    />
   );
 }
