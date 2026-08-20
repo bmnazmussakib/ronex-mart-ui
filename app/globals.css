@@ -35,3 +35,30 @@ body {
   background: #0b5d44;
   border-radius: 4px;
 }
+
+/* Print Only Invoice Styles */
+@media print {
+  @page {
+    margin: 15px;
+    size: auto;
+  }
+  body * {
+    visibility: hidden !important;
+  }
+  #invoice-printable,
+  #invoice-printable * {
+    visibility: visible !important;
+  }
+  #invoice-printable {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+}
+
