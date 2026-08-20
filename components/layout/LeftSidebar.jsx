@@ -110,7 +110,7 @@ export default function LeftSidebar() {
   return (
     <>
       {/* 1. Fixed Left Sidebar (Desktop Only: XL screens & up) */}
-      <aside className="hidden xl:flex w-64 shrink-0 bg-white border-r border-slate-200/90 overflow-hidden flex-col justify-between sticky top-[140px] h-[calc(100vh-150px)]">
+      <aside className="hidden xl:flex w-64 shrink-0 bg-white border-r border-slate-200/90 overflow-hidden flex-col justify-between sticky top-[160px] h-[calc(100vh-175px)]">
         {categoriesList}
       </aside>
 

@@ -22,7 +22,7 @@ export default function MainHeader() {
             <img
               src="/img/logo.png"
               alt="RonexMart Logo"
-              className="h-10 sm:h-12 lg:h-14 object-contain group-hover:scale-105 transition-transform"
+              className="h-10 sm:h-12 lg:h-14 object-contain  transition-transform"
             />
           </Link>
         </div>
@@ -56,7 +56,7 @@ export default function MainHeader() {
               className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
             >
               <div className="relative flex items-center justify-center">
-                <FaUser className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
+                <FaUser className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52]  transition-all" />
               </div>
               <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Account</span>
             </Link>
@@ -67,8 +67,8 @@ export default function MainHeader() {
               className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
             >
               <div className="relative flex items-center justify-center">
-                <RiHeart3Line className="text-xl sm:text-2xl lg:text-3xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
-                <span className="absolute -top-1.5 -right-2 bg-[#b8860b] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
+                <RiHeart3Line className="text-xl sm:text-2xl lg:text-3xl text-slate-800 group-hover:text-[#006a52]  transition-all" />
+                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
                   0
                 </span>
               </div>
@@ -82,8 +82,8 @@ export default function MainHeader() {
               className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group cursor-pointer"
             >
               <div className="relative flex items-center justify-center">
-                <FaBasketShopping className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />
-                <span className="absolute -top-1.5 -right-2 bg-[#b8860b] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white shadow-xs">
+                <FaBasketShopping className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] " />
+                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
                   {totalItemsCount}
                 </span>
               </div>
