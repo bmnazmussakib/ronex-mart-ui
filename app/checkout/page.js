@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import ShippingAndBillingForm from '@/components/checkout/ShippingAndBillingForm';
 import CheckoutSummarySidebar from '@/components/checkout/CheckoutSummarySidebar';
@@ -9,6 +10,7 @@ import { FaChevronRight, FaCircleCheck, FaHouse } from 'react-icons/fa6';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 
 export default function CheckoutPage() {
+  const router = useRouter();
   const { cartItems, clearCart, subtotal } = useCart();
 
   const [sameAsShipping, setSameAsShipping] = useState(true);
@@ -79,12 +81,19 @@ export default function CheckoutPage() {
 
     setIsSubmitting(true);
     setTimeout(() => {
-      const orderId = `#RM-${Math.floor(100000 + Math.random() * 900000)}`;
-      setPlacedOrderId(orderId);
-      setIsOrderPlaced(true);
-      setIsSubmitting(false);
+      const orderId = `RM-${Math.floor(100000 + Math.random() * 900000)}`;
       clearCart();
-    }, 1200);
+      setIsSubmitting(false);
+      const query = new URLSearchParams({
+        orderId,
+        name: shippingData.fullName,
+        phone: shippingData.phone,
+        address: `${shippingData.address}, ${shippingData.area}, ${shippingData.district}`,
+        payment: selectedPayment.toUpperCase(),
+        total: (subtotal + shippingFee - discountAmount).toFixed(2),
+      }).toString();
+      router.push(`/order-confirmation?${query}`);
+    }, 1000);
   };
 
   if (isOrderPlaced) {
