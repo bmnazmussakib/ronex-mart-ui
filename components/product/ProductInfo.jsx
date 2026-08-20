@@ -7,7 +7,6 @@ import {
   FaCircleCheck,
   FaStar,
   FaStarHalfStroke,
-  FaCartShopping,
   FaMinus,
   FaPlus,
   FaTruckFast,
@@ -66,31 +65,31 @@ export default function ProductInfo({ product }) {
   };
 
   return (
-    <div className="flex flex-col gap-5 bg-white rounded-2xl py-6 ">
+    <div className="flex flex-col gap-4 sm:gap-5 bg-white rounded-xl border border-slate-200/90 p-4 sm:p-5 md:p-6 shadow-2xs">
       {/* Category & Brand Header */}
-      <div className="flex items-center justify-between gap-4 border-b border-slate-100 pb-3">
-        <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+        <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-500">
           <span>Brand:</span>
-          <Link href="#" className="text-[#006a52] hover:underline font-semibold">
+          <Link href="/category" className="text-[#006a52] hover:underline font-semibold">
             {data.brand}
           </Link>
-          <span>•</span>
+          <span className="text-slate-300">•</span>
           <span className="text-slate-400">SKU: {data.sku}</span>
         </div>
-        <span className="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full border border-emerald-200/60 flex items-center gap-1">
+        <span className="bg-emerald-50 text-emerald-700 text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-emerald-200/60 flex items-center gap-1">
           <FaCircleCheck className="text-[10px] text-emerald-600" />
           {data.stock}
         </span>
       </div>
 
       {/* Title */}
-      <div>
-        <h1 className="text-xl sm:text-3xl font-medium text-slate-900 leading-snug">
+      <div className="space-y-1.5">
+        <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold text-slate-900 leading-snug">
           {data.title}
         </h1>
 
         {/* Rating Bar */}
-        <div className="flex items-center gap-3 mt-2 text-xs">
+        <div className="flex flex-wrap items-center gap-2.5 text-xs">
           <div className="flex items-center gap-1 text-amber-500">
             <FaStar />
             <FaStar />
@@ -107,38 +106,39 @@ export default function ProductInfo({ product }) {
       </div>
 
       {/* Price Block */}
-      <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center justify-between">
+      <div className="bg-slate-50 p-3.5 sm:p-4 rounded-lg border border-slate-100 flex items-center justify-between">
         <div className="flex items-baseline gap-2">
           <span className="text-2xl sm:text-3xl font-semibold text-slate-900 font-taka">
             {data.price}
           </span>
           {data.oldPrice && (
-            <span className="text-sm text-slate-400 line-through font-taka">
+            <span className="text-xs sm:text-sm text-slate-400 line-through font-taka">
               {data.oldPrice}
             </span>
           )}
         </div>
         {data.discount && (
-          <span className="bg-[#f97316]/10 text-[#f97316] border border-[#f97316]/30 text-xs font-bold px-3 py-1 rounded-full font-taka">
+          <span className="bg-[#f97316]/10 text-[#f97316] border border-[#f97316]/30 text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-1 rounded-full font-taka">
             {data.discount}
           </span>
         )}
       </div>
 
       {/* Weight Variant Selector */}
-      <div>
-        <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
+      <div className="space-y-1.5 sm:space-y-2">
+        <label className="text-[11px] sm:text-xs font-bold text-slate-700 uppercase tracking-wider block">
           Select Weight / Size:
         </label>
-        <div className="flex items-center gap-2.5 flex-wrap">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
           {data.weights.map((w, idx) => (
             <button
               key={idx}
               onClick={() => setSelectedWeight(w)}
-              className={`px-4 py-2 text-xs font-semibold rounded-full border transition-all cursor-pointer ${selectedWeight === w
-                ? 'border-[#006a52] bg-[#e8f3e8] text-[#006a52] shadow-sm'
-                : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
-                }`}
+              className={`px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-semibold rounded-full border transition-all cursor-pointer whitespace-nowrap ${
+                selectedWeight === w
+                  ? 'border-[#006a52] bg-[#e8f3e8] text-[#006a52] shadow-xs'
+                  : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+              }`}
             >
               {w}
             </button>
@@ -147,34 +147,34 @@ export default function ProductInfo({ product }) {
       </div>
 
       {/* Action Buttons & Quantity Controller */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+      <div className="grid grid-cols-2 gap-2 sm:gap-3 pt-1 w-full">
         {inCartQty === 0 ? (
           /* Initial Add to Cart Button */
           <button
             onClick={handleAddToCart}
-            className="flex-1 bg-[#006a52] hover:bg-[#005240] text-white font-semibold uppercase text-xs py-3 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
+            className="w-full bg-[#006a52] hover:bg-[#005240] text-white font-semibold uppercase text-[11px] sm:text-xs py-2.5 sm:py-3 px-2 sm:px-5 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer truncate"
           >
             <span>Add To Cart</span>
           </button>
         ) : (
-          /* Plus / Minus Quantity Controller Pill (White BG) */
-          <div className="flex-1 bg-white border-2 border-[#006a52] text-[#006a52] p-1 rounded-full flex items-center justify-between shadow-sm">
+          /* Plus / Minus Quantity Controller Pill */
+          <div className="w-full bg-white border-2 border-[#006a52] text-[#006a52] p-0.5 sm:p-1 rounded-full flex items-center justify-between shadow-xs">
             <button
               onClick={decrementQty}
               aria-label="Decrease Quantity"
-              className="w-8 h-8 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-sm transition-colors cursor-pointer"
+              className="w-6 h-6 sm:w-7 sm:h-7 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer shrink-0"
             >
-              <FaMinus className="text-xs" />
+              <FaMinus className="text-[9px] sm:text-[10px]" />
             </button>
-            <span className="font-extrabold text-sm text-slate-900 px-3">
+            <span className="font-bold text-xs text-slate-900 px-1 sm:px-2">
               {inCartQty}
             </span>
             <button
               onClick={incrementQty}
               aria-label="Increase Quantity"
-              className="w-8 h-8 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-sm transition-colors cursor-pointer"
+              className="w-6 h-6 sm:w-7 sm:h-7 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer shrink-0"
             >
-              <FaPlus className="text-xs" />
+              <FaPlus className="text-[9px] sm:text-[10px]" />
             </button>
           </div>
         )}
@@ -182,44 +182,44 @@ export default function ProductInfo({ product }) {
         {/* Buy Now Button */}
         <button
           onClick={handleAddToCart}
-          className="flex-1 bg-[#f97316] hover:bg-[#ea580c] text-white font-semibold uppercase text-xs py-3 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
+          className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white font-semibold uppercase text-[11px] sm:text-xs py-2.5 sm:py-3 px-2 sm:px-5 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer truncate"
         >
           <span>Buy Now</span>
         </button>
       </div>
 
-      {/* Trust Badges Strip (Neutral Theme) */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 border-t border-slate-100 pt-4">
+      {/* Trust Badges Strip (Responsive Grid) */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5 border-t border-slate-100 pt-4">
         {/* Fast Delivery */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-md border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-slate-300 transition-all">
-          <div className="w-12 h-12 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
-            <FaTruckFast className="text-xl" />
+        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-slate-200/80 bg-slate-50/60">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 text-base sm:text-lg">
+            <FaTruckFast />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold text-slate-800">Fast Home Delivery</span>
-            <span className="text-xs text-slate-500 font-base">Express 24-48 Hrs</span>
+            <span className="text-xs font-semibold text-slate-800">Fast Home Delivery</span>
+            <span className="text-[10px] text-slate-500 font-medium">Express 24-48 Hrs</span>
           </div>
         </div>
 
         {/* 100% Genuine */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-md border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-slate-300 transition-all">
-          <div className="w-12 h-12 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
-            <FaShieldHalved className="text-xl" />
+        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-slate-200/80 bg-slate-50/60">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 text-base sm:text-lg">
+            <FaShieldHalved />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold text-slate-800">100% Genuine</span>
-            <span className="text-xs text-slate-500 font-base">Authentic Goods</span>
+            <span className="text-xs font-semibold text-slate-800">100% Genuine</span>
+            <span className="text-[10px] text-slate-500 font-medium">Authentic Goods</span>
           </div>
         </div>
 
         {/* Cash On Delivery */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-md border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-slate-300 transition-all">
-          <div className="w-12 h-12 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
-            <FaHandHoldingDollar className="text-xl" />
+        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-slate-200/80 bg-slate-50/60">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 text-base sm:text-lg">
+            <FaHandHoldingDollar />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold text-slate-800">Cash On Delivery</span>
-            <span className="text-xs text-slate-500 font-base">Pay On Receipt</span>
+            <span className="text-xs font-semibold text-slate-800">Cash On Delivery</span>
+            <span className="text-[10px] text-slate-500 font-medium">Pay On Receipt</span>
           </div>
         </div>
       </div>

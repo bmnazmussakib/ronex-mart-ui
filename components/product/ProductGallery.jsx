@@ -7,14 +7,15 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { RiHeart3Line, RiHeart3Fill } from 'react-icons/ri';
 
 export default function ProductGallery({ images, defaultBadge }) {
-  const galleryImages = images && images.length > 0
-    ? images
-    : [
-      "/img/product/product (1).jpeg",
-      "/img/product/product (2).jpeg",
-      "/img/product/product (3).jpeg",
-      "/img/product/product (4).jpeg",
-    ];
+  const galleryImages =
+    images && images.length > 0
+      ? images
+      : [
+          "/img/product/product (1).jpeg",
+          "/img/product/product (2).jpeg",
+          "/img/product/product (3).jpeg",
+          "/img/product/product (4).jpeg",
+        ];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [mainSwiper, setMainSwiper] = useState(null);
@@ -32,23 +33,23 @@ export default function ProductGallery({ images, defaultBadge }) {
   return (
     <div className="flex flex-col gap-3">
       {/* Main Image Box with Swiper */}
-      <div className="bg-white rounded-xl border border-slate-200/90 p-6 flex items-center justify-center relative overflow-hidden  aspect-square group">
+      <div className="bg-white rounded-xl border border-slate-200/90 p-4 sm:p-6 flex items-center justify-center relative overflow-hidden aspect-square group shadow-2xs">
         {defaultBadge && (
-          <span className="bg-[#f97316] text-white text-xs font-bold px-3 py-1 rounded-full absolute top-4 left-4 z-10 shadow-sm">
+          <span className="bg-[#f97316] text-white text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full absolute top-3 sm:top-4 left-3 sm:left-4 z-10 shadow-2xs">
             {defaultBadge}
           </span>
         )}
 
-        {/* Wishlist Toggle Button */}
+        {/* Wishlist Button */}
         <button
           onClick={() => setIsWishlist(!isWishlist)}
           aria-label="Toggle Wishlist"
-          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white border border-slate-200/80 shadow-sm flex items-center justify-center transition-all cursor-pointer hover:scale-105 group/heart"
+          className="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-slate-200/80 shadow-2xs flex items-center justify-center transition-all cursor-pointer hover:scale-105 group/heart"
         >
           {isWishlist ? (
-            <RiHeart3Fill className="text-red-500 text-xl" />
+            <RiHeart3Fill className="text-red-500 text-lg sm:text-xl" />
           ) : (
-            <RiHeart3Line className="text-slate-400 text-xl group-hover/heart:text-red-500 transition-colors" />
+            <RiHeart3Line className="text-slate-400 text-lg sm:text-xl group-hover/heart:text-red-500 transition-colors" />
           )}
         </button>
 
@@ -68,7 +69,7 @@ export default function ProductGallery({ images, defaultBadge }) {
         >
           {galleryImages.map((img, idx) => (
             <SwiperSlide key={idx} className="!flex !items-center !justify-center h-full w-full">
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center p-2">
                 <img
                   src={img}
                   alt={`Product Preview ${idx + 1}`}
@@ -79,33 +80,34 @@ export default function ProductGallery({ images, defaultBadge }) {
           ))}
         </Swiper>
 
-        {/* Custom Navigation Buttons */}
+        {/* Custom Navigation Buttons (Visible on mobile touch & desktop hover) */}
         <button
           ref={prevRef}
           aria-label="Previous Image"
-          className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs border border-slate-200 text-slate-700 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 left-3 z-20 opacity-0 group-hover:opacity-100"
+          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 backdrop-blur-xs border border-slate-200 text-slate-700 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-[10px] sm:text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 left-2 sm:left-3 z-20 sm:opacity-0 sm:group-hover:opacity-100"
         >
           <FaChevronLeft />
         </button>
         <button
           ref={nextRef}
           aria-label="Next Image"
-          className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs border border-slate-200 text-slate-700 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 right-3 z-20 opacity-0 group-hover:opacity-100"
+          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 backdrop-blur-xs border border-slate-200 text-slate-700 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-[10px] sm:text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 right-2 sm:right-3 z-20 sm:opacity-0 sm:group-hover:opacity-100"
         >
           <FaChevronRight />
         </button>
       </div>
 
       {/* Thumbnails Row */}
-      <div className="grid grid-cols-4 gap-2.5">
+      <div className="grid grid-cols-4 gap-2 sm:gap-2.5">
         {galleryImages.map((img, idx) => (
           <button
             key={idx}
             onClick={() => handleThumbClick(idx)}
-            className={`aspect-square rounded-lg bg-white border p-2 flex items-center justify-center overflow-hidden transition-all cursor-pointer ${activeIndex === idx
-              ? 'border-[#006a52] ring-2 ring-[#006a52]/20 '
-              : 'border-slate-200 hover:border-slate-300'
-              }`}
+            className={`aspect-square rounded-lg bg-white border p-1.5 sm:p-2 flex items-center justify-center overflow-hidden transition-all cursor-pointer ${
+              activeIndex === idx
+                ? 'border-[#006a52] ring-2 ring-[#006a52]/20'
+                : 'border-slate-200 hover:border-slate-300'
+            }`}
           >
             <img
               src={img}
