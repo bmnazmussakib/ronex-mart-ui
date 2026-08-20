@@ -41,7 +41,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#032a1f] text-slate-300 border-t border-emerald-900/60 mt-auto pb-28 sm:pb-8">
       {/* Top Value Props Grid */}
-      <div className="border-b border-emerald-900/60 bg-[#043326]/50">
+      <div className="border-b border-emerald-900/60 bg-[#043326]/50 hidden">
         <div className="w-full px-4 sm:px-8 py-4 sm:py-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {valueProps.map((item, idx) => {
@@ -51,7 +51,7 @@ export default function Footer() {
                   key={idx}
                   className="flex items-center gap-3 p-3 sm:p-3.5 rounded-lg bg-emerald-950/40 border border-emerald-900/40 hover:border-emerald-700/50 transition-all group"
                 >
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-emerald-900/60 text-emerald-400 flex items-center justify-center text-base sm:text-lg shrink-0 group-hover:bg-[#006a52] group-hover:text-white transition-colors">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-emerald-900/60 text-white flex items-center justify-center text-base sm:text-lg shrink-0 group-hover:bg-[#006a52] group-hover:text-white transition-colors">
                     <IconComp />
                   </div>
                   <div>
@@ -66,7 +66,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Links */}
-      <div className="w-full px-4 sm:px-8 pt-6 sm:pt-10 pb-6 sm:pb-8">
+      <div className="w-full px-4 sm:px-8 pt-6 sm:pt-14 pb-6 sm:pb-8">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 pb-8 border-b border-emerald-900/60">
           {/* Column 1: Brand Info & Social Media */}
           <div className="col-span-2 lg:col-span-2 space-y-3.5 pr-0 lg:pr-6">
@@ -77,23 +77,23 @@ export default function Footer() {
                 className="h-9 sm:h-12 object-contain brightness-0 invert"
               />
             </Link>
-            <p className="text-xs sm:text-sm text-emerald-100/70 leading-relaxed max-w-sm font-medium">
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-sm font-medium">
               RonexMart is Bangladesh's leading wholesale & retail online superstore, delivering everyday groceries, fresh produce, and household essentials with guaranteed freshness.
             </p>
 
             <div className="space-y-2 text-xs sm:text-sm text-slate-300 pt-1 font-medium">
               <div className="flex items-start gap-2">
-                <FaLocationDot className="text-emerald-400 text-xs sm:text-sm mt-0.5 shrink-0" />
+                <FaLocationDot className="text-gray-200 text-xs sm:text-sm mt-0.5 shrink-0" />
                 <span>Uttara Sector 7, Dhaka 1230, Bangladesh</span>
               </div>
               <div className="flex items-center gap-2">
-                <FaEnvelope className="text-emerald-400 text-xs sm:text-sm shrink-0" />
+                <FaEnvelope className="text-gray-200 text-xs sm:text-sm shrink-0" />
                 <a href="mailto:info@ronexmart.com" className="hover:text-white transition-colors">
                   info@ronexmart.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <FaPhone className="text-emerald-400 text-xs sm:text-sm shrink-0" />
+                <FaPhone className="text-gray-200 text-xs sm:text-sm shrink-0" />
                 <a href="tel:09611996677" className="hover:text-white text-xs sm:text-sm transition-colors">
                   09611996677
                 </a>
@@ -102,7 +102,7 @@ export default function Footer() {
 
             {/* Social Media Links */}
             <div className="pt-2 flex items-center gap-2">
-              <span className="text-xs text-emerald-200/70 font-medium mr-1">Follow Us:</span>
+              <span className="text-xs text-gray-200 font-medium mr-1">Follow Us:</span>
               <Link
                 href="#"
                 aria-label="Facebook"
@@ -139,34 +139,29 @@ export default function Footer() {
             <h4 className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider mb-3 pb-1 border-b border-emerald-900/60 inline-block">
               Quick Shop
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-emerald-100/70 font-medium">
+            <ul className="space-y-2 text-xs sm:text-sm text-gray-400 font-medium">
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
                   <span>All Products</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
                   <span>Fresh Fruits</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
                   <span>Beverages</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
                   <span>Personal Care</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
                   <span>Bakery Items</span>
                 </Link>
               </li>
@@ -178,34 +173,34 @@ export default function Footer() {
             <h4 className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider mb-3 pb-1 border-b border-emerald-900/60 inline-block">
               Customer Care
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-emerald-100/70 font-medium">
+            <ul className="space-y-2 text-xs sm:text-sm text-gray-400 font-medium">
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>Order Tracking</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>Product Request</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>Return Policy</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>Coverage Areas</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>Help & FAQs</span>
                 </Link>
               </li>
@@ -217,34 +212,34 @@ export default function Footer() {
             <h4 className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider mb-3 pb-1 border-b border-emerald-900/60 inline-block">
               Company
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-emerald-100/70 font-medium">
+            <ul className="space-y-2 text-xs sm:text-sm text-gray-400 font-medium">
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>About RonexMart</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>Careers</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>Become a Partner</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>Privacy Policy</span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-emerald-300 flex items-center gap-1.5 transition-all group">
-                  <FaChevronRight className="text-[9px] text-emerald-500/60 group-hover:text-emerald-300" />
+                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
+                  
                   <span>Terms & Conditions</span>
                 </Link>
               </li>
@@ -252,16 +247,34 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Payment Methods Banner Section */}
+        <div className=" flex flex-col items-center justify-center gap-2 py-2 border-b border-emerald-900/60">
+          <div className="w-full flex items-center justify-center">
+            {/* Desktop Banner Image */}
+            <img
+              src="/img/payment/SSLCommerz.png"
+              alt="SSLCommerz Payment Gateway - bKash, Nagad, Rocket, Visa, Mastercard, AMEX"
+              className="hidden lg:block lg:max-w-3/4 w-auto object-contain rounded-lg   shadow-sm"
+            />
+            {/* Mobile Banner Image */}
+            <img
+              src="/img/payment/SSLCommerz-Pay-With-logo-All-Size-01-2048x240.png"
+              alt="Accepted Payment Methods"
+              className="lg:hidden w-auto object-contain rounded-lg  shadow-sm"
+            />
+          </div>
+        </div>
+
         {/* Bottom Bar: Copyright & Developer Credit */}
-        <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left text-[11px] sm:text-xs text-emerald-100/60 font-medium">
-          <p>© 2026 RonexMart Superstore Ltd. All rights reserved.</p>
-          <p className="text-emerald-200/70">
+        <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left text-[11px] sm:text-xs text-gray-400 font-medium">
+          <p>© 2026 <span className='text-[#589f06] font-bold '>RonexMart Ltd.</span> All rights reserved.</p>
+          <p className="text-gray-400">
             Designed & Developed by{' '}
             <a
               href="https://mediasoftbd.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-300 hover:underline font-medium"
+              className="text-blue-400 hover:underline font-bold "
             >
               Mediasoft Data Systems Ltd
             </a>
