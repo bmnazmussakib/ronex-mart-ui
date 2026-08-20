@@ -78,7 +78,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-sm font-medium">
-              RonexMart is Bangladesh's leading wholesale & retail online superstore, delivering everyday groceries, fresh produce, and household essentials with guaranteed freshness.
+              RonexMart is Bangladesh's leading retail online superstore, delivering everyday groceries, fresh produce, and household essentials with guaranteed freshness.
             </p>
 
             <div className="space-y-2 text-xs sm:text-sm text-slate-300 pt-1 font-medium">

@@ -25,7 +25,7 @@ export default function LoginPage() {
               RONEXMART MEMBER BENEFITS
             </span>
             <h1 className="text-3xl font-semibold text-slate-900 leading-tight">
-              Enjoy Everyday Wholesale Savings & Fast Delivery
+              Enjoy Everyday Retail Savings & Fast Delivery
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               Create an account or sign in to track active orders, save favorite items, download invoices, and receive exclusive promotional discounts.

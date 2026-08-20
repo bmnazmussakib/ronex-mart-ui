@@ -27,12 +27,28 @@ const hindSiliguri = Hind_Siliguri({
 
 export const metadata = {
   title: "RonexMart - Everyday essentials, delivered fresh to your door",
-  description: "Your trusted wholesale superstore supplying fresh produce & essential goods.",
+  description: "Your trusted retail superstore supplying fresh produce & essential goods.",
+  icons: {
+    icon: [
+      { url: "/img/favicon_io/favicon.ico" },
+      { url: "/img/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/img/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/img/favicon_io/apple-touch-icon.png",
+  },
+  manifest: "/img/favicon_io/site.webmanifest",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${jost.variable} ${hindSiliguri.variable} h-full antialiased`}>
+      <head>
+        <link rel="icon" href="/img/favicon_io/favicon.ico" sizes="any" />
+        <link rel="icon" href="/img/favicon_io/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/img/favicon_io/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/img/favicon_io/apple-touch-icon.png" />
+        <link rel="manifest" href="/img/favicon_io/site.webmanifest" />
+      </head>
       <body className="bg-white text-slate-800 antialiased min-h-screen flex flex-col font-sans">
         <CartProvider>
           {/* Main Header & Nav (Sticky Top) */}
