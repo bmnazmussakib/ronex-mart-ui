@@ -8,13 +8,14 @@ import {
   FaRightFromBracket,
   FaShieldHalved,
   FaPen,
-  FaWallet,
+  FaHeart,
 } from 'react-icons/fa6';
 
 export default function ProfileSidebar({ activeTab, setActiveTab, user }) {
   const navItems = [
     { id: 'overview', label: 'My Profile', icon: FaUser },
     { id: 'orders', label: 'My Orders', icon: FaBoxOpen, badge: '12' },
+    { id: 'wishlist', label: 'My Wishlist', icon: FaHeart, badge: '4' },
     { id: 'addresses', label: 'Saved Addresses', icon: FaLocationDot, badge: '2' },
     { id: 'settings', label: 'Account Settings', icon: FaGear },
   ];

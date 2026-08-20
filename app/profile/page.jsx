@@ -5,6 +5,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import ProfileSidebar from '@/components/profile/ProfileSidebar';
 import ProfileOverviewTab from '@/components/profile/ProfileOverviewTab';
 import ProfileOrdersTab from '@/components/profile/ProfileOrdersTab';
+import ProfileWishlistTab from '@/components/profile/ProfileWishlistTab';
 import ProfileAddressesTab from '@/components/profile/ProfileAddressesTab';
 import ProfileSettingsTab from '@/components/profile/ProfileSettingsTab';
 
@@ -46,6 +47,10 @@ export default function ProfilePage() {
 
           {activeTab === 'orders' && (
             <ProfileOrdersTab />
+          )}
+
+          {activeTab === 'wishlist' && (
+            <ProfileWishlistTab />
           )}
 
           {activeTab === 'addresses' && (
