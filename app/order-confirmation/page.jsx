@@ -11,10 +11,7 @@ import {
   FaPrint,
   FaTruckFast,
   FaPhone,
-  FaEnvelope,
   FaLocationDot,
-  FaCreditCard,
-  FaRotateRight,
 } from 'react-icons/fa6';
 
 function OrderConfirmationContent() {

@@ -191,7 +191,7 @@ export default function ProductInfo({ product }) {
       {/* Trust Badges Strip (Responsive Grid) */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5 border-t border-slate-100 pt-4">
         {/* Fast Delivery */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-slate-200/80 bg-slate-50/60">
+        <div className="flex flex-row sm:flex-col xl:flex-row items-center gap-2.5 p-2.5 rounded-lg border border-slate-200/80 bg-slate-50/60">
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 text-base sm:text-lg">
             <FaTruckFast />
           </div>
@@ -202,7 +202,7 @@ export default function ProductInfo({ product }) {
         </div>
 
         {/* 100% Genuine */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-slate-200/80 bg-slate-50/60">
+        <div className="flex flex-row sm:flex-col xl:flex-row items-center gap-2.5 p-2.5 rounded-lg border border-slate-200/80 bg-slate-50/60">
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 text-base sm:text-lg">
             <FaShieldHalved />
           </div>
@@ -213,7 +213,7 @@ export default function ProductInfo({ product }) {
         </div>
 
         {/* Cash On Delivery */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-lg border border-slate-200/80 bg-slate-50/60">
+        <div className="flex flex-row sm:flex-col xl:flex-row items-center gap-2.5 p-2.5 rounded-lg border border-slate-200/80 bg-slate-50/60">
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 text-base sm:text-lg">
             <FaHandHoldingDollar />
           </div>

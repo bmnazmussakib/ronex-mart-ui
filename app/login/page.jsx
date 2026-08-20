@@ -2,7 +2,7 @@
 
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import AuthForm from '@/components/auth/AuthForm';
-import { FaTruckFast, FaPercent, FaHeadset, FaShieldCheck } from 'react-icons/fa6';
+import { FaTruckFast, FaPercent, FaHeadset } from 'react-icons/fa6';
 
 export default function LoginPage() {
   const breadcrumbItems = [
@@ -71,10 +71,6 @@ export default function LoginPage() {
           <AuthForm initialTab="login" />
         </div>
       </div>
-
-
-
-      
     </div>
   );
 }

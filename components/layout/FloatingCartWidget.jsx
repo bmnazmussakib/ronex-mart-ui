@@ -12,7 +12,7 @@ export default function FloatingCartWidget() {
       aria-label="View Shopping Cart"
       className="fixed right-0 top-1/2 -translate-y-1/2 z-40 group cursor-pointer select-none"
     >
-      <div className="bg-white rounded-l-lg sm:rounded-l-xl shadow-lg sm:shadow-xl overflow-hidden flex flex-col items-center min-w-[56px] sm:min-w-[72px] transition-all duration-300 group-hover:-translate-x-1 group-hover:shadow-2xl">
+      <div className="bg-white rounded-l-md sm:rounded-l-lg shadow-lg sm:shadow-xl overflow-hidden flex flex-col items-center min-w-[56px] sm:min-w-[72px] transition-all duration-300 group-hover:-translate-x-1 group-hover:shadow-2xl">
         {/* Top White Section with Cart Plus Icon */}
         <div className="p-2 sm:p-3 flex flex-col items-center justify-center gap-0.5 sm:gap-1 bg-white w-full">
           <FaCartPlus className="text-lg sm:text-2xl text-slate-700 group-hover:text-[#006a52] group-hover:scale-105 transition-all" />

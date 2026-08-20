@@ -98,7 +98,7 @@ export default async function CategorySlugPage({ params }) {
     },
   ];
 
-    const breadcrumbItems = [
+  const breadcrumbItems = [
     { label: 'Home', href: '/' },
     { label: 'Grocery & Food', href: '#' },
     { label: currentTitle, href: '#' },

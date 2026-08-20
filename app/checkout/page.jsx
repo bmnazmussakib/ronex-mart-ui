@@ -152,8 +152,6 @@ export default function CheckoutPage() {
     );
   }
 
-
-
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
     { label: 'Cart', href: '#' },
