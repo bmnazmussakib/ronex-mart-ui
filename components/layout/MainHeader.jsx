@@ -52,7 +52,7 @@ export default function MainHeader() {
           <div className="hidden sm:flex items-center gap-3 sm:gap-5 lg:gap-6">
             {/* Account */}
             <Link
-              href="#"
+              href="/login"
               className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
             >
               <div className="relative flex items-center justify-center">

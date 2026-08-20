@@ -86,7 +86,7 @@ export default function MobileBottomNav() {
 
         {/* 5. Account */}
         <Link
-          href="#"
+          href="/login"
           aria-label="Account"
           className="p-2 text-slate-400 hover:text-white transition-colors cursor-pointer"
         >
