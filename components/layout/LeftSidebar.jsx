@@ -1,6 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import ProductRequestModal from './ProductRequestModal';
 import { useCart } from '@/context/CartContext';
 import {
   FaFire,
@@ -23,10 +25,12 @@ import {
   FaUtensils,
   FaChevronRight,
   FaXmark,
+  FaClipboardList,
 } from 'react-icons/fa6';
 
 export default function LeftSidebar() {
   const { isSidebarOpen, closeSidebar } = useCart();
+  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
 
   const categories = [
     { title: "Cooking Essentials", slug: "cooking-essentials", icon: FaKitchenSet },
@@ -84,7 +88,7 @@ export default function LeftSidebar() {
       </div>
 
       {/* 3. Scrollable Categories List */}
-      <ul className="text-xs sm:text-[13px] font-medium text-slate-700 divide-y divide-slate-100 flex-1 overflow-y-auto custom-scrollbar pb-10 sm:pb-4">
+      <ul className="text-xs sm:text-[13px] font-medium text-slate-700 divide-y divide-slate-100 flex-1 overflow-y-auto custom-scrollbar pb-2">
         {categories.map((cat, idx) => {
           const IconComp = cat.icon;
           return (
@@ -104,6 +108,21 @@ export default function LeftSidebar() {
           );
         })}
       </ul>
+
+      {/* 4. Footer: Product Request Button */}
+      <div className="p-2 sm:p-2.5 border-t border-slate-200 bg-slate-50 shrink-0">
+        <button
+          type="button"
+          onClick={() => {
+            closeSidebar();
+            setIsRequestModalOpen(true);
+          }}
+          className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs sm:text-sm transition-all shadow-xs group cursor-pointer"
+        >
+          <FaClipboardList className="text-xs sm:text-sm group-hover:scale-110 transition-transform" />
+          <span>Product Request</span>
+        </button>
+      </div>
     </div>
   );
 
@@ -152,6 +171,13 @@ export default function LeftSidebar() {
           {categoriesList}
         </div>
       </div>
+
+      {/* Product Request Modal */}
+      <ProductRequestModal
+        isOpen={isRequestModalOpen}
+        onClose={() => setIsRequestModalOpen(false)}
+      />
     </>
   );
 }
+

@@ -13,6 +13,7 @@ import {
   FaStar,
   FaArrowRight,
   FaPlus,
+  FaRotateRight,
 } from 'react-icons/fa6';
 import { RiHeart3Line } from 'react-icons/ri';
 
@@ -283,32 +284,18 @@ export default function MainHeader() {
         </div>
 
         {/* Right: Action Buttons & Menu Button */}
-        <div className="flex items-center gap-2.5 sm:gap-5 lg:gap-6 shrink-0 font-semibold text-slate-700">
-          {/* Action Buttons: Account, Wishlist, Cart */}
-          <div className="hidden sm:flex items-center gap-3 sm:gap-5 lg:gap-6">
-            {/* Account */}
+        <div className="flex items-center gap-2.5 sm:gap-4 lg:gap-5 shrink-0 font-semibold text-slate-700">
+          {/* Action Buttons: Reorder, Cart, Wishlist, Login */}
+          <div className="hidden sm:flex items-center gap-3 sm:gap-4 lg:gap-5">
+            {/* Reorder */}
             <Link
-              href="/login"
+              href="/profile"
               className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
             >
               <div className="relative flex items-center justify-center">
-                <FaUser className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] transition-all" />
+                <FaRotateRight className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] transition-all" />
               </div>
-              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Account</span>
-            </Link>
-
-            {/* Wishlist */}
-            <Link
-              href="#"
-              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
-            >
-              <div className="relative flex items-center justify-center">
-                <RiHeart3Line className="text-xl sm:text-2xl lg:text-3xl text-slate-800 group-hover:text-[#006a52] transition-all" />
-                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
-                  0
-                </span>
-              </div>
-              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Wishlist</span>
+              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Reorder</span>
             </Link>
 
             {/* Cart Trigger */}
@@ -323,8 +310,33 @@ export default function MainHeader() {
                   {totalItemsCount}
                 </span>
               </div>
-              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52]">Cart</span>
+              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Cart</span>
             </button>
+
+            {/* Wishlist */}
+            <Link
+              href="/profile"
+              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
+            >
+              <div className="relative flex items-center justify-center">
+                <RiHeart3Line className="text-xl sm:text-2xl lg:text-3xl text-slate-800 group-hover:text-[#006a52] transition-all" />
+                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
+                  0
+                </span>
+              </div>
+              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Wishlist</span>
+            </Link>
+
+            {/* Login */}
+            <Link
+              href="/login"
+              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
+            >
+              <div className="relative flex items-center justify-center">
+                <FaUser className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] transition-all" />
+              </div>
+              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Login</span>
+            </Link>
           </div>
 
           {/* Hamburger Menu Button */}
