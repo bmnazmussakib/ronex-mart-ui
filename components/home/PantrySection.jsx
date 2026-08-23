@@ -8,7 +8,7 @@ export default function PantrySection() {
     { title: "Milk & Dairy Products", img: "https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=400&q=80" },
     { title: "Snacks & Chips", img: "https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=400&q=80" },
     { title: "Condiments & Dressings", img: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=400&q=80" },
-    { title: "Chocolate & Candy", img: "https://images.unsplash.com/photo-1581795669633-91ef7c9699a8?auto=format&fit=crop&w=400&q=80" },
+    { title: "Chocolate & Candy", img: "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=400&q=80" },
     { title: "Spices & Seasoning", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=400&q=80" },
     { title: "Biscuits & Cookies", img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80" },
     { title: "Canned & Gourmet", img: "https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80" },
