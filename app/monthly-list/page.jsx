@@ -1,39 +1,39 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import ProductCard from '@/components/ui/ProductCard';
-import HorizontalProductCard from '@/components/ui/HorizontalProductCard';
-import CategoryHeader from '@/components/category/CategoryHeader';
-import CategoryFilterSidebar from '@/components/category/CategoryFilterSidebar';
-import CategoryPagination from '@/components/category/CategoryPagination';
-import Breadcrumb from '@/components/ui/Breadcrumb';
-import { useCart } from '@/context/CartContext';
+import CategoryFilterSidebar from "@/components/category/CategoryFilterSidebar";
+import CategoryHeader from "@/components/category/CategoryHeader";
+import CategoryPagination from "@/components/category/CategoryPagination";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import HorizontalProductCard from "@/components/ui/HorizontalProductCard";
+import ProductCard from "@/components/ui/ProductCard";
+import { useCart } from "@/context/CartContext";
+import Link from "next/link";
+import { useState } from "react";
 import {
+  FaBasketShopping,
+  FaBorderAll,
+  FaCalendarCheck,
   FaChevronRight,
+  FaCircleCheck,
   FaFilter,
-  FaXmark,
   FaGrip,
   FaList,
-  FaBorderAll,
-  FaTableCellsLarge,
   FaTableCells,
-  FaBasketShopping,
-  FaCircleCheck,
-  FaCalendarCheck,
-} from 'react-icons/fa6';
+  FaTableCellsLarge,
+  FaXmark,
+} from "react-icons/fa6";
 
 export default function MonthlyListPage() {
   const { addToCart, openCart } = useCart();
 
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
-  const [gridView, setGridView] = useState('4cols');
+  const [gridView, setGridView] = useState("4cols");
   const [priceRange, setPriceRange] = useState([350, 3500]);
-  const [selectedBrand, setSelectedBrand] = useState('');
-  const [sortBy, setSortBy] = useState('relevance');
-  const [successMessage, setSuccessMessage] = useState('');
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const [sortBy, setSortBy] = useState("relevance");
+  const [successMessage, setSuccessMessage] = useState("");
 
-  const currentTitle = 'My Monthly Grocery List';
+  const currentTitle = "My Monthly Grocery List";
 
   // Monthly Grocery Essentials List
   const monthlyProducts = [
@@ -122,32 +122,36 @@ export default function MonthlyListPage() {
   ];
 
   const pillCategories = [
-    'Monthly Staples',
-    'Cooking Oils',
-    'Rice & Flour',
-    'Spices & Masala',
-    'Washing & Cleaning',
-    'Dairy Essentials',
+    "Monthly Staples",
+    "Cooking Oils",
+    "Rice & Flour",
+    "Spices & Masala",
+    "Washing & Cleaning",
+    "Dairy Essentials",
   ];
 
   const breadcrumbItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Account', href: '/profile' },
-    { label: 'My Monthly List' },
+    { label: "Home", href: "/" },
+    { label: "Account", href: "/profile" },
+    { label: "My Monthly List" },
   ];
 
   // Dynamic Grid CSS Class generator
   const getGridClasses = () => {
-    if (gridView === 'list') return 'grid grid-cols-1 gap-3';
-    if (gridView === '2cols') return 'grid grid-cols-2 gap-4';
-    if (gridView === '3cols') return 'grid grid-cols-2 sm:grid-cols-3 gap-4';
-    if (gridView === '5cols') return 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-3';
+    if (gridView === "list") return "grid grid-cols-1 gap-3";
+    if (gridView === "2cols") return "grid grid-cols-2 gap-4";
+    if (gridView === "3cols") return "grid grid-cols-2 sm:grid-cols-3 gap-4";
+    if (gridView === "5cols")
+      return "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-3";
     // Default 4cols
-    return 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4';
+    return "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4";
   };
 
   // Calculate Total Estimated Monthly Price
-  const totalMonthlyPrice = monthlyProducts.reduce((sum, item) => sum + item.numericPrice, 0);
+  const totalMonthlyPrice = monthlyProducts.reduce(
+    (sum, item) => sum + item.numericPrice,
+    0,
+  );
 
   // Add ALL items to cart handler
   const handleAddAllToCart = () => {
@@ -162,8 +166,10 @@ export default function MonthlyListPage() {
       });
     });
 
-    setSuccessMessage(`All ${monthlyProducts.length} monthly items added to your cart successfully!`);
-    setTimeout(() => setSuccessMessage(''), 4000);
+    setSuccessMessage(
+      `All ${monthlyProducts.length} monthly items added to your cart successfully!`,
+    );
+    setTimeout(() => setSuccessMessage(""), 4000);
     openCart();
   };
 
@@ -186,7 +192,10 @@ export default function MonthlyListPage() {
       )}
 
       {/* 1. Category Banner Header */}
-      <CategoryHeader bannerImage="/img/hero-banner-1.png" alt={currentTitle} />
+      <CategoryHeader
+        bannerImage="/img/hero-banner-category.png"
+        alt={currentTitle}
+      />
 
       {/* 2. Sub-Category Pill Chips (Desktop Only) */}
       <div className="hidden lg:flex items-center justify-between gap-2 py-1">
@@ -210,7 +219,10 @@ export default function MonthlyListPage() {
       <div className="hidden lg:flex items-center justify-between gap-3 bg-white border border-slate-200/90 rounded-xl p-3.5 shadow-2xs">
         {/* Left: Breadcrumb Link */}
         <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-700 shrink-0">
-          <Link href="/" className="hover:text-[#006a52] text-slate-500 transition-colors">
+          <Link
+            href="/"
+            className="hover:text-[#006a52] text-slate-500 transition-colors"
+          >
             Home
           </Link>
           <FaChevronRight className="text-[10px] text-slate-400" />
@@ -232,7 +244,9 @@ export default function MonthlyListPage() {
               max="5000"
               step="50"
               value={priceRange[1]}
-              onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+              onChange={(e) =>
+                setPriceRange([priceRange[0], Number(e.target.value)])
+              }
               className="w-24 sm:w-28 accent-[#006a52] cursor-pointer"
             />
             <span className="text-sm font-semibold text-[#006a52] px-2 py-0.5 rounded-md font-taka">
@@ -281,56 +295,56 @@ export default function MonthlyListPage() {
           <span className="text-sm font-medium text-slate-600">View As:</span>
           <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200/90">
             <button
-              onClick={() => setGridView('list')}
+              onClick={() => setGridView("list")}
               title="List View"
               className={`p-1.5 rounded-md transition-colors ${
-                gridView === 'list'
-                  ? 'bg-white text-[#006a52] shadow-2xs font-bold'
-                  : 'text-slate-500 hover:text-slate-800'
+                gridView === "list"
+                  ? "bg-white text-[#006a52] shadow-2xs font-bold"
+                  : "text-slate-500 hover:text-slate-800"
               }`}
             >
               <FaList className="text-sm" />
             </button>
             <button
-              onClick={() => setGridView('2cols')}
+              onClick={() => setGridView("2cols")}
               title="2 Columns"
               className={`p-1.5 rounded-md transition-colors ${
-                gridView === '2cols'
-                  ? 'bg-white text-[#006a52] shadow-2xs font-bold'
-                  : 'text-slate-500 hover:text-slate-800'
+                gridView === "2cols"
+                  ? "bg-white text-[#006a52] shadow-2xs font-bold"
+                  : "text-slate-500 hover:text-slate-800"
               }`}
             >
               <FaTableCellsLarge className="text-sm" />
             </button>
             <button
-              onClick={() => setGridView('3cols')}
+              onClick={() => setGridView("3cols")}
               title="3 Columns"
               className={`p-1.5 rounded-md transition-colors ${
-                gridView === '3cols'
-                  ? 'bg-white text-[#006a52] shadow-2xs font-bold'
-                  : 'text-slate-500 hover:text-slate-800'
+                gridView === "3cols"
+                  ? "bg-white text-[#006a52] shadow-2xs font-bold"
+                  : "text-slate-500 hover:text-slate-800"
               }`}
             >
               <FaGrip className="text-sm" />
             </button>
             <button
-              onClick={() => setGridView('4cols')}
+              onClick={() => setGridView("4cols")}
               title="4 Columns"
               className={`p-1.5 rounded-md transition-colors ${
-                gridView === '4cols'
-                  ? 'bg-white text-[#006a52] shadow-2xs font-bold'
-                  : 'text-slate-500 hover:text-slate-800'
+                gridView === "4cols"
+                  ? "bg-white text-[#006a52] shadow-2xs font-bold"
+                  : "text-slate-500 hover:text-slate-800"
               }`}
             >
               <FaBorderAll className="text-sm" />
             </button>
             <button
-              onClick={() => setGridView('5cols')}
+              onClick={() => setGridView("5cols")}
               title="5 Columns"
               className={`p-1.5 rounded-md transition-colors ${
-                gridView === '5cols'
-                  ? 'bg-white text-[#006a52] shadow-2xs font-bold'
-                  : 'text-slate-500 hover:text-slate-800'
+                gridView === "5cols"
+                  ? "bg-white text-[#006a52] shadow-2xs font-bold"
+                  : "text-slate-500 hover:text-slate-800"
               }`}
             >
               <FaTableCells className="text-sm" />
@@ -354,7 +368,7 @@ export default function MonthlyListPage() {
           <div className={getGridClasses()}>
             {monthlyProducts.map((item) => (
               <div key={item.id} className="h-full">
-                {gridView === 'list' ? (
+                {gridView === "list" ? (
                   <HorizontalProductCard item={item} />
                 ) : (
                   <ProductCard {...item} />
@@ -370,24 +384,28 @@ export default function MonthlyListPage() {
       {/* DESKTOP ALL FILTERS SLIDE-OVER DRAWER */}
       <div
         className={`fixed inset-0 z-50 transition-all duration-300 ease-in-out ${
-          isFilterDrawerOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+          isFilterDrawerOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
         }`}
       >
         <div
           className={`fixed inset-0 bg-slate-900/50 backdrop-blur-xs transition-opacity duration-300 ease-in-out ${
-            isFilterDrawerOpen ? 'opacity-100' : 'opacity-0'
+            isFilterDrawerOpen ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setIsFilterDrawerOpen(false)}
         />
         <div
           className={`fixed inset-y-0 right-0 w-80 max-w-[85vw] bg-white shadow-2xl flex flex-col justify-between z-50 transform transition-transform duration-300 ease-in-out ${
-            isFilterDrawerOpen ? 'translate-x-0' : 'translate-x-full'
+            isFilterDrawerOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div className="flex items-center justify-between px-4 py-3 bg-[#053b2c] text-white shrink-0">
             <div className="flex items-center gap-2">
               <FaFilter className="text-emerald-300 text-xs" />
-              <span className="font-bold text-xs tracking-wider uppercase">Filter Products</span>
+              <span className="font-bold text-xs tracking-wider uppercase">
+                Filter Products
+              </span>
             </div>
             <button
               onClick={() => setIsFilterDrawerOpen(false)}
@@ -423,7 +441,10 @@ export default function MonthlyListPage() {
             </div>
             <div className="h-4 w-px bg-slate-200" />
             <div className="font-medium text-slate-700">
-              Est. Total: <strong className="text-[#006a52] text-base sm:text-lg font-semibold font-taka">৳{totalMonthlyPrice.toLocaleString()}</strong>
+              Est. Total:{" "}
+              <strong className="text-[#006a52] text-base sm:text-lg font-semibold font-taka">
+                ৳{totalMonthlyPrice.toLocaleString()}
+              </strong>
             </div>
           </div>
 

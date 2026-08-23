@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function CategoryHeader({
-  bannerImage = "/img/hero-banner-1.png",
+  bannerImage = "/img/hero-banner-category.png",
   alt = "Category Banner",
 }) {
   return (
