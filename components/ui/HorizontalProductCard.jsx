@@ -108,7 +108,7 @@ export default function HorizontalProductCard({ item }) {
 
         {/* Pricing */}
         <div className="text-left sm:text-right font-taka">
-          <div className="text-base sm:text-xl font-bold text-slate-900">{price}</div>
+          <div className="text-base sm:text-xl font-semibold text-slate-900">{price}</div>
           {oldPrice && (
             <div className="text-xs text-slate-400 line-through font-normal">
               {oldPrice}
@@ -119,7 +119,7 @@ export default function HorizontalProductCard({ item }) {
         {/* Add to Cart Button */}
         <button
           onClick={handleAdd}
-          className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs sm:text-sm transition-colors cursor-pointer shadow-2xs shrink-0"
+          className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-md bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs sm:text-sm transition-colors cursor-pointer shadow-2xs shrink-0"
         >
           <FaBasketShopping className="text-xs sm:text-sm" />
           <span>Add to Cart</span>

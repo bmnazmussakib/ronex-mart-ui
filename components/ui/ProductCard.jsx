@@ -78,7 +78,7 @@ export default function ProductCard({
             {category}
           </span>
           <Link href={`/product/${id}`} className="block">
-            <h3 className="font-semibold text-xs sm:text-sm text-slate-900 hover:text-[#006a52] line-clamp-2 mt-0.5 sm:mt-1 leading-snug min-h-[2rem] sm:min-h-[2.5rem] flex items-start transition-colors">
+            <h3 className="font-semibold text-xs sm:text-sm text-slate-900 hover:text-[#006a52] line-clamp-2 mt-0.5 sm:mt-1 leading-snug flex items-start transition-colors">
               {title}
             </h3>
           </Link>
@@ -89,7 +89,7 @@ export default function ProductCard({
         </div>
 
         {/* Footer Price & Add Button */}
-        <div className="flex items-center justify-between mt-2.5 sm:mt-4 pt-1 sm:pt-2 border-t border-slate-50 gap-1">
+        <div className="flex items-center justify-between pt-1 sm:pt-2 border-t border-slate-50 gap-1">
           <div className="flex items-baseline gap-1 flex-wrap">
             <span className="font-semibold text-sm sm:text-lg text-slate-900 font-taka">{price}</span>
             {oldPrice && (

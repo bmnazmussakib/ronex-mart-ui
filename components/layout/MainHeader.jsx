@@ -340,7 +340,7 @@ export default function MainHeader() {
             >
               <div className="relative flex items-center justify-center">
                 <FaBasketShopping className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52]" />
-                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
+                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
                   {totalItemsCount}
                 </span>
               </div>
@@ -354,7 +354,7 @@ export default function MainHeader() {
             >
               <div className="relative flex items-center justify-center">
                 <RiHeart3Line className="text-xl sm:text-2xl lg:text-3xl text-slate-800 group-hover:text-[#006a52] transition-all" />
-                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
+                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
                   0
                 </span>
               </div>
