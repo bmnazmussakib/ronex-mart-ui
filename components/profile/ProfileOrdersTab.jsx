@@ -13,10 +13,13 @@ import {
   FaEnvelope,
   FaCircleCheck,
   FaRotateRight,
+  FaCreditCard,
+  FaCheck,
 } from 'react-icons/fa6';
 
 export default function ProfileOrdersTab() {
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [actionMessage, setActionMessage] = useState('');
 
   const mockOrders = [
     {
@@ -59,7 +62,7 @@ export default function ProfileOrdersTab() {
       paymentStatus: 'UN-PAID',
       paymentStatusBadge: 'bg-cyan-400 text-white font-semibold',
       deliveryStatus: 'Pending',
-      deliveryStatusBadge: 'bg-slate-500 text-white font-semibold',
+      deliveryStatusBadge: 'bg-amber-500 text-white font-semibold',
       customer: {
         name: 'Tanvir Ahmed',
         email: 'tanvir.ahmed@example.com',
@@ -85,10 +88,10 @@ export default function ProfileOrdersTab() {
       price: '3,550.00',
       paymentMethod: 'Bkash',
       paymentMethodBadge: 'bg-amber-400 text-slate-900',
-      paymentStatus: 'UN-PAID',
-      paymentStatusBadge: 'bg-cyan-400 text-white font-semibold',
-      deliveryStatus: 'Pending',
-      deliveryStatusBadge: 'bg-slate-500 text-white font-semibold',
+      paymentStatus: 'PAID',
+      paymentStatusBadge: 'bg-emerald-600 text-white font-semibold',
+      deliveryStatus: 'DELIVERED',
+      deliveryStatusBadge: 'bg-emerald-600 text-white font-semibold',
       customer: {
         name: 'Tanvir Ahmed',
         email: 'tanvir.ahmed@example.com',
@@ -173,33 +176,52 @@ export default function ProfileOrdersTab() {
     window.print();
   };
 
+  const triggerReorder = (order) => {
+    setActionMessage(`Order #${order.id} items have been added to your cart for reorder!`);
+    setTimeout(() => setActionMessage(''), 4000);
+  };
+
+  const triggerPayment = (order) => {
+    setActionMessage(`Redirecting to payment gateway for Order #${order.id}...`);
+    setTimeout(() => setActionMessage(''), 4000);
+  };
+
   return (
     <div className="space-y-4">
+      {/* Action Feedback Banner */}
+      {actionMessage && (
+        <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-lg text-xs font-semibold flex items-center gap-2 animate-in fade-in">
+          <FaCircleCheck className="text-[#006a52] text-sm shrink-0" />
+          <span>{actionMessage}</span>
+        </div>
+      )}
+
       {/* 1. ORDERS TABLE VIEW */}
       {!selectedOrder ? (
         <>
           {/* Header */}
           <div className="bg-white rounded-lg border border-slate-200 p-4 sm:p-5 shadow-xs flex items-center justify-between">
             <div>
-              <h3 className="text-base font-semibold text-slate-900">My Orders</h3>
-              <p className="text-xs text-slate-500">View and track all your placed orders and payment statuses.</p>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900">My Orders</h3>
+              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">View and track all your placed orders and payment statuses.</p>
             </div>
           </div>
 
           {/* Orders Table Container */}
           <div className="bg-white rounded-lg border border-slate-200 shadow-2xs overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs border-collapse">
+              <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[700px]">
                 <thead>
                   <tr className="bg-slate-50 border-b border-slate-200 text-slate-800 font-bold">
-                    <th className="py-3 px-4 border-r border-slate-200 w-12 text-center">#</th>
-                    <th className="py-3 px-4 border-r border-slate-200">Order ID</th>
-                    <th className="py-3 px-4 border-r border-slate-200">Order Date</th>
-                    <th className="py-3 px-4 border-r border-slate-200">Price</th>
-                    <th className="py-3 px-4 border-r border-slate-200">Payment Method</th>
-                    <th className="py-3 px-4 border-r border-slate-200">Payment Status</th>
-                    <th className="py-3 px-4 border-r border-slate-200">Delivery Status</th>
-                    <th className="py-3 px-4 text-center">Action</th>
+                    <th className="py-3.5 px-4 border-r border-slate-200 w-12 text-center">#</th>
+                    <th className="py-3.5 px-4 border-r border-slate-200">Order ID</th>
+                    <th className="py-3.5 px-4 border-r border-slate-200">Order Date</th>
+                    <th className="py-3.5 px-4 border-r border-slate-200">Price</th>
+                    <th className="py-3.5 px-4 border-r border-slate-200">Payment Method</th>
+                    <th className="py-3.5 px-4 border-r border-slate-200">Payment Status</th>
+                    <th className="py-3.5 px-4 border-r border-slate-200">Delivery Status</th>
+                    <th className="py-3.5 px-4 border-r border-slate-200 text-center w-20">View</th>
+                    <th className="py-3.5 px-4 text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200 text-slate-700">
@@ -227,34 +249,62 @@ export default function ProfileOrdersTab() {
 
                       {/* Payment Method */}
                       <td className="py-3.5 px-4 border-r border-slate-200">
-                        <span className={`inline-block text-[10px] font-semibold px-2.5 py-1 rounded-sm ${order.paymentMethodBadge}`}>
+                        <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-sm ${order.paymentMethodBadge}`}>
                           {order.paymentMethod}
                         </span>
                       </td>
 
                       {/* Payment Status */}
                       <td className="py-3.5 px-4 border-r border-slate-200">
-                        <span className={`inline-block text-[10px] font-semibold px-2.5 py-1 rounded-sm uppercase tracking-wider ${order.paymentStatusBadge}`}>
+                        <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-sm uppercase tracking-wider ${order.paymentStatusBadge}`}>
                           {order.paymentStatus}
                         </span>
                       </td>
 
                       {/* Delivery Status */}
                       <td className="py-3.5 px-4 border-r border-slate-200">
-                        <span className={`inline-block text-[10px] font-semibold px-2.5 py-1 rounded-sm uppercase tracking-wider ${order.deliveryStatusBadge}`}>
+                        <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-sm uppercase tracking-wider ${order.deliveryStatusBadge}`}>
                           {order.deliveryStatus}
                         </span>
                       </td>
 
-                      {/* Action Eye Button */}
-                      <td className="py-3.5 px-4 text-center">
+                      {/* View Column */}
+                      <td className="py-3.5 px-4 text-center border-r border-slate-200">
                         <button
                           onClick={() => setSelectedOrder(order)}
-                          className="p-1.5 rounded-md border border-slate-300 hover:border-[#006a52] text-slate-700 hover:text-[#006a52] hover:bg-emerald-50 transition-all cursor-pointer inline-flex items-center justify-center"
+                          className="px-3 py-1.5 rounded-md border border-slate-300 hover:border-[#006a52] text-slate-700 hover:text-[#006a52] hover:bg-emerald-50 text-xs font-semibold transition-all cursor-pointer inline-flex items-center gap-1.5"
                           title="View Order Details"
                         >
-                          <FaEye className="text-sm" />
+                          <FaEye className="text-xs text-slate-500" />
+                          <span>View</span>
                         </button>
+                      </td>
+
+                      {/* Action Column (Reorder & Pay Now Buttons) */}
+                      <td className="py-3.5 px-4 text-center">
+                        <div className="flex items-center justify-center gap-1.5 flex-wrap">
+                          {/* Reorder Button */}
+                          <button
+                            onClick={() => triggerReorder(order)}
+                            className="px-3 py-1.5 rounded-md bg-[#006a52] hover:bg-[#005240] text-white text-xs font-semibold transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-2xs shrink-0"
+                            title="Reorder products from this order"
+                          >
+                            <FaRotateRight className="text-xs" />
+                            <span>Reorder</span>
+                          </button>
+
+                          {/* Pay Now Button (If Payment is Pending or UN-PAID) */}
+                          {(order.paymentStatus === 'UN-PAID' || order.paymentStatus === 'Pending') && (
+                            <button
+                              onClick={() => triggerPayment(order)}
+                              className="px-3 py-1.5 rounded-md bg-amber-500 hover:bg-amber-600 text-white text-xs font-semibold transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-2xs shrink-0"
+                              title="Pay pending amount for this order"
+                            >
+                              <FaCreditCard className="text-xs" />
+                              <span>Pay Now</span>
+                            </button>
+                          )}
+                        </div>
                       </td>
                     </tr>
                   ))}

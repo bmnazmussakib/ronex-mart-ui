@@ -267,21 +267,27 @@ export default function MobileBottomNav() {
         </div>
 
       {/* Floating Bottom Nav */}
-      <div className="fixed bottom-4 left-5 right-5 z-40 max-w-sm mx-auto bg-[#1c1d22]/95 backdrop-blur-md text-white rounded-2xl py-2 px-4 shadow-2xl shadow-black/60 border border-slate-800 flex items-center justify-between sm:hidden">
+      <div className="fixed bottom-3 left-4 right-4 z-40 max-w-sm mx-auto bg-[#1c1d22]/95 backdrop-blur-md text-white rounded-2xl py-2 px-4 shadow-2xl shadow-black/60 border border-slate-800 flex items-center justify-between sm:hidden">
         {/* 1. Search */}
         <button
           onClick={() => setIsSearchOpen(!isSearchOpen)}
           aria-label="Search"
-          className="p-2 text-slate-400 hover:text-white transition-colors cursor-pointer"
+          className={`p-2 transition-colors cursor-pointer ${
+            isSearchOpen ? 'text-[#006a52]' : 'text-slate-400 hover:text-white'
+          }`}
         >
           <FaMagnifyingGlass className="text-lg" />
         </button>
 
         {/* 2. Wishlist */}
         <Link
-          href="/category"
+          href="/profile?tab=wishlist"
           aria-label="Wishlist"
-          className="p-2 text-slate-400 hover:text-white transition-colors cursor-pointer relative"
+          className={`p-2 transition-colors cursor-pointer relative ${
+            pathname === '/profile' && typeof window !== 'undefined' && window.location.search.includes('wishlist')
+              ? 'text-[#006a52]'
+              : 'text-slate-400 hover:text-white'
+          }`}
         >
           <FaRegHeart className="text-xl" />
         </Link>
@@ -290,7 +296,11 @@ export default function MobileBottomNav() {
         <Link
           href="/"
           aria-label="Home"
-          className="w-11 h-11 rounded-full bg-[#006a52] hover:bg-[#005240] text-white flex items-center justify-center text-xl shadow-lg shadow-emerald-950/50 transition-transform active:scale-95 cursor-pointer shrink-0"
+          className={`w-11 h-11 rounded-full text-white flex items-center justify-center text-xl shadow-lg transition-transform active:scale-95 cursor-pointer shrink-0 ${
+            pathname === '/'
+              ? 'bg-[#006a52] shadow-emerald-950/60 ring-2 ring-emerald-400/40'
+              : 'bg-[#006a52]/90 hover:bg-[#006a52] shadow-emerald-950/50'
+          }`}
         >
           <FaHouse className="text-lg" />
         </Link>
@@ -303,17 +313,19 @@ export default function MobileBottomNav() {
         >
           <FaBasketShopping className="text-xl" />
           {totalItemsCount > 0 && (
-            <span className="absolute top-1 right-1 bg-[#006a52] text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#1c1d22]">
+            <span className="absolute top-1 right-1 bg-[#006a52] text-white text-[9px] font-extrabold w-4.5 h-4.5 rounded-full flex items-center justify-center border-2 border-[#1c1d22]">
               {totalItemsCount}
             </span>
           )}
         </button>
 
-        {/* 5. Account */}
+        {/* 5. Account / Profile */}
         <Link
-          href="/login"
+          href="/profile"
           aria-label="Account"
-          className="p-2 text-slate-400 hover:text-white transition-colors cursor-pointer"
+          className={`p-2 transition-colors cursor-pointer ${
+            pathname.startsWith('/profile') ? 'text-[#006a52]' : 'text-slate-400 hover:text-white'
+          }`}
         >
           <FaRegUser className="text-xl" />
         </Link>

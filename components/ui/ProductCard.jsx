@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
-import { FaStar, FaPlus } from 'react-icons/fa6';
+import { FaStar, FaPlus, FaClipboardList } from 'react-icons/fa6';
 import { RiHeart3Line, RiHeart3Fill } from 'react-icons/ri';
 
 export default function ProductCard({
@@ -20,6 +20,7 @@ export default function ProductCard({
 }) {
   const { addToCart } = useCart();
   const [isWishlist, setIsWishlist] = useState(false);
+  const [isQuoted, setIsQuoted] = useState(false);
 
   const handleAdd = (e) => {
     e.stopPropagation();
@@ -31,6 +32,12 @@ export default function ProductCard({
       price,
       weight,
     });
+  };
+
+  const handleQuote = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setIsQuoted(!isQuoted);
   };
 
   return (
@@ -78,7 +85,7 @@ export default function ProductCard({
             {category}
           </span>
           <Link href={`/product/${id}`} className="block">
-            <h3 className="font-semibold text-xs sm:text-sm text-slate-900 hover:text-[#006a52] line-clamp-2 mt-0.5 sm:mt-1 leading-snug min-h-[2rem] sm:min-h-[2.5rem] flex items-start transition-colors">
+            <h3 className="font-medium text-xs sm:text-sm lg:text-base text-slate-900 hover:text-[#006a52] line-clamp-2 mt-0.5 sm:mt-1 leading-snug flex items-start transition-colors">
               {title}
             </h3>
           </Link>
@@ -88,8 +95,8 @@ export default function ProductCard({
           </div>
         </div>
 
-        {/* Footer Price & Add Button */}
-        <div className="flex items-center justify-between mt-2.5 sm:mt-4 pt-1 sm:pt-2 border-t border-slate-50 gap-1">
+        {/* Footer Price & Action Buttons */}
+        <div className="flex items-center justify-between pt-1 sm:pt-2 border-t border-slate-50 gap-1">
           <div className="flex items-baseline gap-1 flex-wrap">
             <span className="font-semibold text-sm sm:text-lg text-slate-900 font-taka">{price}</span>
             {oldPrice && (
@@ -98,13 +105,31 @@ export default function ProductCard({
               </span>
             )}
           </div>
-          <button
-            onClick={handleAdd}
-            aria-label="Add to Cart"
-            className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#006a52] hover:bg-[#005240] text-white flex items-center justify-center font-semibold text-xs sm:text-base transition-colors shadow-sm cursor-pointer shrink-0"
-          >
-            <FaPlus className="text-[10px] sm:text-xs" />
-          </button>
+          <div className="flex items-center gap-1.5 shrink-0">
+            {/* Add to Quote Button */}
+            <button
+              onClick={handleQuote}
+              title={isQuoted ? "Added to Quote List" : "Add to Quote List"}
+              aria-label="Add to Quote List"
+              className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center font-semibold text-xs transition-all cursor-pointer border ${
+                isQuoted
+                  ? 'bg-amber-500 text-white border-amber-500 shadow-xs'
+                  : 'bg-emerald-50 text-[#006a52] border-emerald-200 hover:bg-[#006a52] hover:border-[#006a52] hover:text-white'
+              }`}
+            >
+              <FaClipboardList className="text-xs sm:text-sm shrink-0" />
+            </button>
+
+            {/* Add to Cart Button */}
+            <button
+              onClick={handleAdd}
+              aria-label="Add to Cart"
+              title="Add to Cart"
+              className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#006a52] hover:bg-[#005240] text-white flex items-center justify-center font-semibold text-xs sm:text-base transition-colors shadow-xs cursor-pointer shrink-0"
+            >
+              <FaPlus className="text-[10px] sm:text-xs" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

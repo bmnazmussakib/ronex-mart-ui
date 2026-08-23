@@ -4,12 +4,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
-import { FaStar, FaPlus, FaBasketShopping } from 'react-icons/fa6';
+import { FaStar, FaPlus, FaBasketShopping, FaClipboardList } from 'react-icons/fa6';
 import { RiHeart3Line, RiHeart3Fill } from 'react-icons/ri';
 
 export default function HorizontalProductCard({ item }) {
   const { addToCart } = useCart();
   const [isWishlist, setIsWishlist] = useState(false);
+  const [isQuoted, setIsQuoted] = useState(false);
 
   if (!item) return null;
 
@@ -37,6 +38,12 @@ export default function HorizontalProductCard({ item }) {
     });
   };
 
+  const handleQuote = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setIsQuoted(!isQuoted);
+  };
+
   return (
     <div className="bg-white rounded-xl border border-slate-200/90 p-3 sm:p-4 hover:border-[#006a52] hover:shadow-md transition-all group w-full flex flex-col sm:flex-row items-stretch sm:items-center gap-4 relative">
       {/* Product Image Thumbnail */}
@@ -62,11 +69,11 @@ export default function HorizontalProductCard({ item }) {
       {/* Middle: Product Details */}
       <div className="flex-1 min-w-0 flex flex-col justify-between space-y-1.5">
         <div>
-          <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">
+          <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase block">
             {category}
           </span>
           <Link href={`/product/${id}`}>
-            <h3 className="font-semibold text-sm sm:text-base text-slate-900 group-hover:text-[#006a52] transition-colors line-clamp-2 leading-snug mt-1">
+            <h3 className="font-medium text-xs sm:text-sm lg:text-base text-slate-900 group-hover:text-[#006a52] transition-colors line-clamp-2 leading-snug mt-1">
               {title}
             </h3>
           </Link>
@@ -88,27 +95,43 @@ export default function HorizontalProductCard({ item }) {
 
       {/* Right: Price & Action Buttons */}
       <div className="flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 border-slate-100 pt-3 sm:pt-0 sm:pl-4 sm:border-l shrink-0 gap-3">
-        {/* Wishlist Button */}
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setIsWishlist(!isWishlist);
-          }}
-          aria-label="Toggle Wishlist"
-          className="w-8 h-8 rounded-full bg-slate-50 hover:bg-rose-50 border border-slate-200 shadow-2xs flex items-center justify-center transition-all cursor-pointer group/heart shrink-0"
-        >
-          {isWishlist ? (
-            <RiHeart3Fill className="text-rose-600 text-lg" />
-          ) : (
-            <RiHeart3Line className="text-slate-400 text-lg group-hover/heart:text-rose-600 transition-colors" />
-          )}
-        </button>
+        {/* Wishlist & Quote Buttons */}
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={handleQuote}
+            title={isQuoted ? "Added to Quote List" : "Add to Quote List"}
+            aria-label="Add to Quote List"
+            className={`w-8 h-8 rounded-full border shadow-2xs flex items-center justify-center transition-all cursor-pointer shrink-0 ${
+              isQuoted
+                ? 'bg-amber-500 text-white border-amber-500'
+                : 'bg-emerald-50 text-[#006a52] border-emerald-200 hover:bg-[#006a52] hover:text-white'
+            }`}
+          >
+            <FaClipboardList className="text-sm shrink-0" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsWishlist(!isWishlist);
+            }}
+            aria-label="Toggle Wishlist"
+            className="w-8 h-8 rounded-full bg-slate-50 hover:bg-rose-50 border border-slate-200 shadow-2xs flex items-center justify-center transition-all cursor-pointer group/heart shrink-0"
+          >
+            {isWishlist ? (
+              <RiHeart3Fill className="text-rose-600 text-lg" />
+            ) : (
+              <RiHeart3Line className="text-slate-400 text-lg group-hover/heart:text-rose-600 transition-colors" />
+            )}
+          </button>
+        </div>
 
         {/* Pricing */}
         <div className="text-left sm:text-right font-taka">
-          <div className="text-base sm:text-xl font-bold text-slate-900">{price}</div>
+          <div className="text-base sm:text-xl font-semibold text-slate-900">{price}</div>
           {oldPrice && (
             <div className="text-xs text-slate-400 line-through font-normal">
               {oldPrice}
@@ -119,7 +142,7 @@ export default function HorizontalProductCard({ item }) {
         {/* Add to Cart Button */}
         <button
           onClick={handleAdd}
-          className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs sm:text-sm transition-colors cursor-pointer shadow-2xs shrink-0"
+          className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-md bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs sm:text-sm transition-colors cursor-pointer shadow-2xs shrink-0"
         >
           <FaBasketShopping className="text-xs sm:text-sm" />
           <span>Add to Cart</span>

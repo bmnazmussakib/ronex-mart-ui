@@ -44,8 +44,8 @@ export default function ProfileSettingsTab() {
       {/* Change Password Card */}
       <div className="bg-white rounded-lg border border-slate-200 p-5 sm:p-6 shadow-xs space-y-4">
         <div>
-          <h3 className="text-base font-semibold text-slate-900">Change Password</h3>
-          <p className="text-xs text-slate-500">Update your account password regularly to keep it secure.</p>
+          <h3 className="text-lg font-bold text-slate-900">Change Password</h3>
+          <p className="text-sm text-slate-500 mt-0.5">Update your account password regularly to keep it secure.</p>
         </div>
 
         {passSuccess && (
@@ -61,24 +61,24 @@ export default function ProfileSettingsTab() {
           </div>
         )}
 
-        <form onSubmit={handlePasswordChange} className="space-y-3.5 max-w-md">
+        <form onSubmit={handlePasswordChange} className="space-y-4 max-w-md">
           {/* Current Password */}
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-700 block">Current Password</label>
+            <label className="text-sm font-medium text-slate-700 block">Current Password</label>
             <div className="relative flex items-center">
-              <FaLock className="absolute left-3 text-slate-400 text-xs" />
+              <FaLock className="absolute left-3.5 text-slate-400 text-sm" />
               <input
                 type={showCurrent ? 'text' : 'password'}
                 required
                 value={passwords.current}
                 onChange={(e) => setPasswords({ ...passwords, current: e.target.value })}
                 placeholder="••••••••"
-                className="w-full pl-9 pr-9 py-2 bg-slate-50 border border-slate-300 rounded-md text-xs focus:bg-white focus:border-[#006a52] focus:outline-none"
+                className="w-full pl-9 pr-9 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none"
               />
               <button
                 type="button"
                 onClick={() => setShowCurrent(!showCurrent)}
-                className="absolute right-3 text-slate-400 text-xs hover:text-slate-600 cursor-pointer"
+                className="absolute right-3.5 text-slate-400 text-sm hover:text-slate-600 cursor-pointer"
               >
                 {showCurrent ? <FaEyeSlash /> : <FaEye />}
               </button>
@@ -87,21 +87,21 @@ export default function ProfileSettingsTab() {
 
           {/* New Password */}
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-700 block">New Password</label>
+            <label className="text-sm font-medium text-slate-700 block">New Password</label>
             <div className="relative flex items-center">
-              <FaLock className="absolute left-3 text-slate-400 text-xs" />
+              <FaLock className="absolute left-3.5 text-slate-400 text-sm" />
               <input
                 type={showNew ? 'text' : 'password'}
                 required
                 value={passwords.newPass}
                 onChange={(e) => setPasswords({ ...passwords, newPass: e.target.value })}
                 placeholder="At least 6 characters"
-                className="w-full pl-9 pr-9 py-2 bg-slate-50 border border-slate-300 rounded-md text-xs focus:bg-white focus:border-[#006a52] focus:outline-none"
+                className="w-full pl-9 pr-9 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none"
               />
               <button
                 type="button"
                 onClick={() => setShowNew(!showNew)}
-                className="absolute right-3 text-slate-400 text-xs hover:text-slate-600 cursor-pointer"
+                className="absolute right-3.5 text-slate-400 text-sm hover:text-slate-600 cursor-pointer"
               >
                 {showNew ? <FaEyeSlash /> : <FaEye />}
               </button>
@@ -110,23 +110,23 @@ export default function ProfileSettingsTab() {
 
           {/* Confirm Password */}
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-700 block">Confirm New Password</label>
+            <label className="text-sm font-medium text-slate-700 block">Confirm New Password</label>
             <div className="relative flex items-center">
-              <FaLock className="absolute left-3 text-slate-400 text-xs" />
+              <FaLock className="absolute left-3.5 text-slate-400 text-sm" />
               <input
                 type="password"
                 required
                 value={passwords.confirmPass}
                 onChange={(e) => setPasswords({ ...passwords, confirmPass: e.target.value })}
                 placeholder="Re-enter new password"
-                className="w-full pl-9 pr-9 py-2 bg-slate-50 border border-slate-300 rounded-md text-xs focus:bg-white focus:border-[#006a52] focus:outline-none"
+                className="w-full pl-9 pr-9 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none"
               />
             </div>
           </div>
 
           <button
             type="submit"
-            className="bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs py-2.5 px-4 rounded-md transition-all shadow-xs cursor-pointer"
+            className="bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-sm py-2.5 px-5 rounded-md transition-all shadow-xs cursor-pointer"
           >
             Update Password
           </button>
@@ -136,8 +136,8 @@ export default function ProfileSettingsTab() {
       {/* Notification Preferences */}
       <div className="bg-white rounded-lg border border-slate-200 p-5 sm:p-6 shadow-xs space-y-4">
         <div>
-          <h3 className="text-base font-semibold text-slate-900">Notification Preferences</h3>
-          <p className="text-xs text-slate-500">Control how and when you receive updates from RonexMart.</p>
+          <h3 className="text-lg font-bold text-slate-900">Notification Preferences</h3>
+          <p className="text-sm text-slate-500 mt-0.5">Control how and when you receive updates from RonexMart.</p>
         </div>
 
         <div className="space-y-3 text-xs">

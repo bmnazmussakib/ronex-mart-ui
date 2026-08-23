@@ -117,7 +117,7 @@ export default function LeftSidebar() {
             closeSidebar();
             setIsRequestModalOpen(true);
           }}
-          className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs sm:text-sm transition-all shadow-xs group cursor-pointer"
+          className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-md bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs sm:text-sm transition-all shadow-xs group cursor-pointer"
         >
           <FaClipboardList className="text-xs sm:text-sm group-hover:scale-110 transition-transform" />
           <span>Product Request</span>

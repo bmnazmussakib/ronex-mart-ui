@@ -78,8 +78,8 @@ export default function ProfileAddressesTab() {
       {/* Header Bar */}
       <div className="bg-white rounded-lg border border-slate-200 p-4 sm:p-5 shadow-xs flex items-center justify-between gap-3">
         <div>
-          <h3 className="text-base font-semibold text-slate-900">Saved Addresses</h3>
-          <p className="text-xs text-slate-500">Manage your shipping and billing delivery locations.</p>
+          <h3 className="text-lg font-bold text-slate-900">Saved Addresses</h3>
+          <p className="text-sm text-slate-500 mt-0.5">Manage your shipping and billing delivery locations.</p>
         </div>
         <button
           onClick={() => setIsAdding(!isAdding)}

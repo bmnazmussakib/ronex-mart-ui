@@ -1,16 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import ProfileSidebar from '@/components/profile/ProfileSidebar';
 import ProfileOverviewTab from '@/components/profile/ProfileOverviewTab';
+import ProfileDashboardTab from '@/components/profile/ProfileDashboardTab';
 import ProfileOrdersTab from '@/components/profile/ProfileOrdersTab';
 import ProfileWishlistTab from '@/components/profile/ProfileWishlistTab';
 import ProfileAddressesTab from '@/components/profile/ProfileAddressesTab';
 import ProfileSettingsTab from '@/components/profile/ProfileSettingsTab';
+import ProfileQuoteOrdersTab from '@/components/profile/ProfileQuoteOrdersTab';
+import ProfilePaymentsTab from '@/components/profile/ProfilePaymentsTab';
 
-export default function ProfilePage() {
-  const [activeTab, setActiveTab] = useState('overview');
+function ProfilePageContent() {
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get('tab');
+  const [activeTab, setActiveTab] = useState(tabParam || 'overview');
+
+  useEffect(() => {
+    if (tabParam) {
+      setActiveTab(tabParam);
+    }
+  }, [tabParam]);
 
   const [user, setUser] = useState({
     fullName: 'Tanvir Ahmed',
@@ -35,18 +47,30 @@ export default function ProfilePage() {
       {/* Main Profile Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-start">
         {/* Left Column: Profile Sidebar */}
-        <div className="lg:col-span-4 lg:sticky lg:top-[135px]">
+        <div className="lg:col-span-3 lg:sticky lg:top-[135px]">
           <ProfileSidebar activeTab={activeTab} setActiveTab={setActiveTab} user={user} />
         </div>
 
         {/* Right Column: Tab View Content */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-9">
           {activeTab === 'overview' && (
+            <ProfileDashboardTab setActiveTab={setActiveTab} />
+          )}
+
+          {activeTab === 'profile' && (
             <ProfileOverviewTab user={user} setUser={setUser} />
           )}
 
           {activeTab === 'orders' && (
             <ProfileOrdersTab />
+          )}
+
+          {activeTab === 'quote-orders' && (
+            <ProfileQuoteOrdersTab />
+          )}
+
+          {activeTab === 'payments' && (
+            <ProfilePaymentsTab />
           )}
 
           {activeTab === 'wishlist' && (
@@ -63,5 +87,13 @@ export default function ProfilePage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ProfilePage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center text-slate-500">Loading Profile...</div>}>
+      <ProfilePageContent />
+    </Suspense>
   );
 }
