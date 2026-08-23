@@ -313,7 +313,7 @@ export default function ShippingAndBillingForm({
       </div>
 
       {/* EXCHANGE ORDER CARD */}
-      <div className="bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-4 sm:p-6 space-y-3">
+      {/* <div className="bg-white rounded-md sm:rounded-xl border border-slate-200/90 p-4 sm:p-6 space-y-3 ">
         <h3 className="font-semibold text-xs sm:text-sm text-slate-900 tracking-wider uppercase flex items-center gap-2">
           EXCHANGE ORDER
         </h3>
@@ -333,7 +333,7 @@ export default function ShippingAndBillingForm({
             SEARCH
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
