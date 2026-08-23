@@ -8,7 +8,7 @@ export default function HeroBanners() {
         {/* Main Banner (8 Cols) */}
         <div className="col-span-8 rounded-md sm:rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center relative">
           <Image
-            src="/img/hero-banner-1.png"
+            src="/img/hero-banner-1-1.png"
             alt="Groceries Showcase"
             width={1200}
             height={600}
@@ -22,7 +22,7 @@ export default function HeroBanners() {
         <div className="col-span-4 flex flex-col justify-between gap-1.5 sm:gap-3.5">
           <div className="flex-1 rounded-md sm:rounded-xl overflow-hidden shadow-sm border border-slate-100 bg-slate-50 flex items-center justify-center relative">
             <Image
-              src="/img/hero-banner-2.png"
+              src="/img/hero-banner-2-1.png"
               alt="Promo Banner 2"
               width={600}
               height={240}
@@ -34,7 +34,7 @@ export default function HeroBanners() {
 
           <div className="flex-1 rounded-md sm:rounded-xl overflow-hidden shadow-sm border border-slate-100 bg-slate-50 flex items-center justify-center relative">
             <Image
-              src="/img/hero-banner-3.png"
+              src="/img/hero-banner-3-1.png"
               alt="Promo Banner 3"
               width={600}
               height={240}
