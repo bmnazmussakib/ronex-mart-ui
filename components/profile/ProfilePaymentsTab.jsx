@@ -53,8 +53,8 @@ export default function ProfilePaymentsTab() {
                 <FaCreditCard />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900">Online Payment History</h3>
-                <p className="text-sm text-slate-500 mt-0.5">Track all online payment receipts and transaction records.</p>
+                <h3 className="text-base sm:text-lg font-bold text-slate-900">Online Payment History</h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Track all online payment receipts and transaction records.</p>
               </div>
             </div>
           </div>

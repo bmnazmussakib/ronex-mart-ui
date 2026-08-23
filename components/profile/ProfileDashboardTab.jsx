@@ -54,15 +54,15 @@ export default function ProfileDashboardTab({ setActiveTab }) {
       </div>
 
       {/* Quick Recent Activity / Orders Summary Container */}
-      <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-xs space-y-4">
-        <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+      <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
           <div>
-            <h3 className="text-lg font-bold text-slate-900">Dashboard Overview</h3>
-            <p className="text-sm text-slate-500 mt-0.5">Welcome back to your RonexMart member dashboard.</p>
+            <h3 className="text-base sm:text-lg font-bold text-slate-900">Dashboard Overview</h3>
+            <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Welcome back to your RonexMart member dashboard.</p>
           </div>
           <Link
             href="/monthly-list"
-            className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white bg-[#006a52] hover:bg-[#005240] px-3.5 py-1.5 rounded-md transition-colors shadow-2xs"
+            className="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm font-semibold text-white bg-[#006a52] hover:bg-[#005240] px-3 sm:px-3.5 py-1.5 rounded-md transition-colors shadow-2xs self-start sm:self-auto"
           >
             <FaRotateRight className="text-xs" />
             <span>Reorder Monthly List</span>

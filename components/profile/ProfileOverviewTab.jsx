@@ -53,16 +53,16 @@ export default function ProfileOverviewTab({ user, setUser }) {
       )}
 
       {/* Personal Info Card */}
-      <div className="bg-white rounded-lg border border-slate-200 p-5 sm:p-6 shadow-xs space-y-5">
-        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+      <div className="bg-white rounded-lg border border-slate-200 p-4 sm:p-6 shadow-xs space-y-4 sm:space-y-5">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
           <div>
-            <h3 className="text-lg font-bold text-slate-900">Personal Information</h3>
-            <p className="text-sm text-slate-500 mt-0.5">Manage your profile details and contact information.</p>
+            <h3 className="text-base sm:text-lg font-bold text-slate-900">Personal Information</h3>
+            <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Manage your profile details and contact information.</p>
           </div>
           {!isEditing && (
             <button
               onClick={() => setIsEditing(true)}
-              className="flex items-center gap-1.5 text-sm font-semibold text-[#006a52] bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-1.5 rounded-md transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#006a52] bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 sm:px-3.5 py-1.5 rounded-md transition-colors cursor-pointer"
             >
               <FaPenToSquare className="text-xs" />
               <span>Edit Profile</span>

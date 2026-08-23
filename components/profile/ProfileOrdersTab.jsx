@@ -202,8 +202,8 @@ export default function ProfileOrdersTab() {
           {/* Header */}
           <div className="bg-white rounded-lg border border-slate-200 p-4 sm:p-5 shadow-xs flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">My Orders</h3>
-              <p className="text-sm text-slate-500 mt-0.5">View and track all your placed orders and payment statuses.</p>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900">My Orders</h3>
+              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">View and track all your placed orders and payment statuses.</p>
             </div>
           </div>
 

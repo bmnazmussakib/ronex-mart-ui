@@ -92,8 +92,8 @@ export default function ProfileQuoteOrdersTab() {
                 <FaFileInvoice />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900">Quote Order History</h3>
-                <p className="text-sm text-slate-500 mt-0.5">Manage and view all your requested price quote orders.</p>
+                <h3 className="text-base sm:text-lg font-bold text-slate-900">Quote Order History</h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Manage and view all your requested price quote orders.</p>
               </div>
             </div>
           </div>
