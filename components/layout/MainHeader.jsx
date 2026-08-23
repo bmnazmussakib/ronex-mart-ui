@@ -17,6 +17,7 @@ import {
   FaFacebookF,
   FaInstagram,
   FaYoutube,
+  FaFileInvoice,
 } from 'react-icons/fa6';
 import { RiHeart3Line } from 'react-icons/ri';
 
@@ -346,6 +347,20 @@ export default function MainHeader() {
               </div>
               <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Cart</span>
             </button>
+
+            {/* Quote Link */}
+            <Link
+              href="/quote"
+              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
+            >
+              <div className="relative flex items-center justify-center">
+                <FaFileInvoice className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] transition-all" />
+                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
+                  4
+                </span>
+              </div>
+              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Quote</span>
+            </Link>
 
             {/* Wishlist */}
             <Link

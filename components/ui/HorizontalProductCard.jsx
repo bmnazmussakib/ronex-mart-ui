@@ -62,11 +62,11 @@ export default function HorizontalProductCard({ item }) {
       {/* Middle: Product Details */}
       <div className="flex-1 min-w-0 flex flex-col justify-between space-y-1.5">
         <div>
-          <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">
+          <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase block">
             {category}
           </span>
           <Link href={`/product/${id}`}>
-            <h3 className="font-semibold text-sm sm:text-base text-slate-900 group-hover:text-[#006a52] transition-colors line-clamp-2 leading-snug mt-1">
+            <h3 className="font-medium text-xs sm:text-sm lg:text-base text-slate-900 group-hover:text-[#006a52] transition-colors line-clamp-2 leading-snug mt-1">
               {title}
             </h3>
           </Link>

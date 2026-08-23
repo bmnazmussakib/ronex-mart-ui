@@ -78,7 +78,7 @@ export default function ProductCard({
             {category}
           </span>
           <Link href={`/product/${id}`} className="block">
-            <h3 className="font-semibold text-xs sm:text-sm text-slate-900 hover:text-[#006a52] line-clamp-2 mt-0.5 sm:mt-1 leading-snug flex items-start transition-colors">
+            <h3 className="font-medium text-xs sm:text-sm lg:text-base text-slate-900 hover:text-[#006a52] line-clamp-2 mt-0.5 sm:mt-1 leading-snug flex items-start transition-colors">
               {title}
             </h3>
           </Link>
