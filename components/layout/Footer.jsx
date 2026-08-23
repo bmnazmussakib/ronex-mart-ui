@@ -87,7 +87,7 @@ export default function Footer() {
             <div className="space-y-2 text-xs sm:text-sm text-slate-300 pt-1 font-medium">
               <div className="flex items-start gap-2">
                 <FaLocationDot className="text-gray-200 text-xs sm:text-sm mt-0.5 shrink-0" />
-                <span>Uttara Sector 7, Dhaka 1230, Bangladesh</span>
+                <span>Plot #244/A, Road #3 & 8th Avenue, Block-K, <br /> Bashundhara Residential Area</span>
               </div>
               <div className="flex items-center gap-2">
                 <FaEnvelope className="text-gray-200 text-xs sm:text-sm shrink-0" />
@@ -222,12 +222,7 @@ export default function Footer() {
                   <span>About RonexMart</span>
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
-                  
-                  <span>Careers</span>
-                </Link>
-              </li>
+
               <li>
                 <Link href="#" className="hover:text-gray-200 flex items-center gap-1.5 transition-all group">
                   

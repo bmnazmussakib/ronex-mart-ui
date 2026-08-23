@@ -10,7 +10,7 @@ export default function TopNoticeBar() {
         {/* Left Info */}
         <div className="hidden lg:flex items-center gap-6 text-xs font-normal shrink-0">
           <span className="flex items-center gap-1.5">
-            <FaLocationDot className="text-white text-xs" /> Uttara Sector 7, Dhaka 1230
+            <FaLocationDot className="text-white text-xs" /> Plot #244/A, Road #3 & 8th Avenue, Block-K, Bashundhara Residential Area
           </span>
         </div>
 
