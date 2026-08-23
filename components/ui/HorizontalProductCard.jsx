@@ -4,12 +4,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
-import { FaStar, FaPlus, FaBasketShopping } from 'react-icons/fa6';
+import { FaStar, FaPlus, FaBasketShopping, FaClipboardList } from 'react-icons/fa6';
 import { RiHeart3Line, RiHeart3Fill } from 'react-icons/ri';
 
 export default function HorizontalProductCard({ item }) {
   const { addToCart } = useCart();
   const [isWishlist, setIsWishlist] = useState(false);
+  const [isQuoted, setIsQuoted] = useState(false);
 
   if (!item) return null;
 
@@ -35,6 +36,12 @@ export default function HorizontalProductCard({ item }) {
       price,
       weight,
     });
+  };
+
+  const handleQuote = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setIsQuoted(!isQuoted);
   };
 
   return (
@@ -88,23 +95,39 @@ export default function HorizontalProductCard({ item }) {
 
       {/* Right: Price & Action Buttons */}
       <div className="flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 border-slate-100 pt-3 sm:pt-0 sm:pl-4 sm:border-l shrink-0 gap-3">
-        {/* Wishlist Button */}
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setIsWishlist(!isWishlist);
-          }}
-          aria-label="Toggle Wishlist"
-          className="w-8 h-8 rounded-full bg-slate-50 hover:bg-rose-50 border border-slate-200 shadow-2xs flex items-center justify-center transition-all cursor-pointer group/heart shrink-0"
-        >
-          {isWishlist ? (
-            <RiHeart3Fill className="text-rose-600 text-lg" />
-          ) : (
-            <RiHeart3Line className="text-slate-400 text-lg group-hover/heart:text-rose-600 transition-colors" />
-          )}
-        </button>
+        {/* Wishlist & Quote Buttons */}
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={handleQuote}
+            title={isQuoted ? "Added to Quote List" : "Add to Quote List"}
+            aria-label="Add to Quote List"
+            className={`w-8 h-8 rounded-full border shadow-2xs flex items-center justify-center transition-all cursor-pointer shrink-0 ${
+              isQuoted
+                ? 'bg-amber-500 text-white border-amber-500'
+                : 'bg-emerald-50 text-[#006a52] border-emerald-200 hover:bg-[#006a52] hover:text-white'
+            }`}
+          >
+            <FaClipboardList className="text-sm shrink-0" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsWishlist(!isWishlist);
+            }}
+            aria-label="Toggle Wishlist"
+            className="w-8 h-8 rounded-full bg-slate-50 hover:bg-rose-50 border border-slate-200 shadow-2xs flex items-center justify-center transition-all cursor-pointer group/heart shrink-0"
+          >
+            {isWishlist ? (
+              <RiHeart3Fill className="text-rose-600 text-lg" />
+            ) : (
+              <RiHeart3Line className="text-slate-400 text-lg group-hover/heart:text-rose-600 transition-colors" />
+            )}
+          </button>
+        </div>
 
         {/* Pricing */}
         <div className="text-left sm:text-right font-taka">

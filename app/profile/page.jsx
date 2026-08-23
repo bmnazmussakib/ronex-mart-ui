@@ -5,10 +5,13 @@ import { useSearchParams } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import ProfileSidebar from '@/components/profile/ProfileSidebar';
 import ProfileOverviewTab from '@/components/profile/ProfileOverviewTab';
+import ProfileDashboardTab from '@/components/profile/ProfileDashboardTab';
 import ProfileOrdersTab from '@/components/profile/ProfileOrdersTab';
 import ProfileWishlistTab from '@/components/profile/ProfileWishlistTab';
 import ProfileAddressesTab from '@/components/profile/ProfileAddressesTab';
 import ProfileSettingsTab from '@/components/profile/ProfileSettingsTab';
+import ProfileQuoteOrdersTab from '@/components/profile/ProfileQuoteOrdersTab';
+import ProfilePaymentsTab from '@/components/profile/ProfilePaymentsTab';
 
 function ProfilePageContent() {
   const searchParams = useSearchParams();
@@ -51,11 +54,23 @@ function ProfilePageContent() {
         {/* Right Column: Tab View Content */}
         <div className="lg:col-span-9">
           {activeTab === 'overview' && (
+            <ProfileDashboardTab setActiveTab={setActiveTab} />
+          )}
+
+          {activeTab === 'profile' && (
             <ProfileOverviewTab user={user} setUser={setUser} />
           )}
 
           {activeTab === 'orders' && (
             <ProfileOrdersTab />
+          )}
+
+          {activeTab === 'quote-orders' && (
+            <ProfileQuoteOrdersTab />
+          )}
+
+          {activeTab === 'payments' && (
+            <ProfilePaymentsTab />
           )}
 
           {activeTab === 'wishlist' && (

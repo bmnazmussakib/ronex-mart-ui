@@ -52,41 +52,6 @@ export default function ProfileOverviewTab({ user, setUser }) {
         </div>
       )}
 
-      {/* Stats Quick Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-slate-400">
-            <span className="text-sm font-medium text-slate-500">Total Orders</span>
-            <FaBoxOpen className="text-xl text-[#006a52]" />
-          </div>
-          <p className="text-2xl font-bold text-slate-900">12</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-slate-400">
-            <span className="text-sm font-medium text-slate-500">In Transit</span>
-            <FaClock className="text-xl text-amber-500" />
-          </div>
-          <p className="text-2xl font-bold text-slate-900">2</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-slate-400">
-            <span className="text-sm font-medium text-slate-500">Wishlist</span>
-            <FaHeart className="text-xl text-rose-500" />
-          </div>
-          <p className="text-2xl font-bold text-slate-900">4</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-slate-400">
-            <span className="text-sm font-medium text-slate-500">Vouchers</span>
-            <FaTicket className="text-xl text-emerald-600" />
-          </div>
-          <p className="text-2xl font-bold text-slate-900">3</p>
-        </div>
-      </div>
-
       {/* Personal Info Card */}
       <div className="bg-white rounded-lg border border-slate-200 p-5 sm:p-6 shadow-xs space-y-5">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">

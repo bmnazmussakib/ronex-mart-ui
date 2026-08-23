@@ -12,6 +12,8 @@ import {
   FaTruckFast,
   FaShieldHalved,
   FaHandHoldingDollar,
+  FaClipboardList,
+  FaCalendarCheck,
 } from 'react-icons/fa6';
 
 export default function ProductInfo({ product }) {
@@ -35,6 +37,9 @@ export default function ProductInfo({ product }) {
 
   const [selectedWeight, setSelectedWeight] = useState(data.weights[0]);
   const [inCartQty, setInCartQty] = useState(0);
+  const [isQuoted, setIsQuoted] = useState(false);
+  const [isSavedMonthly, setIsSavedMonthly] = useState(false);
+  const [actionToast, setActionToast] = useState('');
 
   const handleAddToCart = () => {
     setInCartQty(1);
@@ -64,8 +69,28 @@ export default function ProductInfo({ product }) {
     setInCartQty((prev) => (prev > 1 ? prev - 1 : 0));
   };
 
+  const handleAddToQuote = () => {
+    setIsQuoted(!isQuoted);
+    setActionToast(isQuoted ? 'Item removed from quote list' : 'Item added to quote list successfully!');
+    setTimeout(() => setActionToast(''), 3500);
+  };
+
+  const handleSaveMonthlyList = () => {
+    setIsSavedMonthly(!isSavedMonthly);
+    setActionToast(isSavedMonthly ? 'Item removed from monthly list' : 'Item saved to your monthly list successfully!');
+    setTimeout(() => setActionToast(''), 3500);
+  };
+
   return (
     <div className="flex flex-col gap-4 sm:gap-5 bg-white rounded-xl border border-slate-200/90 p-4 sm:p-5 md:p-6 shadow-2xs">
+      {/* Toast Notification */}
+      {actionToast && (
+        <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold p-3 rounded-lg flex items-center gap-2 animate-in fade-in">
+          <FaCircleCheck className="text-[#006a52] text-sm shrink-0" />
+          <span>{actionToast}</span>
+        </div>
+      )}
+
       {/* Category & Brand Header */}
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
         <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-500">
@@ -146,46 +171,67 @@ export default function ProductInfo({ product }) {
         </div>
       </div>
 
-      {/* Action Buttons & Quantity Controller */}
-      <div className="grid grid-cols-2 gap-2 sm:gap-3 pt-1 w-full">
+      {/* Action Buttons: Add To Cart, Add to Quote, Save Monthly List */}
+      <div className="space-y-2.5 pt-1 w-full">
+        {/* Add To Cart */}
         {inCartQty === 0 ? (
-          /* Initial Add to Cart Button */
           <button
             onClick={handleAddToCart}
-            className="w-full bg-[#006a52] hover:bg-[#005240] text-white font-semibold uppercase text-[11px] sm:text-xs py-2.5 sm:py-3 px-2 sm:px-5 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer truncate"
+            className="w-full bg-[#006a52] hover:bg-[#005240] text-white font-bold uppercase text-xs sm:text-sm py-3 px-5 rounded-full flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer"
           >
+            <FaPlus className="text-xs" />
             <span>Add To Cart</span>
           </button>
         ) : (
-          /* Plus / Minus Quantity Controller Pill */
-          <div className="w-full bg-white border-2 border-[#006a52] text-[#006a52] p-0.5 sm:p-1 rounded-full flex items-center justify-between shadow-xs">
+          <div className="w-full bg-white border-2 border-[#006a52] text-[#006a52] p-1 rounded-full flex items-center justify-between shadow-xs">
             <button
               onClick={decrementQty}
               aria-label="Decrease Quantity"
-              className="w-6 h-6 sm:w-7 sm:h-7 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer shrink-0"
+              className="w-7 h-7 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer shrink-0"
             >
-              <FaMinus className="text-[9px] sm:text-[10px]" />
+              <FaMinus className="text-[10px]" />
             </button>
-            <span className="font-bold text-xs text-slate-900 px-1 sm:px-2">
-              {inCartQty}
+            <span className="font-bold text-sm text-slate-900 px-2">
+              {inCartQty} in Cart
             </span>
             <button
               onClick={incrementQty}
               aria-label="Increase Quantity"
-              className="w-6 h-6 sm:w-7 sm:h-7 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer shrink-0"
+              className="w-7 h-7 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer shrink-0"
             >
-              <FaPlus className="text-[9px] sm:text-[10px]" />
+              <FaPlus className="text-[10px]" />
             </button>
           </div>
         )}
 
-        {/* Buy Now Button */}
-        <button
-          onClick={handleAddToCart}
-          className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white font-semibold uppercase text-[11px] sm:text-xs py-2.5 sm:py-3 px-2 sm:px-5 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer truncate"
-        >
-          <span>Buy Now</span>
-        </button>
+        {/* Row 2: Add to Quote & Save Monthly List */}
+        <div className="grid grid-cols-2 gap-2 sm:gap-3">
+          {/* Add to Quote Button */}
+          <button
+            onClick={handleAddToQuote}
+            className={`w-full font-semibold uppercase text-[11px] sm:text-xs py-2.5 sm:py-3 px-2 sm:px-4 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer border ${
+              isQuoted
+                ? 'bg-amber-500 text-white border-amber-500'
+                : 'bg-emerald-50 text-[#006a52] border-emerald-200 hover:bg-[#006a52] hover:text-white'
+            }`}
+          >
+            <FaClipboardList className="text-xs shrink-0" />
+            <span className="truncate">{isQuoted ? 'In Quote List' : 'Add To Quote'}</span>
+          </button>
+
+          {/* Save Monthly List Button */}
+          <button
+            onClick={handleSaveMonthlyList}
+            className={`w-full font-semibold uppercase text-[11px] sm:text-xs py-2.5 sm:py-3 px-2 sm:px-4 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer border ${
+              isSavedMonthly
+                ? 'bg-slate-800 text-white border-slate-800'
+                : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+            }`}
+          >
+            <FaCalendarCheck className="text-xs shrink-0" />
+            <span className="truncate">{isSavedMonthly ? 'Monthly Saved' : 'Save Monthly List'}</span>
+          </button>
+        </div>
       </div>
 
       {/* Trust Badges Strip (Responsive Grid) */}

@@ -1,23 +1,34 @@
 'use client';
 
+import Link from 'next/link';
 import {
+  FaGaugeHigh,
   FaUser,
-  FaBoxOpen,
+  FaHeart,
   FaLocationDot,
-  FaGear,
+  FaBoxOpen,
+  FaCreditCard,
+  FaFileInvoice,
+  FaListCheck,
+  FaCartShopping,
+  FaLock,
   FaRightFromBracket,
   FaShieldHalved,
   FaPen,
-  FaHeart,
 } from 'react-icons/fa6';
 
 export default function ProfileSidebar({ activeTab, setActiveTab, user }) {
   const navItems = [
-    { id: 'overview', label: 'My Profile', icon: FaUser },
-    { id: 'orders', label: 'My Orders', icon: FaBoxOpen, badge: '12' },
-    { id: 'wishlist', label: 'My Wishlist', icon: FaHeart, badge: '4' },
-    { id: 'addresses', label: 'Saved Addresses', icon: FaLocationDot, badge: '2' },
-    { id: 'settings', label: 'Account Settings', icon: FaGear },
+    { id: 'overview', label: 'Dashboard', icon: FaGaugeHigh },
+    { id: 'profile', label: 'Profile', icon: FaUser },
+    { id: 'wishlist', label: 'Wishlist', icon: FaHeart, badge: '4' },
+    { id: 'addresses', label: 'Shipping Address', icon: FaLocationDot, badge: '2' },
+    { id: 'orders', label: 'Order History', icon: FaBoxOpen, badge: '12' },
+    { id: 'payments', label: 'Online Payment History', icon: FaCreditCard },
+    { id: 'quote-orders', label: 'Quote Order', icon: FaFileInvoice, badge: '5' },
+    { id: 'bazar-list', label: 'Bazar List', icon: FaListCheck, href: '/monthly-list' },
+    { id: 'checkout', label: 'Checkout', icon: FaCartShopping, href: '/checkout' },
+    { id: 'settings', label: 'Change Password', icon: FaLock },
   ];
 
   return (
@@ -45,17 +56,32 @@ export default function ProfileSidebar({ activeTab, setActiveTab, user }) {
         </div>
       </div>
 
-
       {/* Navigation List */}
-      <nav className="space-y-1">
+      <nav className="space-y-1 divide-y divide-slate-100/60">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.id;
+          
+          if (item.href) {
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-[#006a52] transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Icon className="text-base text-slate-400" />
+                  <span>{item.label}</span>
+                </div>
+              </Link>
+            );
+          }
+
           return (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-md text-sm font-semibold transition-all cursor-pointer ${
+              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md text-sm font-semibold transition-all cursor-pointer ${
                 isActive
                   ? 'bg-[#006a52] text-white shadow-xs'
                   : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -81,13 +107,13 @@ export default function ProfileSidebar({ activeTab, setActiveTab, user }) {
         })}
 
         {/* Logout Button */}
-        <a
+        <Link
           href="/login"
-          className="w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-md text-sm font-semibold text-rose-600 hover:bg-rose-50 transition-all cursor-pointer pt-3 border-t border-slate-100 mt-2"
+          className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-md text-sm font-semibold text-rose-600 hover:bg-rose-50 transition-all cursor-pointer pt-3"
         >
           <FaRightFromBracket className="text-base" />
-          <span>Sign Out</span>
-        </a>
+          <span>Logout</span>
+        </Link>
       </nav>
     </div>
   );
