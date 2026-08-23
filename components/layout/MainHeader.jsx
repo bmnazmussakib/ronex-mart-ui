@@ -322,16 +322,53 @@ export default function MainHeader() {
 
           {/* Action Buttons: Reorder, Cart, Wishlist, Login */}
           <div className="hidden sm:flex items-center gap-3 sm:gap-4 lg:gap-5">
-            {/* Reorder */}
-            <Link
-              href="/profile"
-              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
-            >
-              <div className="relative flex items-center justify-center">
-                <FaRotateRight className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] transition-all" />
+            {/* Reorder Dropdown Menu */}
+            <div className="relative group py-2">
+              <Link
+                href="/profile?tab=orders"
+                className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
+              >
+                <div className="relative flex items-center justify-center">
+                  <FaRotateRight className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] transition-all" />
+                </div>
+                <span className="hidden lg:inline text-xs text-slate-600 font-medium group-hover:text-[#006a52] uppercase">
+                  Reorder
+                </span>
+              </Link>
+
+              {/* Hover Dropdown Box */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 min-w-[160px]">
+                {/* Top Popover Arrow Indicator */}
+                <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] border-b-[#006a52] mx-auto relative z-10" />
+                
+                <div className="bg-white rounded-lg border border-[#006a52] shadow-xl overflow-hidden text-xs font-medium text-slate-800 divide-y divide-slate-100">
+                  <Link
+                    href="/my-items"
+                    className="block px-4 py-2.5 hover:bg-emerald-50 hover:text-[#006a52] uppercase transition-colors"
+                  >
+                    MY ITEMS
+                  </Link>
+                  <Link
+                    href="/profile?tab=orders"
+                    className="block px-4 py-2.5 hover:bg-emerald-50 hover:text-[#006a52] uppercase transition-colors"
+                  >
+                    REORDER
+                  </Link>
+                  <Link
+                    href="/monthly-list"
+                    className="block px-4 py-2.5 hover:bg-emerald-50 hover:text-[#006a52] uppercase transition-colors"
+                  >
+                    MONTHLY LIST
+                  </Link>
+                  <Link
+                    href="/profile?tab=wishlist"
+                    className="block px-4 py-2.5 hover:bg-emerald-50 hover:text-[#006a52] uppercase transition-colors"
+                  >
+                    WISHLISTS
+                  </Link>
+                </div>
               </div>
-              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Reorder</span>
-            </Link>
+            </div>
 
             {/* Cart Trigger */}
             <button
@@ -345,7 +382,7 @@ export default function MainHeader() {
                   {totalItemsCount}
                 </span>
               </div>
-              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Cart</span>
+              <span className="hidden lg:inline text-xs text-slate-600 font-medium group-hover:text-[#006a52] uppercase">Cart</span>
             </button>
 
             {/* Quote Link */}
@@ -359,21 +396,7 @@ export default function MainHeader() {
                   4
                 </span>
               </div>
-              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Quote</span>
-            </Link>
-
-            {/* Wishlist */}
-            <Link
-              href="/profile"
-              className="flex items-center gap-1.5 sm:gap-2 hover:text-[#006a52] transition-colors group"
-            >
-              <div className="relative flex items-center justify-center">
-                <RiHeart3Line className="text-xl sm:text-2xl lg:text-3xl text-slate-800 group-hover:text-[#006a52] transition-all" />
-                <span className="absolute -top-1.5 -right-2 bg-[#599f05] text-white text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#599f05] shadow-xs">
-                  0
-                </span>
-              </div>
-              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Wishlist</span>
+              <span className="hidden lg:inline text-xs text-slate-600 font-medium group-hover:text-[#006a52] uppercase">Quote</span>
             </Link>
 
             {/* Login */}
@@ -384,7 +407,7 @@ export default function MainHeader() {
               <div className="relative flex items-center justify-center">
                 <FaUser className="text-lg sm:text-xl lg:text-2xl text-slate-800 group-hover:text-[#006a52] transition-all" />
               </div>
-              <span className="hidden lg:inline text-xs text-slate-600 font-semibold group-hover:text-[#006a52] uppercase">Login</span>
+              <span className="hidden lg:inline text-xs text-slate-600 font-medium group-hover:text-[#006a52] uppercase">Login</span>
             </Link>
           </div>
 

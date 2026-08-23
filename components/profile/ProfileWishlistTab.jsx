@@ -94,12 +94,12 @@ export default function ProfileWishlistTab() {
       {/* Header Bar */}
       <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-slate-100 pb-3 sm:pb-4">
         <div>
-          <h2 className="text-sm sm:text-base md:text-lg font-semibold text-slate-900 flex items-center gap-2">
-            <FaHeart className="text-rose-500 text-sm sm:text-base md:text-lg" />
+          <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+            <FaHeart className="text-rose-500 text-lg sm:text-xl" />
             <span>My Wishlist</span>
-            <span className="text-xs font-normal text-slate-500">({wishlistItems.length} saved items)</span>
+            <span className="text-xs sm:text-sm font-normal text-slate-500">({wishlistItems.length} saved items)</span>
           </h2>
-          <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
             View, manage, and add your favorite items directly to your shopping cart.
           </p>
         </div>
@@ -107,9 +107,9 @@ export default function ProfileWishlistTab() {
         {wishlistItems.length > 0 && (
           <button
             onClick={handleClearAll}
-            className="text-[11px] sm:text-xs font-semibold text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-md transition-colors cursor-pointer flex items-center gap-1.5"
+            className="text-xs font-semibold text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-3 py-1.5 rounded-md transition-colors cursor-pointer flex items-center gap-1.5"
           >
-            <FaTrashCan className="text-[10px] sm:text-xs" />
+            <FaTrashCan className="text-xs" />
             <span>Clear Wishlist</span>
           </button>
         )}

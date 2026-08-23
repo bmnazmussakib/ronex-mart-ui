@@ -54,36 +54,36 @@ export default function ProfileOverviewTab({ user, setUser }) {
 
       {/* Stats Quick Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="bg-white p-3.5 rounded-lg border border-slate-200 shadow-2xs space-y-1">
+        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-1">
           <div className="flex items-center justify-between text-slate-400">
-            <span className="text-xs font-medium text-slate-500">Total Orders</span>
-            <FaBoxOpen className="text-lg text-[#006a52]" />
+            <span className="text-sm font-medium text-slate-500">Total Orders</span>
+            <FaBoxOpen className="text-xl text-[#006a52]" />
           </div>
-          <p className="text-xl font-semibold text-slate-900">12</p>
+          <p className="text-2xl font-bold text-slate-900">12</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-lg border border-slate-200 shadow-2xs space-y-1">
+        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-1">
           <div className="flex items-center justify-between text-slate-400">
-            <span className="text-xs font-medium text-slate-500">In Transit</span>
-            <FaClock className="text-lg text-amber-500" />
+            <span className="text-sm font-medium text-slate-500">In Transit</span>
+            <FaClock className="text-xl text-amber-500" />
           </div>
-          <p className="text-xl font-semibold text-slate-900">2</p>
+          <p className="text-2xl font-bold text-slate-900">2</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-lg border border-slate-200 shadow-2xs space-y-1">
+        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-1">
           <div className="flex items-center justify-between text-slate-400">
-            <span className="text-xs font-medium text-slate-500">Wishlist</span>
-            <FaHeart className="text-lg text-rose-500" />
+            <span className="text-sm font-medium text-slate-500">Wishlist</span>
+            <FaHeart className="text-xl text-rose-500" />
           </div>
-          <p className="text-xl font-semibold text-slate-900">4</p>
+          <p className="text-2xl font-bold text-slate-900">4</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-lg border border-slate-200 shadow-2xs space-y-1">
+        <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-2xs space-y-1">
           <div className="flex items-center justify-between text-slate-400">
-            <span className="text-xs font-medium text-slate-500">Vouchers</span>
-            <FaTicket className="text-lg text-emerald-600" />
+            <span className="text-sm font-medium text-slate-500">Vouchers</span>
+            <FaTicket className="text-xl text-emerald-600" />
           </div>
-          <p className="text-xl font-semibold text-slate-900">3</p>
+          <p className="text-2xl font-bold text-slate-900">3</p>
         </div>
       </div>
 
@@ -91,13 +91,13 @@ export default function ProfileOverviewTab({ user, setUser }) {
       <div className="bg-white rounded-lg border border-slate-200 p-5 sm:p-6 shadow-xs space-y-5">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div>
-            <h3 className="text-base font-semibold text-slate-900">Personal Information</h3>
-            <p className="text-xs text-slate-500">Manage your profile details and contact information.</p>
+            <h3 className="text-lg font-bold text-slate-900">Personal Information</h3>
+            <p className="text-sm text-slate-500 mt-0.5">Manage your profile details and contact information.</p>
           </div>
           {!isEditing && (
             <button
               onClick={() => setIsEditing(true)}
-              className="flex items-center gap-1.5 text-xs font-semibold text-[#006a52] bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1.5 rounded-md transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-sm font-semibold text-[#006a52] bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-1.5 rounded-md transition-colors cursor-pointer"
             >
               <FaPenToSquare className="text-xs" />
               <span>Edit Profile</span>
@@ -109,63 +109,63 @@ export default function ProfileOverviewTab({ user, setUser }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Full Name */}
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 block">Full Name</label>
+              <label className="text-sm font-medium text-slate-700 block">Full Name</label>
               <div className="relative flex items-center">
-                <FaUser className="absolute left-3.5 text-slate-400 text-xs" />
+                <FaUser className="absolute left-3.5 text-slate-400 text-sm" />
                 <input
                   type="text"
                   name="fullName"
                   disabled={!isEditing}
                   value={formData.fullName}
                   onChange={handleChange}
-                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-md text-xs text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
+                  className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
                 />
               </div>
             </div>
 
             {/* Email */}
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 block">Email Address</label>
+              <label className="text-sm font-medium text-slate-700 block">Email Address</label>
               <div className="relative flex items-center">
-                <FaEnvelope className="absolute left-3.5 text-slate-400 text-xs" />
+                <FaEnvelope className="absolute left-3.5 text-slate-400 text-sm" />
                 <input
                   type="email"
                   name="email"
                   disabled={!isEditing}
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-md text-xs text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
+                  className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
                 />
               </div>
             </div>
 
             {/* Phone */}
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 block">Phone Number</label>
+              <label className="text-sm font-medium text-slate-700 block">Phone Number</label>
               <div className="relative flex items-center">
-                <FaPhone className="absolute left-3.5 text-slate-400 text-xs" />
+                <FaPhone className="absolute left-3.5 text-slate-400 text-sm" />
                 <input
                   type="tel"
                   name="phone"
                   disabled={!isEditing}
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-md text-xs text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
+                  className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
                 />
               </div>
             </div>
 
             {/* Gender */}
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 block">Gender</label>
+              <label className="text-sm font-medium text-slate-700 block">Gender</label>
               <div className="relative flex items-center">
-                <FaVenusMars className="absolute left-3.5 text-slate-400 text-xs" />
+                <FaVenusMars className="absolute left-3.5 text-slate-400 text-sm" />
                 <select
                   name="gender"
                   disabled={!isEditing}
                   value={formData.gender}
                   onChange={handleChange}
-                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-md text-xs text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100 appearance-none cursor-pointer"
+                  className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100 appearance-none cursor-pointer"
                 >
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
@@ -176,32 +176,32 @@ export default function ProfileOverviewTab({ user, setUser }) {
 
             {/* Date of Birth */}
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 block">Date of Birth</label>
+              <label className="text-sm font-medium text-slate-700 block">Date of Birth</label>
               <div className="relative flex items-center">
-                <FaCalendar className="absolute left-3.5 text-slate-400 text-xs" />
+                <FaCalendar className="absolute left-3.5 text-slate-400 text-sm" />
                 <input
                   type="date"
                   name="dob"
                   disabled={!isEditing}
                   value={formData.dob}
                   onChange={handleChange}
-                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-md text-xs text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
+                  className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
                 />
               </div>
             </div>
 
             {/* Default City */}
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 block">City / District</label>
+              <label className="text-sm font-medium text-slate-700 block">City / District</label>
               <div className="relative flex items-center">
-                <FaCity className="absolute left-3.5 text-slate-400 text-xs" />
+                <FaCity className="absolute left-3.5 text-slate-400 text-sm" />
                 <input
                   type="text"
                   name="city"
                   disabled={!isEditing}
                   value={formData.city}
                   onChange={handleChange}
-                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-md text-xs text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
+                  className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-800 focus:bg-white focus:border-[#006a52] focus:outline-none transition-all disabled:opacity-75 disabled:bg-slate-100"
                 />
               </div>
             </div>
@@ -209,17 +209,17 @@ export default function ProfileOverviewTab({ user, setUser }) {
 
           {/* Edit Actions */}
           {isEditing && (
-            <div className="flex items-center gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center gap-2.5 pt-3 border-t border-slate-100">
               <button
                 type="submit"
-                className="bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-xs py-2 px-4 rounded-md transition-all shadow-xs cursor-pointer"
+                className="bg-[#006a52] hover:bg-[#005240] text-white font-semibold text-sm py-2 px-5 rounded-md transition-all shadow-xs cursor-pointer"
               >
                 Save Changes
               </button>
               <button
                 type="button"
                 onClick={() => setIsEditing(false)}
-                className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs py-2 px-4 rounded-md transition-all cursor-pointer"
+                className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm py-2 px-5 rounded-md transition-all cursor-pointer"
               >
                 Cancel
               </button>
