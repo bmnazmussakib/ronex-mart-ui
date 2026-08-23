@@ -104,7 +104,7 @@ export default function ProductRequestModal({ isOpen, onClose }) {
 
       {/* Modal Container */}
       <div
-        className={`relative w-full max-w-4xl bg-white rounded-lg shadow-2xl overflow-hidden z-10 my-auto transform transition-all duration-300 ease-in-out ${
+        className={`relative w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden z-10 my-auto transform transition-all duration-300 ease-in-out ${
           isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
         }`}
       >
@@ -151,7 +151,7 @@ export default function ProductRequestModal({ isOpen, onClose }) {
             </h4>
 
             {/* Table wrapper */}
-            <div className="border border-slate-200 rounded-md overflow-hidden shadow-2xs">
+            <div className="border border-slate-200 rounded-lg overflow-hidden shadow-2xs">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[640px]">
                   <thead>

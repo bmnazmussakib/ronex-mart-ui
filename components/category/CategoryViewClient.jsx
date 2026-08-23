@@ -16,11 +16,12 @@ import {
   FaList,
   FaBorderAll,
   FaTableCellsLarge,
+  FaTableCells,
 } from 'react-icons/fa6';
 
 export default function CategoryViewClient({ currentTitle, productsList, breadcrumbItems }) {
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
-  const [gridView, setGridView] = useState('4cols'); // 'list' | '2cols' | '3cols' | '4cols'
+  const [gridView, setGridView] = useState('4cols'); // 'list' | '2cols' | '3cols' | '4cols' | '5cols'
   const [priceRange, setPriceRange] = useState([350, 3500]);
   const [selectedBrand, setSelectedBrand] = useState('');
   const [sortBy, setSortBy] = useState('relevance');
@@ -40,6 +41,7 @@ export default function CategoryViewClient({ currentTitle, productsList, breadcr
     if (gridView === 'list') return 'grid grid-cols-1 gap-3';
     if (gridView === '2cols') return 'grid grid-cols-2 gap-4';
     if (gridView === '3cols') return 'grid grid-cols-2 sm:grid-cols-3 gap-4';
+    if (gridView === '5cols') return 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-3';
     // Default 4cols
     return 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4';
   };
@@ -54,7 +56,7 @@ export default function CategoryViewClient({ currentTitle, productsList, breadcr
         {pillCategories.map((pill, idx) => (
           <button
             key={idx}
-            className="px-4 py-2 rounded-full bg-slate-100 hover:bg-[#006a52] hover:text-white text-slate-700 text-xs sm:text-sm font-semibold transition-colors shrink-0 cursor-pointer border border-slate-200/80 shadow-2xs"
+            className="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#006a52] hover:text-white text-slate-700 text-xs font-semibold transition-colors shrink-0 cursor-pointer border border-slate-200/80 shadow-2xs"
           >
             {pill}
           </button>
@@ -78,7 +80,7 @@ export default function CategoryViewClient({ currentTitle, productsList, breadcr
         <div className="flex items-center gap-3">
           {/* Price Range Slider */}
           <div className="flex items-center gap-2 bg-slate-50 border border-slate-200/90 px-3.5 py-1.5 rounded-full text-xs sm:text-sm shrink-0">
-            <span className="text-xs font-bold text-[#006a52] bg-emerald-50 px-2 py-0.5 rounded-md font-taka border border-emerald-200">
+            <span className="text-sm font-semibold text-[#006a52]  px-2 py-0.5 rounded-md font-taka ">
               ৳{priceRange[0]}
             </span>
             <input
@@ -90,7 +92,7 @@ export default function CategoryViewClient({ currentTitle, productsList, breadcr
               onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
               className="w-24 sm:w-28 accent-[#006a52] cursor-pointer"
             />
-            <span className="text-xs font-bold text-[#006a52] bg-emerald-50 px-2 py-0.5 rounded-md font-taka border border-emerald-200">
+            <span className="text-sm font-semibold text-[#006a52]  px-2 py-0.5 rounded-md font-taka ">
               ৳{priceRange[1]}
             </span>
           </div>
@@ -99,7 +101,7 @@ export default function CategoryViewClient({ currentTitle, productsList, breadcr
           <select
             value={selectedBrand}
             onChange={(e) => setSelectedBrand(e.target.value)}
-            className="px-4 py-2 bg-white border border-slate-300 rounded-full text-xs sm:text-sm font-semibold text-slate-700 hover:border-[#006a52] focus:outline-none cursor-pointer shadow-2xs"
+            className="px-4 py-2 bg-white border border-slate-300 rounded-full text-xs sm:text-sm font-medium text-slate-700 hover:border-[#006a52] focus:outline-none cursor-pointer shadow-2xs"
           >
             <option value="">Select Brand</option>
             <option value="unilever">Unilever Bangladesh</option>
@@ -113,7 +115,7 @@ export default function CategoryViewClient({ currentTitle, productsList, breadcr
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="px-4 py-2 bg-white border border-slate-300 rounded-full text-xs sm:text-sm font-semibold text-slate-700 hover:border-[#006a52] focus:outline-none cursor-pointer shadow-2xs"
+            className="px-4 py-2 bg-white border border-slate-300 rounded-full text-xs sm:text-sm font-medium text-slate-700 hover:border-[#006a52] focus:outline-none cursor-pointer shadow-2xs"
           >
             <option value="relevance">Sort By Relevance</option>
             <option value="price-low">Price: Low to High</option>
@@ -125,7 +127,7 @@ export default function CategoryViewClient({ currentTitle, productsList, breadcr
           {/* All Filters Button (Opens Slide Drawer) */}
           <button
             onClick={() => setIsFilterDrawerOpen(true)}
-            className="flex items-center gap-1.5 px-4 py-2 bg-[#006a52] hover:bg-[#005240] text-white text-xs sm:text-sm font-semibold rounded-full transition-colors cursor-pointer shadow-2xs shrink-0"
+            className="flex items-center gap-1.5 px-4 py-2 bg-[#006a52] hover:bg-[#005240] text-white text-xs sm:text-sm font-medium rounded-full transition-colors cursor-pointer shadow-2xs shrink-0"
           >
             <FaFilter className="text-xs" />
             <span>All Filters</span>
@@ -183,6 +185,18 @@ export default function CategoryViewClient({ currentTitle, productsList, breadcr
               }`}
             >
               <FaBorderAll className="text-sm" />
+            </button>
+            {/* 5 Columns */}
+            <button
+              onClick={() => setGridView('5cols')}
+              title="5 Columns"
+              className={`p-1.5 rounded-md transition-colors ${
+                gridView === '5cols'
+                  ? 'bg-white text-[#006a52] shadow-2xs font-bold'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <FaTableCells className="text-sm" />
             </button>
           </div>
         </div>
