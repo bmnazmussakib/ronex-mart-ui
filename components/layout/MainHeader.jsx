@@ -14,6 +14,9 @@ import {
   FaArrowRight,
   FaPlus,
   FaRotateRight,
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
 } from 'react-icons/fa6';
 import { RiHeart3Line } from 'react-icons/ri';
 
@@ -285,6 +288,37 @@ export default function MainHeader() {
 
         {/* Right: Action Buttons & Menu Button */}
         <div className="flex items-center gap-2.5 sm:gap-4 lg:gap-5 shrink-0 font-semibold text-slate-700">
+          {/* Social Media Links */}
+          <div className="hidden lg:flex items-center gap-2 border-r border-slate-200/90 pr-3 sm:pr-4">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#1877f2] hover:bg-[#1464cc] text-white flex items-center justify-center text-xs transition-transform hover:scale-110 shadow-2xs"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center text-xs sm:text-sm transition-transform hover:scale-110 shadow-2xs"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#ff0000] hover:bg-[#cc0000] text-white flex items-center justify-center text-xs transition-transform hover:scale-110 shadow-2xs"
+            >
+              <FaYoutube />
+            </a>
+          </div>
+
           {/* Action Buttons: Reorder, Cart, Wishlist, Login */}
           <div className="hidden sm:flex items-center gap-3 sm:gap-4 lg:gap-5">
             {/* Reorder */}
