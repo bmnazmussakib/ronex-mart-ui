@@ -43,15 +43,17 @@ export default function SecondaryNav() {
               HOT
             </span>
           </Link>
-          <Link href="/category/cleaning-supplies" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap uppercase">
+          <Link href="/brand-shop" className="hover:text-[#0b5d44] transition-colors whitespace-nowrap uppercase">
             SHOP BY BRANDS
           </Link>
         </nav>
 
         {/* Right Hotline */}
         <div className="hidden xl:flex items-center gap-2 text-slate-800 text-xs font-bold shrink-0 py-2">
-          <FaPhone className="text-[#0b5d44]" />
-          <span>09611XXXXXXX</span>
+          <a href="tel:09611678888" className="flex items-center gap-1.5 hover:text-[#0b5d44] transition-colors">
+            <FaPhone className="text-[#0b5d44]" />
+            <span>09611-678888</span>
+          </a>
         </div>
       </div>
     </div>

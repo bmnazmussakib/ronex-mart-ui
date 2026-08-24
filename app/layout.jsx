@@ -10,6 +10,7 @@ import MainHeader from "@/components/layout/MainHeader";
 import SecondaryNav from "@/components/layout/SecondaryNav";
 import LeftSidebar from "@/components/layout/LeftSidebar";
 import FloatingCartWidget from "@/components/layout/FloatingCartWidget";
+import FloatingContactWidget from "@/components/layout/FloatingContactWidget";
 import Footer from "@/components/layout/Footer";
 import CartDrawer from "@/components/cart/CartDrawer";
 import MobileBottomNav from "@/components/layout/MobileBottomNav";
@@ -73,6 +74,9 @@ export default function RootLayout({ children }) {
 
           {/* Floating Cart Widget */}
           <FloatingCartWidget />
+
+          {/* Floating Contact Support Widget */}
+          <FloatingContactWidget />
 
           {/* Mobile Floating Bottom Navigation */}
           <MobileBottomNav />

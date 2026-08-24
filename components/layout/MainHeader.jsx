@@ -292,7 +292,7 @@ export default function MainHeader() {
           {/* Social Media Links */}
           <div className="hidden lg:flex items-center gap-2 border-r border-slate-200/90 pr-3 sm:pr-4">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/Ronexmart/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -310,7 +310,7 @@ export default function MainHeader() {
               <FaInstagram />
             </a>
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@RonexMart-bd"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"

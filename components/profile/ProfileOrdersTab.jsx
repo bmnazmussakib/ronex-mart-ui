@@ -359,9 +359,9 @@ export default function ProfileOrdersTab() {
                   className="h-12 sm:h-14 w-auto object-contain"
                 />
                 <div className="text-xs text-slate-500 space-y-0.5">
-                  <p className="font-semibold text-slate-700">RonexMart Superstore Ltd.</p>
-                  <p>House #12, Road #5, Dhanmondi, Dhaka-1209</p>
-                  <p>Support Hotline: +880 9610-000000 | info@ronexmart.com</p>
+                  <p className="font-semibold text-slate-700">RonexMart Ltd.</p>
+                  <p>Plot #244/A, Road #3 & 8th Avenue, Block-K, Bashundhara Residential Area</p>
+                  <p>Support Hotline: 09611-678888 | WhatsApp: +880 1335-180650 | info@ronexmart.com</p>
                 </div>
               </div>
 
@@ -469,7 +469,7 @@ export default function ProfileOrdersTab() {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pt-2">
               <div className="text-xs text-slate-500 space-y-1 max-w-xs">
                 <p className="font-semibold text-slate-700">Terms & Notes:</p>
-                <p>Thank you for shopping with RonexMart. Please inspect goods upon delivery.</p>
+                <p>Thank you for shopping with RonexMart. Call 09611-678888 or WhatsApp +880 1335-180650 for queries.</p>
               </div>
 
               <div className="w-full sm:w-72 bg-slate-50 p-4 rounded-md border border-slate-200 space-y-2 text-xs text-slate-700">
@@ -494,7 +494,7 @@ export default function ProfileOrdersTab() {
 
             {/* Invoice Footer Stamp / Note */}
             <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2 text-center sm:text-left">
-              <p>© 2026 RonexMart Superstore Ltd. All rights reserved.</p>
+              <p>© 2026 RonexMart Ltd. All rights reserved.</p>
               <p className="font-mono">Computer Generated Invoice — No Signature Required</p>
             </div>
           </div>

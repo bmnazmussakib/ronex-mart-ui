@@ -8,11 +8,10 @@ import {
   FaLocationDot,
   FaEnvelope,
   FaPhone,
+  FaWhatsapp,
   FaFacebookF,
   FaInstagram,
-  FaXTwitter,
   FaYoutube,
-  FaChevronRight,
 } from 'react-icons/fa6';
 
 export default function Footer() {
@@ -85,11 +84,16 @@ export default function Footer() {
             </p>
 
             <div className="space-y-2 text-xs sm:text-sm text-slate-300 pt-1 font-medium">
-              <div className="flex items-start gap-2">
-                <FaLocationDot className="text-gray-200 text-xs sm:text-sm mt-0.5 shrink-0" />
-                <span>Plot #244/A, Road #3 & 8th Avenue, Block-K, <br /> Bashundhara Residential Area</span>
+              <div className="flex flex-col items-start gap-2">
+                {/* <FaLocationDot className="text-gray-200 text-xs sm:text-sm mt-1 shrink-0" /> */}
+                <p>Address:</p>
+                <div className="space-y-1 text-slate-300 text-xs sm:text-xs">
+                  <p>Unit 01 — Road-1, Block-G, Plot 714/A, 714/B</p>
+                  <p>Unit 02 — Afrooza Begum Road, Block-G, Plot 733/A</p>
+                  <p>Unit 03 — Plot #244/A, Road #3 & 8th Avenue, Block-K, Bashundhara Residential Area.</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 pt-1">
                 <FaEnvelope className="text-gray-200 text-xs sm:text-sm shrink-0" />
                 <a href="mailto:info@ronexmart.com" className="hover:text-white transition-colors">
                   info@ronexmart.com
@@ -97,8 +101,14 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <FaPhone className="text-gray-200 text-xs sm:text-sm shrink-0" />
-                <a href="tel:09611996677" className="hover:text-white text-xs sm:text-sm transition-colors">
-                  09611996677
+                <a href="tel:09611678888" className="hover:text-white text-xs sm:text-sm transition-colors font-medium">
+                  09611-678888
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <FaWhatsapp className="text-emerald-400 text-xs sm:text-sm shrink-0" />
+                <a href="https://wa.me/8801335180650" target="_blank" rel="noopener noreferrer" className="hover:text-white text-xs sm:text-sm transition-colors font-medium">
+                  +880 1335-180650
                 </a>
               </div>
             </div>
@@ -106,34 +116,42 @@ export default function Footer() {
             {/* Social Media Links */}
             <div className="pt-2 flex items-center gap-2">
               <span className="text-xs text-gray-200 font-medium mr-1">Follow Us:</span>
-              <Link
-                href="#"
+              <a
+                href="https://www.facebook.com/Ronexmart/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
                 className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-950/80 border border-emerald-900/60 hover:bg-[#006a52] hover:text-white hover:border-emerald-500 text-slate-300 flex items-center justify-center transition-all"
               >
                 <FaFacebookF className="text-[11px] sm:text-xs" />
-              </Link>
-              <Link
-                href="#"
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-950/80 border border-emerald-900/60 hover:bg-[#006a52] hover:text-white hover:border-emerald-500 text-slate-300 flex items-center justify-center transition-all"
               >
                 <FaInstagram className="text-[11px] sm:text-xs" />
-              </Link>
-              <Link
-                href="#"
-                aria-label="X Twitter"
+              </a>
+              <a
+                href="https://wa.me/8801335180650"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
                 className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-950/80 border border-emerald-900/60 hover:bg-[#006a52] hover:text-white hover:border-emerald-500 text-slate-300 flex items-center justify-center transition-all"
               >
-                <FaXTwitter className="text-[11px] sm:text-xs" />
-              </Link>
-              <Link
-                href="#"
+                <FaWhatsapp className="text-[11px] sm:text-xs text-emerald-400" />
+              </a>
+              <a
+                href="https://www.youtube.com/@RonexMart-bd"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="YouTube"
                 className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-950/80 border border-emerald-900/60 hover:bg-[#006a52] hover:text-white hover:border-emerald-500 text-slate-300 flex items-center justify-center transition-all"
               >
                 <FaYoutube className="text-[11px] sm:text-xs" />
-              </Link>
+              </a>
             </div>
           </div>
 
