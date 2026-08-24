@@ -6,7 +6,7 @@ import ProductRequestModal from './ProductRequestModal';
 import { useCart } from '@/context/CartContext';
 import {
   FaFire,
-  FaTruckFast,
+  FaBuilding,
   FaStar,
   FaGem,
   FaShoePrints,
@@ -63,12 +63,12 @@ export default function LeftSidebar() {
           <span className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight">Hot Deals</span>
         </Link>
         <Link
-          href="/category/cooking-essentials"
+          href="/brand-shop"
           onClick={closeSidebar}
           className="bg-white border border-slate-200 hover:border-[#006a52] py-1.5 sm:py-2 px-1 rounded-lg text-center flex flex-col items-center justify-center transition-all group shadow-2xs"
         >
-          <FaTruckFast className="text-[#006a52] text-base sm:text-lg mb-0.5 sm:mb-1 transition-transform" />
-          <span className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight">Express</span>
+          <FaBuilding className="text-[#006a52] text-base sm:text-lg mb-0.5 sm:mb-1 transition-transform" />
+          <span className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight">Brand</span>
         </Link>
         <Link
           href="/category/grocery-and-food"
