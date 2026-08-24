@@ -3,6 +3,8 @@
 import CategoryFilterSidebar from "@/components/category/CategoryFilterSidebar";
 import CategoryHeader from "@/components/category/CategoryHeader";
 import CategoryPagination from "@/components/category/CategoryPagination";
+import RelatedProducts from "@/components/product/RelatedProducts";
+import RecentlyViewedProducts from "@/components/product/RecentlyViewedProducts";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import HorizontalProductCard from "@/components/ui/HorizontalProductCard";
 import ProductCard from "@/components/ui/ProductCard";
@@ -244,6 +246,12 @@ export default function CategoryViewClient({
           {/* Pagination */}
           <CategoryPagination totalPages={4} />
         </div>
+      </div>
+
+      {/* Related Products & Recently Viewed Products */}
+      <div className="mt-4 sm:mt-6 pt-4 border-t border-slate-200/90 space-y-4 sm:space-y-6">
+        <RelatedProducts />
+        <RecentlyViewedProducts />
       </div>
 
       {/* DESKTOP ALL FILTERS SLIDE-OVER DRAWER */}
