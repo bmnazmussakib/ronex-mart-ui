@@ -1,10 +1,57 @@
 'use client';
 
 import { useState } from 'react';
-import { FaStar, FaStarHalfStroke, FaCheck, FaPenToSquare } from 'react-icons/fa6';
+import { FaStar, FaStarHalfStroke, FaCheck, FaPenToSquare, FaXmark, FaCircleCheck } from 'react-icons/fa6';
 
 export default function ProductTabs() {
   const [activeTab, setActiveTab] = useState('description');
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [newRating, setNewRating] = useState(5);
+  const [hoverRating, setHoverRating] = useState(0);
+  const [reviewerName, setReviewerName] = useState('');
+  const [reviewComment, setReviewComment] = useState('');
+  const [reviewSuccessMsg, setReviewSuccessMsg] = useState('');
+
+  const [reviewsList, setReviewsList] = useState([
+    {
+      id: 1,
+      name: 'Tanvir Ahmed',
+      rating: 5,
+      date: '2 days ago',
+      comment: 'Great quality powder. Cleaning power is excellent for everyday clothes and smells really fresh!',
+      verified: true,
+    },
+    {
+      id: 2,
+      name: 'Nusrat Jahan',
+      rating: 4,
+      date: '5 days ago',
+      comment: 'Authentic product with good packaging. Value for money.',
+      verified: true,
+    },
+  ]);
+
+  const handleReviewSubmit = (e) => {
+    e.preventDefault();
+    if (!reviewComment.trim()) return;
+
+    const newReviewItem = {
+      id: Date.now(),
+      name: reviewerName.trim() || 'Anonymous Customer',
+      rating: newRating,
+      date: 'Just now',
+      comment: reviewComment.trim(),
+      verified: true,
+    };
+
+    setReviewsList([newReviewItem, ...reviewsList]);
+    setReviewerName('');
+    setReviewComment('');
+    setNewRating(5);
+    setShowReviewForm(false);
+    setReviewSuccessMsg('Thank you! Your review has been submitted successfully.');
+    setTimeout(() => setReviewSuccessMsg(''), 4000);
+  };
 
   return (
     <div className="bg-white rounded-lg border border-slate-200/90 overflow-hidden shadow-2xs">
@@ -38,7 +85,7 @@ export default function ProductTabs() {
               : 'border-transparent text-slate-600 hover:text-slate-900'
           }`}
         >
-          Reviews (128)
+          Reviews ({reviewsList.length + 126})
         </button>
       </div>
 
@@ -88,6 +135,14 @@ export default function ProductTabs() {
         {/* 3. REVIEWS TAB */}
         {activeTab === 'reviews' && (
           <div id="reviews" className="space-y-4 sm:space-y-5">
+            {/* Success Toast */}
+            {reviewSuccessMsg && (
+              <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold p-3 rounded-lg flex items-center gap-2 animate-in fade-in">
+                <FaCircleCheck className="text-[#006a52] text-sm shrink-0" />
+                <span>{reviewSuccessMsg}</span>
+              </div>
+            )}
+
             {/* Customer Ratings Header */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
               <div className="space-y-1">
@@ -101,38 +156,129 @@ export default function ProductTabs() {
                     <FaStar />
                     <FaStarHalfStroke />
                   </div>
-                  <span className="text-xs text-slate-400 font-medium">• 128 verified reviews</span>
+                  <span className="text-xs text-slate-400 font-medium">• {reviewsList.length + 126} verified reviews</span>
                 </div>
               </div>
-              <button className="flex items-center gap-1.5 bg-[#006a52] hover:bg-[#005240] text-white px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-2xs cursor-pointer shrink-0">
+              <button
+                onClick={() => setShowReviewForm(!showReviewForm)}
+                className="flex items-center gap-1.5 bg-[#006a52] hover:bg-[#005240] text-white px-3.5 sm:px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-2xs cursor-pointer shrink-0"
+              >
                 <FaPenToSquare className="text-xs" />
-                <span>Write a Review</span>
+                <span>{showReviewForm ? 'Cancel Review' : 'Write a Review'}</span>
               </button>
             </div>
 
-            {/* Review Cards List */}
-            <div className="space-y-3 sm:space-y-4">
-              <div className="p-3.5 sm:p-4 bg-slate-50 rounded-lg border border-slate-200/80 space-y-2">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <span className="font-semibold text-slate-900 text-xs sm:text-sm">Tanvir Ahmed</span>
-                    <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
-                      <FaCheck className="text-[9px]" /> Verified Purchase
+            {/* Write a Review Form */}
+            {showReviewForm && (
+              <form onSubmit={handleReviewSubmit} className="bg-slate-50 border border-slate-200 p-4 sm:p-5 rounded-xl space-y-4 animate-in fade-in">
+                <div className="flex items-center justify-between border-b border-slate-200/80 pb-2.5">
+                  <h4 className="font-semibold text-slate-900 text-xs sm:text-sm">Write Your Review</h4>
+                  <button
+                    type="button"
+                    onClick={() => setShowReviewForm(false)}
+                    className="text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
+                  >
+                    <FaXmark className="text-sm" />
+                  </button>
+                </div>
+
+                {/* Rating Selector */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-700 block">Your Rating:</label>
+                  <div className="flex items-center gap-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        type="button"
+                        onClick={() => setNewRating(star)}
+                        onMouseEnter={() => setHoverRating(star)}
+                        onMouseLeave={() => setHoverRating(0)}
+                        className="text-lg sm:text-xl transition-colors cursor-pointer p-0.5"
+                      >
+                        <FaStar
+                          className={
+                            star <= (hoverRating || newRating)
+                              ? 'text-amber-500'
+                              : 'text-slate-300'
+                          }
+                        />
+                      </button>
+                    ))}
+                    <span className="text-xs font-semibold text-slate-600 ml-2">
+                      {hoverRating || newRating} / 5 Stars
                     </span>
                   </div>
-                  <span className="text-[11px] text-slate-400">2 days ago</span>
                 </div>
-                <div className="flex items-center gap-0.5 text-amber-500 text-xs">
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
+
+                {/* Name Input */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-700 block">Your Name (Optional):</label>
+                  <input
+                    type="text"
+                    value={reviewerName}
+                    onChange={(e) => setReviewerName(e.target.value)}
+                    placeholder="Enter your name"
+                    className="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:ring-1 focus:ring-[#006a52]"
+                  />
                 </div>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                  Great quality powder. Cleaning power is excellent for everyday clothes and smells really fresh!
-                </p>
-              </div>
+
+                {/* Review Textarea */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-700 block">Your Review *</label>
+                  <textarea
+                    rows="3"
+                    required
+                    value={reviewComment}
+                    onChange={(e) => setReviewComment(e.target.value)}
+                    placeholder="What did you like or dislike about this product?"
+                    className="w-full bg-white border border-slate-300 rounded-lg p-3 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#006a52] focus:ring-1 focus:ring-[#006a52]"
+                  ></textarea>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center justify-end gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => setShowReviewForm(false)}
+                    className="px-4 py-2 rounded-full border border-slate-300 text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-5 py-2 rounded-full bg-[#006a52] hover:bg-[#005240] text-white text-xs font-semibold transition-all shadow-xs cursor-pointer"
+                  >
+                    Submit Review
+                  </button>
+                </div>
+              </form>
+            )}
+
+            {/* Review Cards List */}
+            <div className="space-y-3 sm:space-y-4">
+              {reviewsList.map((rev) => (
+                <div key={rev.id} className="p-3.5 sm:p-4 bg-slate-50 rounded-lg border border-slate-200/80 space-y-2 animate-in fade-in">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="font-semibold text-slate-900 text-xs sm:text-sm">{rev.name}</span>
+                      {rev.verified && (
+                        <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+                          <FaCheck className="text-[9px]" /> Verified Purchase
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-[11px] text-slate-400">{rev.date}</span>
+                  </div>
+                  <div className="flex items-center gap-0.5 text-amber-500 text-xs">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < rev.rating ? 'text-amber-500' : 'text-slate-300'} />
+                    ))}
+                  </div>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {rev.comment}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         )}
@@ -140,3 +286,4 @@ export default function ProductTabs() {
     </div>
   );
 }
+

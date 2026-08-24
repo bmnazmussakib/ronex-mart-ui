@@ -107,7 +107,7 @@ export default function ProductCard({
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
             {/* Add to Quote Button */}
-            <button
+            {/* <button
               onClick={handleQuote}
               title={isQuoted ? "Added to Quote List" : "Add to Quote List"}
               aria-label="Add to Quote List"
@@ -118,7 +118,7 @@ export default function ProductCard({
               }`}
             >
               <FaClipboardList className="text-xs sm:text-sm shrink-0" />
-            </button>
+            </button> */}
 
             {/* Add to Cart Button */}
             <button

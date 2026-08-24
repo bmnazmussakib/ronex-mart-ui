@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import {
   FaCircleCheck,
@@ -12,11 +13,12 @@ import {
   FaTruckFast,
   FaShieldHalved,
   FaHandHoldingDollar,
-  FaClipboardList,
+  FaBagShopping,
   FaCalendarCheck,
 } from 'react-icons/fa6';
 
 export default function ProductInfo({ product }) {
+  const router = useRouter();
   const { addToCart } = useCart();
 
   const data = product || {
@@ -37,7 +39,6 @@ export default function ProductInfo({ product }) {
 
   const [selectedWeight, setSelectedWeight] = useState(data.weights[0]);
   const [inCartQty, setInCartQty] = useState(0);
-  const [isQuoted, setIsQuoted] = useState(false);
   const [isSavedMonthly, setIsSavedMonthly] = useState(false);
   const [actionToast, setActionToast] = useState('');
 
@@ -69,10 +70,11 @@ export default function ProductInfo({ product }) {
     setInCartQty((prev) => (prev > 1 ? prev - 1 : 0));
   };
 
-  const handleAddToQuote = () => {
-    setIsQuoted(!isQuoted);
-    setActionToast(isQuoted ? 'Item removed from quote list' : 'Item added to quote list successfully!');
-    setTimeout(() => setActionToast(''), 3500);
+  const handleBuyNow = () => {
+    if (inCartQty === 0) {
+      handleAddToCart();
+    }
+    router.push('/checkout');
   };
 
   const handleSaveMonthlyList = () => {
@@ -171,7 +173,7 @@ export default function ProductInfo({ product }) {
         </div>
       </div>
 
-      {/* Action Buttons: Add To Cart, Add to Quote, Save Monthly List */}
+      {/* Action Buttons: Add To Cart, Buy Now, Save Monthly List */}
       <div className="space-y-2.5 pt-1 w-full">
         {/* Add To Cart */}
         {inCartQty === 0 ? (
@@ -197,26 +199,22 @@ export default function ProductInfo({ product }) {
             <button
               onClick={incrementQty}
               aria-label="Increase Quantity"
-              className="w-7 h-7 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-xs transition-colors cursor-pointer shrink-0"
+              className="w-7 h-7 rounded-full hover:bg-emerald-50 text-[#006a52] flex items-center justify-center font-bold text-[11px] sm:text-xs transition-colors cursor-pointer shrink-0"
             >
               <FaPlus className="text-[10px]" />
             </button>
           </div>
         )}
 
-        {/* Row 2: Add to Quote & Save Monthly List */}
+        {/* Row 2: Buy Now & Save Monthly List */}
         <div className="grid grid-cols-2 gap-2 sm:gap-3">
-          {/* Add to Quote Button */}
+          {/* Buy Now Button */}
           <button
-            onClick={handleAddToQuote}
-            className={`w-full font-semibold uppercase text-[11px] sm:text-xs py-2.5 sm:py-3 px-2 sm:px-4 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer border ${
-              isQuoted
-                ? 'bg-amber-500 text-white border-amber-500'
-                : 'bg-emerald-50 text-[#006a52] border-emerald-200 hover:bg-[#006a52] hover:text-white'
-            }`}
+            onClick={handleBuyNow}
+            className="w-full font-semibold uppercase text-[11px] sm:text-xs py-2.5 sm:py-3 px-2 sm:px-4 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer border bg-[#f97316] hover:bg-[#e05600] text-white border-transparent"
           >
-            <FaClipboardList className="text-xs shrink-0" />
-            <span className="truncate">{isQuoted ? 'In Quote List' : 'Add To Quote'}</span>
+            <FaBagShopping className="text-xs shrink-0" />
+            <span className="truncate">Buy Now</span>
           </button>
 
           {/* Save Monthly List Button */}

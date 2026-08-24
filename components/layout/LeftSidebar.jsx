@@ -81,11 +81,15 @@ export default function LeftSidebar() {
       </div>
 
       {/* 2. Section Heading */}
-      <div className="px-3 sm:px-3.5 py-1.5 sm:py-2 bg-rose-50/80 border-b border-rose-100 shrink-0">
-        <h3 className="text-[10px] sm:text-[11px] font-semibold text-rose-700 tracking-wider uppercase">
+      <Link
+        href="/monthly-essential"
+        onClick={closeSidebar}
+        className="px-3 sm:px-3.5 py-1.5 sm:py-2 bg-rose-50/80 border-b border-rose-100 shrink-0 block hover:bg-rose-100 transition-colors"
+      >
+        <h3 className="text-[11px] sm:text-xs text-center font-semibold text-rose-700 tracking-wider uppercase">
           Monthly Essential Items
         </h3>
-      </div>
+      </Link>
 
       {/* 3. Scrollable Categories List */}
       <ul className="text-xs sm:text-[13px] font-medium text-slate-700 divide-y divide-slate-100 flex-1 overflow-y-auto custom-scrollbar pb-2">
