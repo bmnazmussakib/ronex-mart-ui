@@ -168,14 +168,14 @@ export default function PopularProductsSlider() {
         <button
           ref={prevRef}
           aria-label="Previous Slide"
-          className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 -left-4 z-20"
+          className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 left-1 sm:-left-4 z-20"
         >
           <FaChevronLeft />
         </button>
         <button
           ref={nextRef}
           aria-label="Next Slide"
-          className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 -right-4 z-20"
+          className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 right-1 sm:-right-4 z-20"
         >
           <FaChevronRight />
         </button>
