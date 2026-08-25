@@ -3,13 +3,12 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import ProductCard from '@/components/ui/ProductCard';
 import { FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa6';
 
 export default function PopularProductsSlider() {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const swiperRef = useRef(null);
 
   const products = [
     {
@@ -136,19 +135,12 @@ export default function PopularProductsSlider() {
 
       <div className="relative">
         <Swiper
-          modules={[Autoplay, Navigation]}
+          modules={[Autoplay]}
           slidesPerView={2}
           spaceBetween={16}
           loop={true}
           autoplay={{ delay: 4000, disableOnInteraction: false }}
-          onBeforeInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
+          onSwiper={(swiper) => { swiperRef.current = swiper; }}
           breakpoints={{
             480: { slidesPerView: 2, spaceBetween: 16 },
             640: { slidesPerView: 3, spaceBetween: 16 },
@@ -166,14 +158,14 @@ export default function PopularProductsSlider() {
 
         {/* Custom Swiper Navigation Buttons */}
         <button
-          ref={prevRef}
+          onClick={() => swiperRef.current?.slidePrev()}
           aria-label="Previous Slide"
           className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 left-1 sm:-left-4 z-20"
         >
           <FaChevronLeft />
         </button>
         <button
-          ref={nextRef}
+          onClick={() => swiperRef.current?.slideNext()}
           aria-label="Next Slide"
           className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-[#006a52] hover:text-white hover:border-[#006a52] flex items-center justify-center text-xs transition-all shadow-md cursor-pointer absolute top-1/2 -translate-y-1/2 right-1 sm:-right-4 z-20"
         >
