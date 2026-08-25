@@ -101,14 +101,14 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <FaPhone className="text-gray-200 text-xs sm:text-sm shrink-0" />
-                <a href="tel:09611678888" className="hover:text-white text-xs sm:text-sm transition-colors font-medium">
-                  09611-678888
+                <a href="#" className="hover:text-white text-xs sm:text-sm transition-colors font-medium">
+                  09611-XXXXXXX
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <FaWhatsapp className="text-emerald-400 text-xs sm:text-sm shrink-0" />
-                <a href="https://wa.me/8801335180650" target="_blank" rel="noopener noreferrer" className="hover:text-white text-xs sm:text-sm transition-colors font-medium">
-                  +880 1335-180650
+                <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white text-xs sm:text-sm transition-colors font-medium">
+                  +880 XXXX-XXXXXX
                 </a>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function Footer() {
             <div className="pt-2 flex items-center gap-2">
               <span className="text-xs text-gray-200 font-medium mr-1">Follow Us:</span>
               <a
-                href="https://www.facebook.com/Ronexmart/"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -126,7 +126,7 @@ export default function Footer() {
                 <FaFacebookF className="text-[11px] sm:text-xs" />
               </a>
               <a
-                href="https://instagram.com"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -135,7 +135,7 @@ export default function Footer() {
                 <FaInstagram className="text-[11px] sm:text-xs" />
               </a>
               <a
-                href="https://wa.me/8801335180650"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -144,7 +144,7 @@ export default function Footer() {
                 <FaWhatsapp className="text-[11px] sm:text-xs text-emerald-400" />
               </a>
               <a
-                href="https://www.youtube.com/@RonexMart-bd"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"

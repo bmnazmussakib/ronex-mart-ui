@@ -177,11 +177,11 @@ export default function RelatedProductsVertical() {
           spaceBetween={10}
           speed={500}
           loop={true}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          // autoplay={{ delay: 3500, disableOnInteraction: false }}
           className="h-full w-full verticalRelatedSwiper"
         >
           {relatedProducts.map((item, idx) => (
-            <SwiperSlide key={idx} className="!h-[76px]">
+            <SwiperSlide key={idx} className="!h-[100px]">
               <CompactRelatedProductCard item={item} />
             </SwiperSlide>
           ))}

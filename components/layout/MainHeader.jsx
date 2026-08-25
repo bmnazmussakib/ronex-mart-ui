@@ -105,9 +105,9 @@ export default function MainHeader() {
   // Filter products based on search input
   const filteredProducts = searchQuery.trim()
     ? mockProducts.filter((p) =>
-        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.category.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.category.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     : mockProducts;
 
   // Handle Outside Click to Close Dropdown
@@ -292,7 +292,7 @@ export default function MainHeader() {
           {/* Social Media Links */}
           <div className="hidden lg:flex items-center gap-2 border-r border-slate-200/90 pr-3 sm:pr-4">
             <a
-              href="https://www.facebook.com/Ronexmart/"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -301,7 +301,7 @@ export default function MainHeader() {
               <FaFacebookF />
             </a>
             <a
-              href="https://instagram.com"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -310,7 +310,7 @@ export default function MainHeader() {
               <FaInstagram />
             </a>
             <a
-              href="https://www.youtube.com/@RonexMart-bd"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
@@ -340,7 +340,7 @@ export default function MainHeader() {
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 min-w-[160px]">
                 {/* Top Popover Arrow Indicator */}
                 <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] border-b-[#006a52] mx-auto relative z-10" />
-                
+
                 <div className="bg-white rounded-lg border border-[#006a52] shadow-xl overflow-hidden text-xs font-medium text-slate-800 divide-y divide-slate-100">
                   <Link
                     href="/my-items"

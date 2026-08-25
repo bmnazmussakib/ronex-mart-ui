@@ -194,8 +194,9 @@ export default function ProductInfo({ product }) {
               <FaMinus className="text-[10px]" />
             </button>
             <span className="font-bold text-sm text-slate-900 px-2">
-              {inCartQty} in Cart
+              {inCartQty}
             </span>
+
             <button
               onClick={incrementQty}
               aria-label="Increase Quantity"

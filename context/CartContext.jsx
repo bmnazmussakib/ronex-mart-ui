@@ -60,8 +60,8 @@ export function CartProvider({ children }) {
         },
       ];
     });
-    setIsCartOpen(true);
   };
+
 
   const updateQuantity = (id, delta) => {
     setCartItems((prevItems) =>

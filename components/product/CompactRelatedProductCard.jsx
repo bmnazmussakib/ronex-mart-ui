@@ -53,24 +53,24 @@ export default function CompactRelatedProductCard({ item }) {
 
         {/* Details */}
         <div className="flex-1 min-w-0">
-          <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide block truncate">
+          <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wide block truncate">
             {category}
           </span>
-          <h4 className="font-semibold text-xs text-slate-800 group-hover:text-[#006a52] line-clamp-1 leading-snug transition-colors mt-0.5">
+          <h4 className="font-semibold text-[13px] text-slate-800 group-hover:text-[#006a52] line-clamp-1 leading-snug transition-colors mt-0.5">
             {title}
           </h4>
 
           {/* Rating Stars */}
-          <div className="flex items-center gap-0.5 text-amber-400 text-[10px] my-0.5">
+          <div className="flex items-center gap-0.5 text-amber-400 text-[11px] my-0.5">
             <FaStar />
-            <span className="text-[10px] text-slate-600 font-bold ml-1">{rating}</span>
+            <span className="text-[11px] text-slate-600 font-bold ml-1">{rating}</span>
           </div>
 
           {/* Pricing */}
           <div className="flex items-center gap-1.5 font-taka">
-            <span className="text-xs font-bold text-slate-900">{price}</span>
+            <span className="text-sm font-semibold text-slate-900">{price}</span>
             {oldPrice && (
-              <span className="text-[10px] text-slate-400 line-through font-normal">
+              <span className="text-xs text-slate-400 line-through font-normal">
                 {oldPrice}
               </span>
             )}

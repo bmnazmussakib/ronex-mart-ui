@@ -52,7 +52,7 @@ export default function SecondaryNav() {
         <div className="hidden xl:flex items-center gap-2 text-slate-800 text-xs font-bold shrink-0 py-2">
           <a href="tel:09611678888" className="flex items-center gap-1.5 hover:text-[#0b5d44] transition-colors">
             <FaPhone className="text-[#0b5d44]" />
-            <span>09611-678888</span>
+            <span>09611-XXXXXX</span>
           </a>
         </div>
       </div>

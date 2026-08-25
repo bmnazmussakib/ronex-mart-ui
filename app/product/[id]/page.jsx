@@ -44,7 +44,7 @@ export default async function ProductDetailsPage({ params }) {
       <Breadcrumb items={breadcrumbItems} />
 
       {/* Main Details Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 lg:gap-6 items-start">
         {/* Left: Product Gallery */}
         <div className="col-span-12 md:col-span-6 lg:col-span-4">
           <ProductGallery images={productData.images} defaultBadge={productData.discount} />
