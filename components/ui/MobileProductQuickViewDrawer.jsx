@@ -77,24 +77,20 @@ export default function MobileProductQuickViewDrawer({ isOpen, onClose, product 
 
   // Handle ESC key press & body scroll locking
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && onCloseRef.current) {
         onCloseRef.current();
       }
     };
 
-    if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-    }
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      if (!isOpen) {
-        document.body.style.overflow = '';
-        document.documentElement.style.overflow = '';
-      }
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
 

@@ -36,8 +36,7 @@ export default function CheckoutSummarySidebar({
 
   const paymentOptions = [
     { id: 'sslcommerz', label: 'SSLCOMMERZ', icon: FaCreditCard, badge: 'CARD / NET BANKING' },
-    { id: 'bkash', label: 'BKASH PAYMENT GATEWAY (5% CASH BACK)', icon: FaMobileRetro, badge: '5% CASHBACK' },
-    { id: 'ebl', label: 'EBL (EASTERN BANK PLC)', icon: FaBuildingColumns, badge: 'BANK DIRECT' },
+    { id: 'bkash', label: 'BKASH PAYMENT GATEWAY', icon: FaMobileRetro, badge: '5% CASHBACK' },
     { id: 'cod', label: 'CASH ON DELIVERY (COD)', icon: FaMoneyBill1Wave, badge: 'COD' },
   ];
 
