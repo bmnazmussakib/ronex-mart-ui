@@ -72,7 +72,7 @@ export default function Footer() {
           <div className="col-span-2 lg:col-span-2 space-y-3.5 pr-0 lg:pr-6">
             <Link href="/" className="inline-block">
               <Image
-                src="/img/logo.png"
+                src="/img/ronex-mart-logo.png"
                 alt="RonexMart Logo"
                 width={160}
                 height={48}

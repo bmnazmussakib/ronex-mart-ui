@@ -130,7 +130,7 @@ export default function MainHeader() {
         <div className="flex items-center shrink-0">
           <Link href="/" className="flex items-center gap-2 shrink-0 group">
             <Image
-              src="/img/logo.png"
+              src="/img/ronex-mart-logo.png"
               alt="RonexMart Logo"
               width={180}
               height={50}

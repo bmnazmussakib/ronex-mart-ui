@@ -352,7 +352,7 @@ export default function ProfileOrdersTab() {
               {/* Company Logo & Details */}
               <div className="space-y-2">
                 <Image
-                  src="/img/logo.png"
+                  src="/img/ronex-mart-logo.png"
                   alt="RonexMart Logo"
                   width={160}
                   height={50}

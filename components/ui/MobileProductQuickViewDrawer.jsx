@@ -271,7 +271,7 @@ export default function MobileProductQuickViewDrawer({ isOpen, onClose, product 
             {/* Price Block */}
             <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
               <div className="flex items-baseline gap-2 font-taka">
-                <span className="text-xl font-bold text-slate-900">{data.price}</span>
+                <span className="text-xl font-semibold text-slate-900">{data.price}</span>
                 {data.oldPrice && (
                   <span className="text-xs text-slate-400 line-through font-normal">{data.oldPrice}</span>
                 )}
